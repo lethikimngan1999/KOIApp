@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+
+.btn-create {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    z-index: 999;
+    float: right;
+}
+
+[nz-button] {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+[nz-button] i {
+    display: inline-flex!important;
+}
+
+.ant-advanced-search-form .ant-form-item {
+    margin-bottom: 15px;
+}
+
+.ant-form-item-label {
+    line-height: 1;
+}
+
+.login-body,
+.login-page,
+.login-page .ant-layout,
+.login-page .ant-layout-footer {
+    background-color: #001529;
+    color: #fff;
+}
+
+.alert-login .ant-alert-error .ant-alert-message {
+    color: red!important;
+}

@@ -1,0 +1,72 @@
+<nz-layout class="app-layout">
+    <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" style="background: #fff;">
+        <div class="sidebar-logo" style="background: #1890ff;">
+            <a href="#" target="_blank">
+                <!-- <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo"> -->
+                <h1>KOI App</h1>
+            </a>
+        </div>
+        <ul nz-menu nzTheme="light-mode" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+            <li nz-submenu nzOpen nzTitle="QL Danh Mục" nzIcon="dashboard">
+                <ul>
+                    <li nz-menu-item nzMatchRouter>
+                        <a>Loại cá</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a>Tài sản</a>
+                    </li>
+                </ul>
+            </li>
+            <li nz-submenu nzOpen nzTitle="QL Nhân Viên" nzIcon="form">
+                <ul>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/nhanvien-management">Nhân viên</a>
+                    </li>
+                </ul>
+            </li>
+            <li nz-submenu nzOpen nzTitle="QL bệnh" nzIcon="form">
+                <ul>
+                    <li nz-menu-item nzMatchRouter>
+                        <a>Bệnh cá</a>
+                    </li>
+                </ul>
+            </li>
+            <li nz-submenu nzOpen nzTitle="QL Tài khoản" nzIcon="user">
+                <ul>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/users-management">Danh sách người dùng</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </nz-sider>
+    <nz-layout>
+        <nz-header style="background: #fff; padding:0;">
+            <i class="trigger" nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>
+            <div class="profile">
+                <h6 class="displayname"><span>Xin chào, </span></h6>
+                <nz-button-group>
+                    <button nz-button nz-dropdown nzShape="circle" [nzDropdownMenu]="userMenu" nzPlacement="bottomRight">
+                    <i nz-icon nzType="user"></i>
+                  </button>
+                </nz-button-group>
+                <nz-dropdown-menu #userMenu="nzDropdownMenu">
+                    <ul nz-menu>
+                        <li nz-menu-item>Cập nhật tài khoản</li>
+                        <li nz-menu-item><a>Đổi mật khẩu</a>
+                        </li>
+                        <li nz-menu-divider></li>
+                        <li nz-menu-item><a>Đăng xuất</a></li>
+                    </ul>
+                </nz-dropdown-menu>
+            </div>
+        </nz-header>
+        <nz-content>
+            <div class="inner-content">
+                <router-outlet></router-outlet>
+            </div>
+        </nz-content>
+        <nz-footer style="text-align: center;">{{pageFooter | uppercase}}</nz-footer>
+    </nz-layout>
+</nz-layout>

@@ -1,0 +1,50 @@
+<nz-page-header>
+    <nz-page-header-title>{{pageTitle}}</nz-page-header-title>
+    <nz-page-header-extra>
+        <button nz-button nzType="default" nzShape="round" [routerLink]="'/nhanvien-management'">
+        <i nz-icon nzType="arrow-left"></i>Quay lại danh sách nhân viên
+      </button>
+        <button nz-button nzType="primary" nzShape="round">
+        <i nz-icon nzType="edit"></i>Sửa
+      </button>
+    </nz-page-header-extra>
+    <!--content-->
+    <nz-page-header-content *ngIf="hasNhanvien">
+        <div class="wrap">
+            <div class="extra-content">
+                <nz-avatar [ngStyle]="{ 'background-color': color }" [nzText]="text" nzSize="large" style="vertical-align: middle;"></nz-avatar>
+                <button nz-button [nzType]="'dashed'" (click)="change()" style="margin-left: 16px; vertical-align: middle;">
+                    <span>Change</span>
+                  </button>
+            </div>
+            <div class="content">
+                <div class="content">
+                    <nz-descriptions [nzColumn]="3">
+                        <nz-descriptions-item nzTitle="Số CMND" [nzSpan]="1">{{selectedNhanvien.CMND}}
+                        </nz-descriptions-item>
+                        <nz-descriptions-item nzTitle="Họ và tên" [nzSpan]="1">{{selectedNhanvien.HoLot}} {{selectedNhanvien.TenNhanVien}}
+                        </nz-descriptions-item>
+
+                        <nz-descriptions-item nzTitle="Ngày sinh" [nzSpan]="1">{{selectedNhanvien.NgaySinh | date :'dd/MM/yyyy'}}
+                        </nz-descriptions-item>
+                        <nz-descriptions-item nzTitle="Giới tính" [nzSpan]="1">
+                            <!-- <ng-container *ngIf="selectedNhanvien.GioiTinh == 'False'">Nam</ng-container>
+                            
+                            <ng-container *ngIf="selectedNhanvien.GioiTinh == 'True'">Nữ</ng-container> -->
+
+                            <ng-container *ngIf="selectedNhanvien.GioiTinh == true">
+                                Nam
+                            </ng-container>
+                            <ng-container *ngIf="selectedNhanvien.GioiTinh == false">Nữ</ng-container>
+
+                        </nz-descriptions-item>
+                        <nz-descriptions-item nzTitle="SĐT" [nzSpan]="1">{{selectedNhanvien.Sdt}}</nz-descriptions-item>
+                        <nz-descriptions-item nzTitle="Địa chỉ" [nzSpan]="1">{{selectedNhanvien.DiaChi}}</nz-descriptions-item>
+                        <nz-descriptions-item nzTitle="Email" [nzSpan]="1">{{selectedNhanvien.Email}}</nz-descriptions-item>
+
+                    </nz-descriptions>
+                </div>
+            </div>
+        </div>
+    </nz-page-header-content>
+</nz-page-header>
