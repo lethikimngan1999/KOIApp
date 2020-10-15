@@ -31,6 +31,13 @@
                     </li>
                 </ul>
             </li>
+            <li nz-submenu nzOpen nzTitle="QL hình ảnh" nzIcon="user">
+                <ul>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/imgBT-management">Hình ảnh biến thể</a>
+                    </li>
+                </ul>
+            </li>
             <li nz-submenu nzOpen nzTitle="QL Tài khoản" nzIcon="user">
                 <ul>
                     <li nz-menu-item nzMatchRouter>
@@ -45,7 +52,7 @@
         <nz-header style="background: #fff; padding:0;">
             <i class="trigger" nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>
             <div class="profile">
-                <h6 class="displayname"><span>Xin chào, </span></h6>
+                <h6 class="displayname"><span>Xin chào,  </span></h6>
                 <nz-button-group>
                     <button nz-button nz-dropdown nzShape="circle" [nzDropdownMenu]="userMenu" nzPlacement="bottomRight">
                     <i nz-icon nzType="user"></i>
@@ -54,10 +61,10 @@
                 <nz-dropdown-menu #userMenu="nzDropdownMenu">
                     <ul nz-menu>
                         <li nz-menu-item>Cập nhật tài khoản</li>
-                        <li nz-menu-item><a>Đổi mật khẩu</a>
+                        <li nz-menu-item><a (click)="showModalChangePassword(currentUser)">Đổi mật khẩu</a>
                         </li>
                         <li nz-menu-divider></li>
-                        <li nz-menu-item><a>Đăng xuất</a></li>
+                        <li nz-menu-item><a (click)="logout()">Đăng xuất</a></li>
                     </ul>
                 </nz-dropdown-menu>
             </div>

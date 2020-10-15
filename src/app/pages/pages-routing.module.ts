@@ -6,6 +6,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { AppComponent } from '../app.component';
 import { UserListComponent } from './account-management/users/user-list/user-list.component';
+import { ImgListComponent } from './image-management/img-bienthe/img-list/img-list.component';
 import { LoginComponent } from './login/login.component';
 import { NhanvienDetailComponent } from './nhanvien-management/nhanvien-detail/nhanvien-detail.component';
 import { NhanvienListComponent } from './nhanvien-management/nhanvien-list/nhanvien-list.component';
@@ -30,7 +31,11 @@ const routes: Routes = [
       {
         path: 'users-management',
         component: UserListComponent
- }
+ },
+ {
+  path: 'imgBT-management',
+  component: ImgListComponent
+}
 
     ]
   }

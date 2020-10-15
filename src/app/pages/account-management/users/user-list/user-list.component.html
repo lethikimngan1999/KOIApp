@@ -46,16 +46,16 @@
                         </ng-container>
                     </td>
                     <td>
-                        <button nz-button nzType="primary" nzShape="round">
-              <i nz-icon nzType="edit"></i>Sửa
+                        <button nz-button nzType="primary" nzShape="round" (click)="editUser(data)">
+              <i nz-icon nzType="edit" ></i>Sửa
             </button>
                         <button nz-button nzType="primary" nzShape="round">
               <i nz-icon nzType="setting"></i>Vai trò
             </button>
-                        <button nz-button nzType="warning" nzShape="round">
+                        <button nz-button nzType="warning" nzShape="round" (click)="resetPassword(data)">
                 <i nz-icon nzType="key"></i>Đặt lại mật khẩu
               </button>
-                        <button nz-button nzType="danger" nzShape="round">
+                        <button nz-button nzType="danger" nzShape="round" (click)=" lockAccount(data)">
                 <i nz-icon nzType="lock"></i>Khóa
               </button>
                     </td>
@@ -106,8 +106,8 @@
                         </ng-container>
                     </td>
                     <td>
-                        <button nz-button nzType="primary" nzShape="round">
-              <i nz-icon nzType="unlock"></i>Mở khóa tài khoản
+                        <button nz-button nzType="primary" nzShape="round" (click)="unLockAccount(data)">
+              <i nz-icon nzType="unlock" ></i>Mở khóa tài khoản
             </button>
                     </td>
                 </tr>

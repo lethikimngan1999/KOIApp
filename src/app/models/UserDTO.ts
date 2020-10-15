@@ -1,5 +1,5 @@
 import { NhanVienDTO } from './NhanVienDTO';
-
+import { RoleDTO } from './RoleDTO';
 export class  UserDTO {
     Id: string;
     UserName: string;
@@ -12,5 +12,12 @@ export class  UserDTO {
     UpdatedDate ?: Date;
     MaNhanVien: string;
     NhanVien: NhanVienDTO;
+    ListRoles: RoleDTO[];
     RoleIds: string[];
+}
+
+export class UserChangePasswordDTO {
+    UserId: string;
+    oldPassword: string;
+    newPassword: string;
 }

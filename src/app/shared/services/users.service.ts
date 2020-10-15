@@ -46,4 +46,15 @@ export class UsersService {
         return this.baseSevice.get<BaseResponse<UserDTO[]>>('api/User/GetAllUserAccountLocked');
     }
 
+    public updateStatusAccount(data: any): Observable<BaseResponse<string>> {
+        return this.baseSevice.put<BaseResponse<string>>('api/User/UpdateStatusAccount', data);
+      }
+
+    public resetPasswordAccount(data: any): Observable<BaseResponse<any>> {
+        return this.baseSevice.put<BaseResponse<string>>('api/User/ResetPassword', data);
+    }
+
+    public updatePasswordAccount(data: any): Observable<BaseResponse<string>> {
+        return this.baseSevice.put<BaseResponse<string>>('api/User/ChangePassword', data);
+      }
 }

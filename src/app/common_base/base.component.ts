@@ -23,7 +23,7 @@ export class BaseComponent {
             this.router.navigateByUrl('/login');
         }
     }
-    private getTokenFromLocalStorage() {
+    public getTokenFromLocalStorage() {
         return localStorage.getItem(CONFIG.localStorageKey);
     }
 

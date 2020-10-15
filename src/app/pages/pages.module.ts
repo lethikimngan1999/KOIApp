@@ -13,7 +13,12 @@ import { NhanvienListComponent } from './nhanvien-management/nhanvien-list/nhanv
 import { NhanvienDetailComponent } from './nhanvien-management/nhanvien-detail/nhanvien-detail.component';
 import { NhanvienDialogComponent } from './nhanvien-management/nhanvien-dialog/nhanvien-dialog.component';
 import { UserListComponent } from './account-management/users/user-list/user-list.component';
+
+import { ImgListComponent } from './image-management/img-bienthe/img-list/img-list.component';
+import { UploadImgBTComponent } from './image-management/img-bienthe/upload-img-bt/upload-img-bt.component';
 import { UserDialogComponent } from './account-management/users/user-dialog/user-dialog.component';
+import { UserResetPasswordComponent } from './account-management/users/user-reset-password/user-reset-password.component';
+
 
 
 @NgModule({
@@ -23,7 +28,10 @@ import { UserDialogComponent } from './account-management/users/user-dialog/user
     NhanvienDetailComponent,
     NhanvienDialogComponent,
     UserListComponent,
-    UserDialogComponent],
+    UserDialogComponent,
+    ImgListComponent,
+    UploadImgBTComponent,
+    UserResetPasswordComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
