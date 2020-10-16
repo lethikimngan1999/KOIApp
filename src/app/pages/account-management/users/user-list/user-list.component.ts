@@ -13,7 +13,7 @@ import { UserDialogComponent } from '../user-dialog/user-dialog.component';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  pageTitle: string = "Danh sách tài khoản người dùng hoạt động";
+  pageTitle: string = 'Danh sách tài khoản người dùng hoạt động';
   headerListUserLocked: string = "Danh sách tài khoản bị khóa";
   validateForm: FormGroup;
 
@@ -42,10 +42,10 @@ export class UserListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-         //get danh sách tài khoản người dùng
+     // get danh sách tài khoản người dùng
     this.getListUsers();
-  this.isConfirmLoading = false;
-  this.getUser();
+    this.isConfirmLoading = false;
+    this.getUser();
 
 
   }

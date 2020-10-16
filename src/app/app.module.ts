@@ -22,12 +22,14 @@ import { PagesModule } from './pages/pages.module';
 import { PagesRoutingModule } from './pages/pages-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { NhanvienService } from './shared/services/nhanvien.service';
+import { TrangchuComponent } from './trangchu/trangchu.component';
+
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent, LoginComponent
+    AppComponent, LoginComponent, TrangchuComponent
   ],
   imports: [
     BrowserModule,

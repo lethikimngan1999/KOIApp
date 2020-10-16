@@ -4,6 +4,9 @@ import { AppComponent } from './app.component';
 
 import { LoginComponent } from './pages/login/login.component';
 import { PagesModule } from './pages/pages.module';
+import { LienheComponent } from './trangchu/lienhe/lienhe.component';
+import { TrangchuComponent } from './trangchu/trangchu.component';
+import { TrangchuModule } from './trangchu/trangchu.module';
 
 
 const appRoutes: Routes = [
@@ -13,7 +16,7 @@ const appRoutes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'login',
         pathMatch: 'full'
       },
       {
@@ -22,11 +25,24 @@ const appRoutes: Routes = [
         loadChildren: () => PagesModule,
         data: {
           breadcrumb: 'Home'
-        },
-      }
+        }
+      },
+      // {
+      //   path: 'trangchu',
+      //   // loadChildren: './dashboard/dashboard.module#DashboardModule',
+      //   loadChildren: () => TrangchuModule,
+      //   data: {
+      //     breadcrumb: 'Trangchu'
+      //   }
+      // }
     ]
   },
-  { path: 'login', component: LoginComponent }
+  {
+    path: 'trangchu',
+    component: TrangchuComponent,
+  },
+  { path: 'login', component: LoginComponent },
+
 ];
 
 @NgModule({

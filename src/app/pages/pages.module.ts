@@ -18,6 +18,7 @@ import { ImgListComponent } from './image-management/img-bienthe/img-list/img-li
 import { UploadImgBTComponent } from './image-management/img-bienthe/upload-img-bt/upload-img-bt.component';
 import { UserDialogComponent } from './account-management/users/user-dialog/user-dialog.component';
 import { UserResetPasswordComponent } from './account-management/users/user-reset-password/user-reset-password.component';
+import { FilterNVPipe } from '../pipes/filter-nv.pipe';
 
 
 
@@ -27,6 +28,7 @@ import { UserResetPasswordComponent } from './account-management/users/user-rese
     NhanvienListComponent,
     NhanvienDetailComponent,
     NhanvienDialogComponent,
+    FilterNVPipe,
     UserListComponent,
     UserDialogComponent,
     ImgListComponent,

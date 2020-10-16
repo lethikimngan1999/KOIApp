@@ -15,7 +15,7 @@ export class NhanvienListComponent implements OnInit {
   pageTitle = 'Danh sách nhân viên';
   dataSource: any = [];
   isConfirmLoading = false;
-
+  sName: string = '';
   constructor(public nhanVienService: NhanvienService,
               public router: Router,
               private message: NzMessageService,
