@@ -17,7 +17,7 @@ export class AuthGuardService {
       // check if route is restricted by role
       if (route.data.roles && route.data.roles.indexOf(currentUser.ListRoles) === -1) {
         // role not authorised so redirect to home page
-        this.router.navigate(['/home']);
+        this.router.navigate(['/admin']);
         return false;
     }
      // authorised so return true

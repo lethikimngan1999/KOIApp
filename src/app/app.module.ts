@@ -23,20 +23,21 @@ import { PagesRoutingModule } from './pages/pages-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { NhanvienService } from './shared/services/nhanvien.service';
 import { TrangchuComponent } from './trangchu/trangchu.component';
+import { TrangchuModule } from './trangchu/trangchu.module';
 
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent, LoginComponent, TrangchuComponent
+    AppComponent, LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     NgZorroAntdModule,
-    DashboardRoutingModule,
+   
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
@@ -44,6 +45,7 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     PagesModule,
+    TrangchuModule,
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],

@@ -17,7 +17,7 @@ import { PagesModule } from './pages.module';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'admin',
     component: PagesComponent,
     children: [
       {

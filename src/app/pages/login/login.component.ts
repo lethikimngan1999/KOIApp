@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.initFormValidate();
     if (this.isLogin()) {
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/admin');
     }
   }
 
@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
       }
       if (response && response.Data && response.Data !== 'null') {
         this.setTokenFromLocalStorage(response.Data);
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/admin');
       }
     });
   }
