@@ -46,7 +46,7 @@ ngOnInit() {
   private navigateDetail(manhanvien: any) {
     if (manhanvien) {
       // chuyen sang màn hình chi tiết nhan vien
-      this.router.navigate(['nhanvien-management/detail/'], { queryParams: { manhanvien: manhanvien } });
+      this.router.navigate(['admin/nhanvien-management/detail/'], { queryParams: { manhanvien: manhanvien } });
     } else {
       this.message.create(TypeMessage.Error, 'Có lỗi xảy ra!');
     }

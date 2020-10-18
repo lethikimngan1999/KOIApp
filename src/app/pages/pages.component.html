@@ -1,20 +1,18 @@
 <nz-layout class="app-layout">
-    <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" style="background: #fff;">
+    <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
         <div class="sidebar-logo" style="background: #1890ff;">
             <a href="#" target="_blank">
                 <!-- <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo"> -->
                 <h1>KOI App</h1>
             </a>
         </div>
-        <ul nz-menu nzTheme="light-mode" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
             <li nz-submenu nzOpen nzTitle="QL Danh Mục" nzIcon="dashboard">
                 <ul>
                     <li nz-menu-item nzMatchRouter>
                         <a>Loại cá</a>
                     </li>
-                    <li nz-menu-item nzMatchRouter>
-                        <a>Tài sản</a>
-                    </li>
+
                 </ul>
             </li>
             <li nz-submenu nzOpen nzTitle="QL Nhân Viên" nzIcon="form">

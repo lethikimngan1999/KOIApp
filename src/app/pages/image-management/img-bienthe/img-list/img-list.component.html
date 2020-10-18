@@ -1,4 +1,35 @@
-<!-- button create -->
-<button nz-button nzType="primary" nzShape="round" class="btn-create" (click)="createNhanVien()">
-    <i nz-icon nzType="plus"></i>Thêm nhân viên
-  </button>
+<nz-page-header>
+
+    <nz-page-header-extra>
+        <!-- button create -->
+        <button nz-button nzType="primary" nzShape="round" class="btn-create" (click)="createNhanVien()">
+  <i nz-icon nzType="plus"></i>Thêm nhân viên
+</button>
+
+    </nz-page-header-extra>
+    <!--content-->
+    <nz-page-header-content>
+        <!-- data table -->
+        <nz-table #employeeTable [nzData]="dataSource" [nzLoading]="isConfirmLoading">
+            <thead>
+                <tr>
+                    <th>STT</th>
+
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of employeeTable.data; index as i; ">
+                    <td>{{i+1}}</td>
+                    <td>{{data.TenHinhAnh}}</td>
+
+                    <!-- <td><img src={{data.DuongDan}} /></td> -->
+                    <td>
+                        <nz-avatar nzIcon="user" nzSrc="{{data.DuongDan}}"></nz-avatar>
+                    </td>
+
+                </tr>
+            </tbody>
+        </nz-table>
+    </nz-page-header-content>
+</nz-page-header>

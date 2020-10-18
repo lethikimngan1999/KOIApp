@@ -15,7 +15,7 @@
                 <nz-form-item>
                     <nz-form-label>Nhân viên</nz-form-label>
                     <nz-form-control>
-                        <nz-select nzPlaceHolder="Danh sách nhân viên chưa có tài khoản" nzShowSearch formControlName="_selectBox_Employee" [(ngModel)]="userDto.MaNhanVien" nzDisabled="!isAdd">
+                        <nz-select nzShowSearch formControlName="_selectBox_Employee" [(ngModel)]="userDto.MaNhanVien" nzDisabled="!isAdd">
                             <nz-option nzLabel="{{userDto.NhanVien.CMND}} - {{userDto.NhanVien.HoLot}} {{userDto.NhanVien.TenNhanVien}}" nzValue="{{userDto.MaNhanVien}}"></nz-option>
                         </nz-select>
                     </nz-form-control>

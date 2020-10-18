@@ -19,4 +19,8 @@ export class HinhanhService {
   public update(data: HinhAnhBienTheDTO): Observable<BaseResponse<string>> {
     return this.baseService.put<BaseResponse<string>>('api/HinhAnhBienThe', data);
   }
+
+  public getAll(): Observable<BaseResponse<HinhAnhBienTheDTO>> {
+    return this.baseService.get<BaseResponse<HinhAnhBienTheDTO[]>>('api/HinhAnhBienThe/GetAll');
+}
 }

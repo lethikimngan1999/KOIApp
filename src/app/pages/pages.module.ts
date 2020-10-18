@@ -46,6 +46,12 @@ import { FilterNVPipe } from '../pipes/filter-nv.pipe';
 
   ],
   providers: [],
+  entryComponents: [
+    NhanvienDetailComponent,
+    NhanvienDialogComponent,
+    UploadImgBTComponent,
+    UserDialogComponent,
+    UserResetPasswordComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })

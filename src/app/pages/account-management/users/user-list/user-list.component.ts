@@ -24,6 +24,7 @@ export class UserListComponent implements OnInit {
   public isConfirmLoading = false;
 
   listUser: UserDTO[] = [];
+
   listUserAccountLocked: UserDTO[] = [];
   modelRoleModal: any = [];
   listUserRoles: any = [];

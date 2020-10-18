@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzMessageService, NzModalRef, UploadFile } from 'ng-zorro-antd';
 import { Observable, Observer } from 'rxjs';
 import { TypeMessage } from 'src/app/app.constant';
+import { BienTheDTO } from 'src/app/models/BienTheDTO';
 import { HinhAnhBienTheDTO } from 'src/app/models/HinhAnhBienTheDTO';
 import { BientheService } from 'src/app/shared/services/bienthe.service';
 import { HinhanhService } from 'src/app/shared/services/hinhanh.service';
@@ -14,48 +15,50 @@ import { HinhanhService } from 'src/app/shared/services/hinhanh.service';
 })
 export class UploadImgBTComponent implements OnInit {
 
-  imageUrl : string = "/assets/image/imageBT/default-image=image.png";
-  fileToUpload: File = null;
-  listbt: any;
-  loading = false;
-  avatarUrl: string;
-
   isConfirmLoading = false;
-  isShowAddNhanVien = false;
+  isShowAddEmployee = false;
   isSaveLoading = false;
 
-  @Input() hinhanhDto: HinhAnhBienTheDTO;
   @Input() isAdd: boolean;
+  @Input() hinhanhDto: HinhAnhBienTheDTO;
+
+
+  validateForm: FormGroup;
+
+  loading = false;
+  avatarUrl: string;
+  listBienThe: any;
+  selectedValue = null;
+
   constructor(
-    private bientheService: BientheService,
-    private message: NzMessageService,
-    private fb: FormBuilder,
     private hinhanhService: HinhanhService,
+    private fb: FormBuilder,
+    private message: NzMessageService,
     private modal: NzModalRef,
-   ) { }
+    private bientheService: BientheService
+  ) {
+  }
+
 
   ngOnInit(): void {
+    this.initFormValidate();
+    if (!this.isAdd) {
+      this.avatarUrl = this.hinhanhDto.DuongDan;
+    }
     this.getBT();
   }
 
-  handleFileInput(file: FileList) {
-    this.fileToUpload = file.item(0);
 
-    // tslint:disable-next-line: prefer-const
-    let reader = new FileReader();
-    reader.onload = (event: any) => {
-      this.imageUrl = event.target.result;
-    };
-    reader.readAsDataURL(this.fileToUpload);
-  }
-
-  private getBT(): any {
-    this.bientheService.getAll().subscribe(response => {
-      if (response && response.Status) {
-        this.listbt = response.Data;
-      }
+  private initFormValidate(): void {
+    this.validateForm = this.fb.group({
+      _ipText_lastName: ['', Validators.required],
+      _rdo_gender: ['False', Validators.required],
+      _selectBox_employeePostition: ['', Validators.required],
+      _ipUpload_image: ['', ''],
     });
   }
+
+
 
   beforeUpload = (file: File) => {
     return new Observable((observer: Observer<boolean>) => {
@@ -158,4 +161,11 @@ export class UploadImgBTComponent implements OnInit {
     }
   }
 
+  private getBT(): any {
+    this.bientheService.getAll().subscribe(response => {
+      if (response && response.Status) {
+        this.listBienThe = response.Data;
+      }
+    });
+  }
 }

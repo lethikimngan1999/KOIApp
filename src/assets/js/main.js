@@ -218,5 +218,5 @@ jQuery(document).ready(function() {
         }
         $button.parent().find('input').val(newVal);
     });
-
+    // });
 })(jQuery);

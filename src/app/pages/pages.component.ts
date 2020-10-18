@@ -46,7 +46,6 @@ export class PagesComponent extends BaseComponent implements OnInit {
     }
   }
 
-  
   showModalChangePassword(data: any) {
     const modalChangePassword = this.modalService.create({
       nzTitle: 'Đổi mật khẩu cho tài khoản ' + data.UserName,
