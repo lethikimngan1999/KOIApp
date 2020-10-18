@@ -17,7 +17,7 @@ import { TrangchuModule } from './trangchu/trangchu.module';
 //     children: [
 //       {
 //         path: '',
-//         redirectTo: 'login',
+//         redirectTo: '/trangchu',
 //         pathMatch: 'full'
 //       },
 //       {
@@ -25,29 +25,26 @@ import { TrangchuModule } from './trangchu/trangchu.module';
 //         // loadChildren: './dashboard/dashboard.module#DashboardModule',
 //         loadChildren: () => PagesModule,
 //         data: {
-//           breadcrumb: 'Home'
+//           breadcrumb: 'admin'
 //         }
 //       },
-//       {
-//         path: 'trangchu',
-//         // loadChildren: './dashboard/dashboard.module#DashboardModule',
-//         loadChildren: () => TrangchuModule,
-//         data: {
-//           breadcrumb: 'Trangchu'
-//         }
-//       }
+//       // {
+//       //   path: 'trangchu',
+//       //   // loadChildren: './dashboard/dashboard.module#DashboardModule',
+//       //   loadChildren: () => TrangchuModule,
+//       //   data: {
+//       //     breadcrumb: 'trangchu'
+//       //   }
+//       // },
+//       { path: 'login', component: LoginComponent }
 //     ]
-//   },
-//   {
-//     path: 'trangchu2',
-//     component: TrangchuComponent,
-//   },
-//   { path: 'login', component: LoginComponent },
-
+//   }
 // ];
 const appRoutes: Routes = [
+  { path: '',   redirectTo: '/trangchu', pathMatch: 'full' },
   // This component defines the shared main content around a router outlet.
-  { path: 'trangchu', component: TrangchuComponent, children: [
+  { 
+    path: 'trangchu', component: TrangchuComponent, children: [
     ]
   },
   // This component defines the shared admin content around a router outlet.
