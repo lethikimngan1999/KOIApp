@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { NzModalService } from 'ng-zorro-antd';
 import { HinhAnhBienTheDTO } from 'src/app/models/HinhAnhBienTheDTO';
 import { HinhanhService } from 'src/app/shared/services/hinhanh.service';
@@ -12,23 +13,29 @@ import { UploadImgBTComponent } from '../upload-img-bt/upload-img-bt.component';
 export class ImgListComponent implements OnInit {
 
   dataSource: any = [];
+
+  hinhanhDto: HinhAnhBienTheDTO;
+
   constructor(
     private modalService: NzModalService,
-    private hinhanhService: HinhanhService
-  ) { }
+    private hinhanhService: HinhanhService,
+    private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.loadist();
+
+   // this.dataSource.DuongDan = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${this.hinhanhDto.DuongDan}`);
+  
   }
 
-  
+
   // get danh sach nhan vien
   public loadist(): any {
     this.hinhanhService.getAll().subscribe(response => {
       if (response && response.Status) {
         this.dataSource = response.Data;
-       // this.isConfirmLoading = false;
-       // console.log(this.dataSource);
+        // this.isConfirmLoading = false;
+        // console.log(this.dataSource);
       }
     });
   }
