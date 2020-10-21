@@ -14,7 +14,6 @@ export class ImgListComponent implements OnInit {
 
   dataSource: any = [];
 
-  hinhanhDto: HinhAnhBienTheDTO;
 
   constructor(
     private modalService: NzModalService,
@@ -23,9 +22,6 @@ export class ImgListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadist();
-
-   // this.dataSource.DuongDan = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${this.hinhanhDto.DuongDan}`);
-  
   }
 
 

@@ -19,6 +19,8 @@ import { UploadImgBTComponent } from './image-management/img-bienthe/upload-img-
 import { UserDialogComponent } from './account-management/users/user-dialog/user-dialog.component';
 import { UserResetPasswordComponent } from './account-management/users/user-reset-password/user-reset-password.component';
 import { FilterNVPipe } from '../pipes/filter-nv.pipe';
+import { BenhListComponent } from './benh-management/benh/benh-list/benh-list.component';
+import { ThuocListComponent } from './benh-management/thuoc/thuoc-list/thuoc-list.component';
 
 
 
@@ -33,7 +35,9 @@ import { FilterNVPipe } from '../pipes/filter-nv.pipe';
     UserDialogComponent,
     ImgListComponent,
     UploadImgBTComponent,
-    UserResetPasswordComponent],
+    UserResetPasswordComponent,
+    BenhListComponent,
+    ThuocListComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
