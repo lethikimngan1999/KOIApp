@@ -15,7 +15,7 @@
                     <th>STT</th>
                     <th>Tên đăng nhập</th>
                     <th>Họ và tên</th>
-                    <th>Số CMND</th>
+
                     <th>Email</th>
                     <th>Vai trò</th>
                     <th>Status</th>
@@ -26,10 +26,9 @@
                 <tr *ngFor="let data of userTable.data; index as i; ">
                     <td>{{i+1}}</td>
                     <td>{{data.UserName}}</td>
-                    <!-- <td>{{data.NhanViens.TenNhanVien}}</td> -->
-                    <!-- <td>{{data.NhanVien.CMND}}</td>
-                    <td>{{data.NhanVien.Email}}</td> -->
+                    <td>{{data.Nhanvien.HoLot}} {{data.Nhanvien.TenNhanVien}}</td>
 
+                    <td>{{data.Nhanvien.Email}}</td>
                     <td>
                         <ul>
                             <ng-container *ngFor="let item of data.ListRoles">
@@ -76,7 +75,6 @@
                     <th>STT</th>
                     <th>Tên đăng nhập</th>
                     <th>Họ và tên</th>
-                    <th>Số CMND</th>
                     <th>Email</th>
                     <th>Vai trò</th>
                     <th>Status</th>
@@ -87,9 +85,9 @@
                 <tr *ngFor="let data of userLockedTable.data; index as i; ">
                     <td>{{i+1}}</td>
                     <td>{{data.UserName}}</td>
-                    <!-- <td>{{data.NhanVien.TenNhanVien}}</td>
-                    <td>{{data.NhanVien.CMND}}</td>
-                    <td>{{data.NhanVien.Email}}</td> -->
+                    <td>{{data.Nhanvien.HoLot}} {{data.Nhanvien.TenNhanVien}}</td>
+
+                    <td>{{data.Nhanvien.Email}}</td>
                     <td>
                         <ul>
                             <ng-container *ngFor="let item of data.ListRoles">

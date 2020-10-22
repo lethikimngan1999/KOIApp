@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BaseService } from 'src/app/common_base/base.service';
@@ -14,5 +14,11 @@ export class BenhService {
 
   public getAll(): Observable<BaseResponse<BenhDTO>> {
       return this.baseSevice.get<BaseResponse<BenhDTO[]>>('api/Benh/GetAll');
+  }
+
+  public getDetail(mabenh: string): Observable<BaseResponse<string>> {
+
+    const httpParams = new HttpParams().set('mabenh', mabenh);
+    return this.baseSevice.get<BaseResponse<string>>('api/Benh/GetById', httpParams);
   }
 }

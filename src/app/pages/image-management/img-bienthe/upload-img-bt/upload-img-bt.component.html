@@ -5,9 +5,9 @@
 
         <div nz-col [nzSpan]="8">
             <nz-form-item>
-                <nz-form-label nzRequired>Tên nhân viên</nz-form-label>
-                <nz-form-control nzHasFeedback nzErrorTip="Vui lòng nhập tên nhân viên!">
-                    <input nz-input placeholder="Tên nhân viên" [(ngModel)]="hinhanhDto.TenHinhAnh" type="text" formControlName="_ipText_lastName" />
+                <nz-form-label nzRequired>Tên hình ảnh</nz-form-label>
+                <nz-form-control nzHasFeedback nzErrorTip="Vui lòng nhập tên hình ảnh!">
+                    <input nz-input placeholder="Tên hình ảnh" [(ngModel)]="hinhanhDto.TenHinhAnh" type="text" formControlName="_ipText_lastName" />
                 </nz-form-control>
             </nz-form-item>
         </div>
@@ -17,11 +17,11 @@
         <!-- //radio -->
         <div nz-col [nzSpan]="8">
             <nz-form-item>
-                <nz-form-label nzRequired>Giới tính</nz-form-label>
-                <nz-form-control nzErrorTip="Vui lòng chọn giới tính nhân viên!">
+                <nz-form-label nzRequired>Chọn ảnh hiển thị</nz-form-label>
+                <nz-form-control nzErrorTip="!">
                     <nz-radio-group formControlName="_rdo_gender" [(ngModel)]="hinhanhDto.ChonAvt">
-                        <label nz-radio nzValue="False">Nam</label>
-                        <label nz-radio nzValue="True">Nữ</label>
+                        <label nz-radio nzValue="False">Chọn</label>
+                        <label nz-radio nzValue="True">Không chọn</label>
 
                     </nz-radio-group>
                 </nz-form-control>
@@ -31,9 +31,9 @@
 
         <div nz-col [nzSpan]="8">
             <nz-form-item>
-                <nz-form-label nzRequired>Chức vụ</nz-form-label>
+                <nz-form-label nzRequired>Biến thể được gán hình ảnh</nz-form-label>
                 <nz-form-control>
-                    <nz-select style="width: 100%" nzPlaceHolder="Chọn chức vụ cho nhân viên" nzShowSearch formControlName="_selectBox_employeePostition" [(ngModel)]="hinhanhDto.MaBienThe">
+                    <nz-select style="width: 100%" nzPlaceHolder="Vui lòng biến thể được gán hình ảnh" nzShowSearch formControlName="_selectBox_employeePostition" [(ngModel)]="hinhanhDto.MaBienThe">
                         <ng-container *ngFor="let item of listBienThe">
                             <nz-option nzLabel="{{item.TenBienThe}}" nzValue="{{item.MaBienThe}}"></nz-option>
                         </ng-container>

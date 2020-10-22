@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd';
+import { TypeMessage } from 'src/app/app.constant';
 import { BenhService } from 'src/app/shared/services/benh.service';
 
 @Component({
@@ -12,7 +15,9 @@ export class BenhListComponent implements OnInit {
   pageTitle = 'Danh sách các loại bệnh';
   dataSource: any = [];
 
-  constructor(private benhService: BenhService) { }
+  constructor(private benhService: BenhService,
+              private message: NzMessageService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.isConfirmLoading = true;
@@ -27,4 +32,21 @@ export class BenhListComponent implements OnInit {
       }
     });
   }
+
+
+  
+  // xem chi tiết nhân viên
+  public view(mabenh: any) {
+    this.navigateDetail(mabenh);
+  }
+
+  private navigateDetail(mabenh: any) {
+    if (mabenh) {
+      // chuyen sang màn hình chi tiết nhan vien
+      this.router.navigate(['admin/cac-loai-benh/chitiet/'], { queryParams: { mabenh: mabenh } });
+    } else {
+      this.message.create(TypeMessage.Error, 'Có lỗi xảy ra!');
+    }
+  }
+
 }

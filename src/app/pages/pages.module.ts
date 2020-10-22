@@ -22,6 +22,8 @@ import { FilterNVPipe } from '../pipes/filter-nv.pipe';
 import { BenhListComponent } from './benh-management/benh/benh-list/benh-list.component';
 import { ThuocListComponent } from './benh-management/thuoc/thuoc-list/thuoc-list.component';
 
+import { BenhDetailComponent } from './benh-management/benh/benh-detail/benh-detail.component';
+
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { ThuocListComponent } from './benh-management/thuoc/thuoc-list/thuoc-lis
     UploadImgBTComponent,
     UserResetPasswordComponent,
     BenhListComponent,
-    ThuocListComponent],
+    ThuocListComponent,
+    BenhDetailComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -55,6 +58,7 @@ import { ThuocListComponent } from './benh-management/thuoc/thuoc-list/thuoc-lis
     NhanvienDialogComponent,
     UploadImgBTComponent,
     UserDialogComponent,
+    BenhDetailComponent,
     UserResetPasswordComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

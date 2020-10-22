@@ -6,6 +6,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { AppComponent } from '../app.component';
 import { UserListComponent } from './account-management/users/user-list/user-list.component';
+import { BenhDetailComponent } from './benh-management/benh/benh-detail/benh-detail.component';
 import { BenhListComponent } from './benh-management/benh/benh-list/benh-list.component';
 import { ThuocListComponent } from './benh-management/thuoc/thuoc-list/thuoc-list.component';
 import { ImgListComponent } from './image-management/img-bienthe/img-list/img-list.component';
@@ -45,6 +46,10 @@ const routes: Routes = [
       {
         path: 'imgBT-management',
         component: ImgListComponent
+      },
+      {
+        path: 'cac-loai-benh/chitiet',
+        component: BenhDetailComponent
       }
 
     ]

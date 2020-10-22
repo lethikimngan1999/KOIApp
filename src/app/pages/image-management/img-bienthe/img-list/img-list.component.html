@@ -3,7 +3,7 @@
     <nz-page-header-extra>
         <!-- button create -->
         <button nz-button nzType="primary" nzShape="round" class="btn-create" (click)="createNhanVien()">
-  <i nz-icon nzType="plus"></i>Thêm nhân viên
+  <i nz-icon nzType="plus"></i>Thêm hình ảnh cho biến thể
 </button>
 
     </nz-page-header-extra>
@@ -14,19 +14,21 @@
             <thead>
                 <tr>
                     <th>STT</th>
-
+                    <th>Biến thể</th>
+                    <th>Hình ảnh</th>
                     <th> </th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let data of employeeTable.data; index as i; ">
                     <td>{{i+1}}</td>
-                    <td>{{data.TenHinhAnh}}</td>
+                    <td>{{data.BienThe.TenBienThe}}</td>
+                    <td>{{data.TenHinhAnh}}.png</td>
 
                     <!-- <td><img src={{data.DuongDan}} /></td> -->
                     <td>
                         <!-- <nz-avatar nzIcon="user" nzSrc="{{data.DuongDan}}"></nz-avatar> -->
-                        <img [src]="data.DuongDan" style="width: 200" />
+                        <img [src]="data.DuongDan" style="width: 100px" />
                     </td>
 
                 </tr>
