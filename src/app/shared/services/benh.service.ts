@@ -21,4 +21,10 @@ export class BenhService {
     const httpParams = new HttpParams().set('mabenh', mabenh);
     return this.baseSevice.get<BaseResponse<string>>('api/Benh/GetById', httpParams);
   }
+
+    
+  public CreateDieuTriBenh(data: any): Observable<BaseResponse<any>> {
+    return this.baseSevice.post<BaseResponse<any>>('api/ThuocDieuTri/CreateDieuTriBenh', data);
+  }
+
 }

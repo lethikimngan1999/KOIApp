@@ -5,6 +5,7 @@ import { TypeMessage } from 'src/app/app.constant';
 import { UserDTO } from 'src/app/models/UserDTO';
 import { LoginService } from 'src/app/shared/services/login.service';
 import { UsersService } from 'src/app/shared/services/users.service';
+import { UserRoleDialogComponent } from '../user-role-dialog/user-role-dialog.component';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 
 @Component({
@@ -191,5 +192,26 @@ export class UserListComponent implements OnInit {
     });
   }
 
+  refreshData(): any{
+    this.getListUsers();
+  }
+
+  
+  showModalRole(data: any) {
+    const modalAddRole = this.modalService.create({
+      nzTitle: 'Thêm vai trò cho tài khoản ' + data.UserName,
+      nzContent: UserRoleDialogComponent,
+      nzComponentParams: {
+        isShowAddRole: true,
+        userDto: JSON.parse(JSON.stringify(data)),
+        roleIds: JSON.parse(JSON.stringify(data.RoleIds))
+      },
+      nzWidth: '600',
+    });
+    // Return a result when closed
+    modalAddRole.afterClose.subscribe(() => {
+      return this.ngOnInit();
+    });
+  }
 
 }

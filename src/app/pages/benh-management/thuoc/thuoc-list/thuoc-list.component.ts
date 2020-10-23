@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NzModalService } from 'ng-zorro-antd';
 import { ThuocService } from 'src/app/shared/services/thuoc.service';
+import { BenhOfthuocDialogComponent } from '../benh-ofthuoc-dialog/benh-ofthuoc-dialog.component';
 
 @Component({
   selector: 'app-thuoc-list',
@@ -11,7 +13,8 @@ export class ThuocListComponent implements OnInit {
   pageTitle = 'Danh sách các loại thuốc';
   dataSource: any = [];
 
-  constructor(private thuocService: ThuocService) { }
+  constructor(private thuocService: ThuocService,
+    private modalService: NzModalService,) { }
 
   ngOnInit(): void {
     this.isConfirmLoading = true;
@@ -26,4 +29,23 @@ export class ThuocListComponent implements OnInit {
       }
     });
   }
+
+  
+  showModal(data: any) {
+    const modalAdd = this.modalService.create({
+      nzTitle: 'Thêm bệnh được thuốc điều trị ',
+      nzContent: BenhOfthuocDialogComponent,
+      nzComponentParams: {
+        isShowAdd: true,
+        thuocDto: JSON.parse(JSON.stringify(data)),
+        listBenhs: JSON.parse(JSON.stringify(data.MaBenhs))
+      },
+      nzWidth: '600',
+    });
+    // Return a result when closed
+    modalAdd.afterClose.subscribe(() => {
+      return this.ngOnInit();
+    });
+  }
+
 }

@@ -5,6 +5,9 @@
         <button class="btn-create" nz-button nzType="primary" nzShape="round" (click)="createUser()">
       <i nz-icon nzType="plus"></i>Thêm Tài Khoản Nhân viên
     </button>
+        <button class="btn-create" nz-button nzType="default" nzShape="round" (click)="refreshData()">
+        <i nz-icon nzType="reload"></i>Tải lại dữ liệu
+      </button>
     </nz-page-header-extra>
     <!--content-->
     <nz-page-header-content>
@@ -48,8 +51,8 @@
                         <button nz-button nzType="primary" nzShape="round" (click)="editUser(data)">
               <i nz-icon nzType="edit" ></i>Sửa
             </button>
-                        <button nz-button nzType="primary" nzShape="round">
-              <i nz-icon nzType="setting"></i>Vai trò
+                        <button nz-button nzType="primary" nzShape="round" (click)="showModalRole(data)">
+              <i nz-icon nzType="setting" ></i>Vai trò
             </button>
                         <button nz-button nzType="warning" nzShape="round" (click)="resetPassword(data)">
                 <i nz-icon nzType="key"></i>Đặt lại mật khẩu

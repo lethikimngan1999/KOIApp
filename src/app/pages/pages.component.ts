@@ -18,6 +18,7 @@ export class PagesComponent extends BaseComponent implements OnInit {
   year: number = new Date().getFullYear();
   pageFooter = CONFIG.SITENAME + ' ©' + this.year;
   isCollapsed = false;
+  // tslint:disable-next-line: new-parens
   public user: UserDTO = new UserDTO;
   currentUser: UserDTO;
   constructor(
@@ -32,7 +33,20 @@ export class PagesComponent extends BaseComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  // this.getUser();
   }
+
+
+  // private getUser() {
+  //   this.loginService.getUser().subscribe(response => {
+  //     if (response.Status === false) {
+  //       return;
+  //     }
+  //     if (response && response.Data) {
+  //       this.currentUser = response.Data;
+  //     }
+  //   });
+  // }
 
   toggleCollapsed(): void {
     this.isCollapsed = !this.isCollapsed;

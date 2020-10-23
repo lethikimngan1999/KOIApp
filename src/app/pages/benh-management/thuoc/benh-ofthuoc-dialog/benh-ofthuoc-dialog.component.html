@@ -1,0 +1,21 @@
+<form nz-form [formGroup]="validateForm" class="ant-advanced-search-form">
+    <div nz-row [nzGutter]="24">
+        <div nz-col>
+            <nz-form-item>
+                <nz-form-label nzRequired>Tên thuốc</nz-form-label>
+                <nz-form-control>
+                    <nz-select [nzMaxTagCount]="4" nzMode="multiple" [nzMaxTagPlaceholder]="tagPlaceHolder" nzPlaceHolder="Please select" [(ngModel)]="MaBenhs" formControlName="_selectBox_benh" Vui lòng chọn thuốc điều trị bệnh>
+                        <ng-container *ngFor="let option of modelRoleModal">
+                            <nz-option [nzLabel]="option.TenBenh" [nzValue]="option.MaBenh"></nz-option>
+                        </ng-container>
+                    </nz-select>
+                    <ng-template #tagPlaceHolder let-selectedList> and {{ selectedList.length }} more selected </ng-template>
+
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <div *nzModalFooter>
+        <button nz-button [nzType]="'primary'" (click)="add()" [disabled]="!validateForm.valid">Lưu</button>
+    </div>
+</form>

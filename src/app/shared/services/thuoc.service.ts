@@ -15,4 +15,10 @@ export class ThuocService {
   public getAll(): Observable<BaseResponse<ThuocDTO>> {
       return this.baseSevice.get<BaseResponse<ThuocDTO[]>>('api/Thuoc/GetAll');
   }
+
+  
+  public CreateThuocDieuTri(data: any): Observable<BaseResponse<any>> {
+    return this.baseSevice.post<BaseResponse<any>>('api/ThuocDieuTri', data);
+  }
+
 }

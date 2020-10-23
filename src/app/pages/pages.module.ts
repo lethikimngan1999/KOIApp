@@ -23,6 +23,9 @@ import { BenhListComponent } from './benh-management/benh/benh-list/benh-list.co
 import { ThuocListComponent } from './benh-management/thuoc/thuoc-list/thuoc-list.component';
 
 import { BenhDetailComponent } from './benh-management/benh/benh-detail/benh-detail.component';
+import { UserRoleDialogComponent } from './account-management/users/user-role-dialog/user-role-dialog.component';
+import { ThuocOfbenhDialogComponent } from './benh-management/benh/thuoc-ofbenh-dialog/thuoc-ofbenh-dialog.component';
+import { BenhOfthuocDialogComponent } from './benh-management/thuoc/benh-ofthuoc-dialog/benh-ofthuoc-dialog.component';
 
 
 
@@ -40,7 +43,10 @@ import { BenhDetailComponent } from './benh-management/benh/benh-detail/benh-det
     UserResetPasswordComponent,
     BenhListComponent,
     ThuocListComponent,
-    BenhDetailComponent],
+    BenhDetailComponent,
+    UserRoleDialogComponent,
+    ThuocOfbenhDialogComponent,
+    BenhOfthuocDialogComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -58,7 +64,10 @@ import { BenhDetailComponent } from './benh-management/benh/benh-detail/benh-det
     NhanvienDialogComponent,
     UploadImgBTComponent,
     UserDialogComponent,
+    UserRoleDialogComponent,
     BenhDetailComponent,
+    ThuocOfbenhDialogComponent,
+    BenhOfthuocDialogComponent,
     UserResetPasswordComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
