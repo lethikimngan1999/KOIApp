@@ -17,12 +17,21 @@
                         <nz-timeline-item nzColor="red" nzPosition="right">{{selected.TenBenh}}</nz-timeline-item>
                         <nz-timeline-item nzColor="red" nzPosition="right">Nguyên nhân</nz-timeline-item>
                         <nz-timeline-item nzColor="red" nzPosition="left">{{selected.NguyenNhan}}</nz-timeline-item>
+                        <nz-timeline-item nzColor="green" nzPosition="right">Triệu chứng</nz-timeline-item>
+                        <nz-timeline-item nzPosition="left" nzColor="green">
+                            <p *ngFor="let item of selected?.ListTrieuChungs">{{item.TenTrieuChung}}: {{item.MoTaTrieuChung}} </p>
+                        </nz-timeline-item>
+                        <nz-timeline-item nzColor="green" nzPosition="right">Thuốc điều trị bệnh</nz-timeline-item>
+                        <nz-timeline-item nzPosition="left" nzColor="green">
+                            <p *ngFor="let item of selected?.ListThuocs">{{item.TenThuoc}}</p>
+                        </nz-timeline-item>
                         <nz-timeline-item nzColor="green" nzPosition="right">Cách điều trị</nz-timeline-item>
                         <nz-timeline-item nzPosition="left" nzColor="green">{{selected.CachDieuTri}}</nz-timeline-item>
-                        <nz-timeline-item nzColor="green" nzPosition="right">Mô tả</nz-timeline-item>
-                        <nz-timeline-item nzPosition="left" nzColor="green">{{selected.MoTa}}</nz-timeline-item>
-                        <nz-timeline-item nzColor="green" nzPosition="right">Thuốc điều trị bệnh</nz-timeline-item>
-                        <!-- <nz-timeline-item nzPosition="left" nzColor="green">{{selected.ListThuocs.TenThuoc}}</nz-timeline-item> -->
+                        <!-- <nz-timeline-item nzColor="green" nzPosition="right">Mô tả</nz-timeline-item>
+                        <nz-timeline-item nzPosition="left" nzColor="green">{{selected.MoTa}}</nz-timeline-item> -->
+
+
+
                     </nz-timeline>
                     <ng-template #dotTemplate>
                         <i nz-icon nzType="clock-circle-o" style="font-size: 16px;"></i>

@@ -4,6 +4,7 @@ import * as CONFIG from './../../app.config';
 import { Router } from '@angular/router';
 import { LoginDTO } from 'src/app/models/LoginDTO';
 import { LoginService } from 'src/app/shared/services/login.service';
+import { AuthenticationService } from 'src/app/common_base/authentication/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
-    private router: Router) {
+    private router: Router,
+    private authService: AuthenticationService) {
     document.body.className = "login-body";
   }
 
@@ -55,7 +57,37 @@ export class LoginComponent implements OnInit {
     return false;
   }
 
+  
+
+  private login() {
+    const loginDto: LoginDTO = {
+      username: this.validateForm.controls._ipText_userName.value,
+      password: this.validateForm.controls._ipText_password.value,
+    };
+
+    this.authService.login(loginDto)
+    .pipe()
+    .subscribe(
+      data => {
+        this.router.navigateByUrl('admin');
+      },
+      error => {
+        this.isShowMessage = true;
+      });
+    // this.loginService.getToken(loginDto).subscribe(response => {
+
+    //   if (response.Status === true && response.Data == null) {
+    //     this.isShowMessage = true;
+    //   }
+    //   if (response && response.Data && response.Data !== 'null') {
+    //     this.setTokenFromLocalStorage(response.Data);
+    //     this.router.navigateByUrl('/admin');
+    //   }
+    // });
+  }
+
   submitForm(): void {
+    this.isShowMessage = false;
     for (const i in this.validateForm.controls) {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
@@ -67,24 +99,5 @@ export class LoginComponent implements OnInit {
     }
     this.login();
   }
-
-  private login() {
-    const loginDto: LoginDTO = {
-      username: this.validateForm.controls._ipText_userName.value,
-      password: this.validateForm.controls._ipText_password.value,
-    };
-
-    this.loginService.getToken(loginDto).subscribe(response => {
-
-      if (response.Status === true && response.Data == null) {
-        this.isShowMessage = true;
-      }
-      if (response && response.Data && response.Data !== 'null') {
-        this.setTokenFromLocalStorage(response.Data);
-        this.router.navigateByUrl('/admin');
-      }
-    });
-  }
-
 
 }

@@ -27,6 +27,7 @@
                     <li nz-menu-item nzMatchRouter>
                         <a routerLink="/admin/cac-loai-benh">Các loại bệnh</a>
                     </li>
+
                     <li nz-menu-item nzMatchRouter>
                         <a routerLink="/admin/cac-loai-thuoc">Các loại thuốc</a>
                     </li>
@@ -46,14 +47,26 @@
                     </li>
                 </ul>
             </li>
-
+            <!-- <ng-container *ngTemplateOutlet="menuTpl; context: { $implicit: menus }"></ng-container>
+            <ng-template #menuTpl let-menus>
+                <ng-container *ngFor="let menu of menus">
+                    <li nzMatchRouter *ngIf="!menu.children" nz-menu-item [nzPaddingLeft]="menu.level * 24" [nzDisabled]="menu.disabled" [nzSelected]="menu.selected">
+                        <a routerLink="/{{ menu.path }}">{{ menu.title }}{{menu.children}}</a>
+                    </li>
+                    <li nzMatchRouter *ngIf="menu.children" nz-submenu [nzPaddingLeft]="menu.level * 24" [nzOpen]="menu.open" [nzTitle]="menu.title" [nzIcon]="menu.icon" [nzDisabled]="menu.disabled">
+                        <ul>
+                            <ng-container *ngTemplateOutlet="menuTpl; context: { $implicit: menu.children }"></ng-container>
+                        </ul>
+                    </li>
+                </ng-container>
+            </ng-template> -->
         </ul>
     </nz-sider>
     <nz-layout>
         <nz-header style="background: #fff; padding:0;">
             <i class="trigger" nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>
             <div class="profile">
-                <h6 class="displayname"><span>Xin chào,  </span></h6>
+                <h6 class="displayname"><span>Xin chào, </span></h6>
                 <nz-button-group>
                     <button nz-button nz-dropdown nzShape="circle" [nzDropdownMenu]="userMenu" nzPlacement="bottomRight">
                     <i nz-icon nzType="user"></i>
@@ -62,7 +75,7 @@
                 <nz-dropdown-menu #userMenu="nzDropdownMenu">
                     <ul nz-menu>
                         <li nz-menu-item>Cập nhật tài khoản</li>
-                        <li nz-menu-item><a (click)="showModalChangePassword(user)">Đổi mật khẩu</a>
+                        <li nz-menu-item><a (click)="showModalChangePassword(currentUser)">Đổi mật khẩu</a>
                         </li>
                         <li nz-menu-divider></li>
                         <li nz-menu-item><a (click)="logout()">Đăng xuất</a></li>

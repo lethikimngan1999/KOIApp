@@ -26,6 +26,7 @@ import { BenhDetailComponent } from './benh-management/benh/benh-detail/benh-det
 import { UserRoleDialogComponent } from './account-management/users/user-role-dialog/user-role-dialog.component';
 import { ThuocOfbenhDialogComponent } from './benh-management/benh/thuoc-ofbenh-dialog/thuoc-ofbenh-dialog.component';
 import { BenhOfthuocDialogComponent } from './benh-management/thuoc/benh-ofthuoc-dialog/benh-ofthuoc-dialog.component';
+import { TrieuchungListComponent } from './benh-management/trieuchung/trieuchung-list/trieuchung-list.component';
 
 
 
@@ -46,7 +47,8 @@ import { BenhOfthuocDialogComponent } from './benh-management/thuoc/benh-ofthuoc
     BenhDetailComponent,
     UserRoleDialogComponent,
     ThuocOfbenhDialogComponent,
-    BenhOfthuocDialogComponent],
+    BenhOfthuocDialogComponent,
+    TrieuchungListComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

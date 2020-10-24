@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { UserDTO } from 'src/app/models/UserDTO';
 import { LoginService } from 'src/app/shared/services/login.service';
 import * as CONFIG from '../../app.config';
+import * as CONSTANT from '../../app.constant';
 
 @Injectable({
   providedIn: 'root'
@@ -58,4 +59,31 @@ export class AuthenticationService {
     this.currentUserSubject.next(null);
   }
 
+  isAdmin() {
+    let result = false;
+  //  if (this.currentUserValue.Status === 'Active') {
+    // tslint:disable-next-line: only-arrow-functions
+    this.currentUserValue.ListRoles.forEach(function(value) {
+      // tslint:disable-next-line: triple-equals
+      if (value.Name == CONSTANT.Role.Admin) {
+        result = true;
+      }
+    });
+
+    return result;
+  }
+
+  isNhanVien() {
+    let result = false;
+  //  if (this.currentUserValue.Status === 'Active') {
+    // tslint:disable-next-line: only-arrow-functions
+    this.currentUserValue.ListRoles.forEach(function(value) {
+      // tslint:disable-next-line: triple-equals
+      if (value.Name == CONSTANT.Role.NhanVien) {
+        result = true;
+      }
+    });
+
+    return result;
+  }
 }
