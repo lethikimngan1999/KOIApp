@@ -1,6 +1,7 @@
 <nz-page-header>
     <nz-page-header-title>{{pageTitle}} {{selected.TenBenh}}</nz-page-header-title>
     <nz-page-header-extra>
+
         <button nz-button nzType="default" nzShape="round" [routerLink]="'/admin/cac-loai-benh'">
         <i nz-icon nzType="arrow-left"></i>Quay lại danh sách
       </button>
@@ -29,10 +30,14 @@
                         <nz-timeline-item nzPosition="left" nzColor="green">{{selected.CachDieuTri}}</nz-timeline-item>
                         <!-- <nz-timeline-item nzColor="green" nzPosition="right">Mô tả</nz-timeline-item>
                         <nz-timeline-item nzPosition="left" nzColor="green">{{selected.MoTa}}</nz-timeline-item> -->
-
-
-
+                        <nz-timeline-item nzColor="green" nzPosition="right">Liệu trình điều trị</nz-timeline-item>
+                        <nz-timeline-item nzPosition="left" nzColor="green">
+                            <p *ngFor="let item of selected?.ListLieuTrinhs">{{item.TenLieuTrinh}}: {{item.MoTaLieuTrinh}} </p>
+                        </nz-timeline-item>
                     </nz-timeline>
+
+
+
                     <ng-template #dotTemplate>
                         <i nz-icon nzType="clock-circle-o" style="font-size: 16px;"></i>
                     </ng-template>

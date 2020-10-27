@@ -1,0 +1,47 @@
+<nz-page-header>
+    <nz-page-header-title>{{pageTitle | uppercase}}</nz-page-header-title>
+    <nz-page-header-extra>
+        <!-- <input nz-input placeholder="Tìm kiếm" [(ngModel)]="sName" type="text" /> -->
+        <!-- button create -->
+        <button nz-button nzType="primary" nzShape="round" class="btn-create" (click)="create()">
+  <i nz-icon nzType="plus"></i>Thêm chủng loại
+</button>
+
+    </nz-page-header-extra>
+
+    <nz-page-header-content>
+
+
+        <!-- data table -->
+        <nz-table #Table [nzData]="dataSource" [nzLoading]="isConfirmLoading">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th> Tên chủng loại </th>
+                    <th>Màu sắc</th>
+                    <th>Tính cách</th>
+                    <th>Kích thước tối đa</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of Table.data ; index as i; ">
+                    <td>{{i+1}}</td>
+                    <td>{{data.TenChungLoai}} </td>
+                    <td>{{data.MauSac}} </td>
+                    <td>{{data.TinhCach}} </td>
+                    <td>{{data.KichThuocToiDa}} </td>
+                    <td>
+                        <button nz-button nzType="default" nzShape="round" (click)="view(data.MaChungLoai)">
+                <i nz-icon nzType="eye"></i>Xem
+              </button>
+                        <button nz-button nzType="primary" nzShape="round" (click)="edit(data)">
+                <i nz-icon nzType="edit"></i>Sửa
+              </button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </nz-table>
+    </nz-page-header-content>
+</nz-page-header>

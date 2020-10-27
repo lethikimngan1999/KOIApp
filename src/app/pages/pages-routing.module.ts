@@ -10,6 +10,8 @@ import { BenhDetailComponent } from './benh-management/benh/benh-detail/benh-det
 import { BenhListComponent } from './benh-management/benh/benh-list/benh-list.component';
 import { ThuocListComponent } from './benh-management/thuoc/thuoc-list/thuoc-list.component';
 import { TrieuchungListComponent } from './benh-management/trieuchung/trieuchung-list/trieuchung-list.component';
+import { ChungloaiDetailComponent } from './bienthe-management/chungloai/chungloai-detail/chungloai-detail.component';
+import { ChungloaiListComponent } from './bienthe-management/chungloai/chungloai-list/chungloai-list.component';
 import { ImgListComponent } from './image-management/img-bienthe/img-list/img-list.component';
 import { LoginComponent } from './login/login.component';
 import { NhanvienDetailComponent } from './nhanvien-management/nhanvien-detail/nhanvien-detail.component';
@@ -55,8 +57,15 @@ const routes: Routes = [
       {
         path: 'trieu-chung',
         component: TrieuchungListComponent
-      }
-    
+      },
+      {
+        path: 'chung-loai',
+        component: ChungloaiListComponent
+      },
+      {
+        path: 'chung-loai/chitiet',
+        component: ChungloaiDetailComponent
+      },
 
     ]
   }

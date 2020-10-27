@@ -27,6 +27,10 @@ import { UserRoleDialogComponent } from './account-management/users/user-role-di
 import { ThuocOfbenhDialogComponent } from './benh-management/benh/thuoc-ofbenh-dialog/thuoc-ofbenh-dialog.component';
 import { BenhOfthuocDialogComponent } from './benh-management/thuoc/benh-ofthuoc-dialog/benh-ofthuoc-dialog.component';
 import { TrieuchungListComponent } from './benh-management/trieuchung/trieuchung-list/trieuchung-list.component';
+import { BenhDialogComponent } from './benh-management/benh/benh-dialog/benh-dialog.component';
+import { ChungloaiListComponent } from './bienthe-management/chungloai/chungloai-list/chungloai-list.component';
+import { ChungloaiDialogComponent } from './bienthe-management/chungloai/chungloai-dialog/chungloai-dialog.component';
+import { ChungloaiDetailComponent } from './bienthe-management/chungloai/chungloai-detail/chungloai-detail.component';
 
 
 
@@ -48,7 +52,11 @@ import { TrieuchungListComponent } from './benh-management/trieuchung/trieuchung
     UserRoleDialogComponent,
     ThuocOfbenhDialogComponent,
     BenhOfthuocDialogComponent,
-    TrieuchungListComponent],
+    TrieuchungListComponent,
+    BenhDialogComponent,
+    ChungloaiListComponent,
+    ChungloaiDialogComponent,
+    ChungloaiDetailComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -68,6 +76,9 @@ import { TrieuchungListComponent } from './benh-management/trieuchung/trieuchung
     UserDialogComponent,
     UserRoleDialogComponent,
     BenhDetailComponent,
+    BenhDialogComponent,
+    ChungloaiDialogComponent,
+    ChungloaiDetailComponent,
     ThuocOfbenhDialogComponent,
     BenhOfthuocDialogComponent,
     UserResetPasswordComponent],

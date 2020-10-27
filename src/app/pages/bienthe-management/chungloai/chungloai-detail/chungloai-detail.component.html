@@ -1,0 +1,35 @@
+<nz-page-header>
+    <nz-page-header-title>{{pageTitle}} </nz-page-header-title>
+    <nz-page-header-extra>
+        <button nz-button nzType="default" nzShape="round" [routerLink]="'/admin/chung-loai'">
+        <i nz-icon nzType="arrow-left"></i>Quay lại danh sách 
+      </button>
+        <button nz-button nzType="primary" nzShape="round">
+        <i nz-icon nzType="edit"></i>Sửa
+      </button>
+    </nz-page-header-extra>
+    <!--content-->
+    <nz-page-header-content *ngIf="has">
+        <div class="wrap">
+
+            <div class="content">
+                <div class="content">
+                    <nz-descriptions>
+                        <nz-descriptions-item nzTitle="Tên chủng loại: ">{{selected.TenChungLoai}}
+                        </nz-descriptions-item>
+                        <nz-descriptions-item nzTitle="Màu sắc đặc trung: ">{{selected.MauSac}}
+                        </nz-descriptions-item>
+
+                        <nz-descriptions-item nzTitle="Kích thước tối đa: ">{{selected.KichThuocToiDa}}</nz-descriptions-item>
+                        <nz-descriptions-item nzTitle="Tính cách: ">{{selected.TinhCach}}</nz-descriptions-item>
+                        <nz-descriptions-item nzTitle="Điều kiện nước">{{selected.DieuKienNuoc}}</nz-descriptions-item>
+                        <nz-descriptions-item nzTitle="Chế độ ăn: ">{{selected.CheDoAn}}</nz-descriptions-item>
+                        <nz-descriptions-item nzTitle="Mức độ chăm sóc: ">{{selected.MucDoChamSoc}}</nz-descriptions-item>
+                        <nz-descriptions-item nzTitle="Cách chăm sóc: ">{{selected.CachChamSoc}}</nz-descriptions-item>
+                        <nz-descriptions-item nzTitle="Mô tả chi tiết: ">{{selected.MoTa}}</nz-descriptions-item>
+                    </nz-descriptions>
+                </div>
+            </div>
+        </div>
+    </nz-page-header-content>
+</nz-page-header>
