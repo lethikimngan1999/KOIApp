@@ -10,7 +10,7 @@ import { ChungloaiService } from 'src/app/shared/services/chungloai.service';
 })
 export class ChungloaiDetailComponent implements OnInit {
 
-  pageTitle = 'Chi tiết ';
+  pageTitle = 'Chi tiết cá Koi ';
   selected: any = [];
   has: any = false;
 

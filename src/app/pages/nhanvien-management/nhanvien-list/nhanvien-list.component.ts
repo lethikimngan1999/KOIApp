@@ -27,6 +27,7 @@ ngOnInit() {
     this.loadNhanVienList();
   }
 
+
   // get danh sach nhan vien
   public loadNhanVienList(): any {
     this.nhanVienService.getAll().subscribe(response => {

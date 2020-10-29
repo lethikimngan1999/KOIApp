@@ -6,12 +6,8 @@
         <button nz-button nzType="primary" nzShape="round" class="btn-create" (click)="createNhanVien()">
   <i nz-icon nzType="plus"></i>Thêm nhân viên
 </button>
-
     </nz-page-header-extra>
-
     <nz-page-header-content>
-
-
         <!-- data table -->
         <nz-table #nhanvienTable [nzData]="dataSource" [nzLoading]="isConfirmLoading">
             <thead>
@@ -31,25 +27,17 @@
                     <td>{{data.HoLot}} {{data.TenNhanVien}}</td>
                     <td> {{data.NgaySinh | date :'dd/MM/yyyy'}}</td>
                     <!-- <td>
-
                         <ng-container *ngIf="data.GioiTinh == 'False'"> Nam </ng-container>
-
                         <ng-container *ngIf="data.GioiTinh == 'True'"> Nữ </ng-container>
-
-
                     </td> -->
                     <td>
-
-
                         <ng-container *ngIf="data.GioiTinh == true">
                             Nam
                         </ng-container>
                         <ng-container *ngIf="data.GioiTinh == false">Nữ</ng-container>
                     </td>
-
                     <td>{{data.Sdt }} </td>
                     <td>{{data.Email }}</td>
-
                     <td>
                         <button nz-button nzType="default" nzShape="round" (click)="viewNhanvien(data.MaNhanVien)">
                 <i nz-icon nzType="eye"></i>Xem

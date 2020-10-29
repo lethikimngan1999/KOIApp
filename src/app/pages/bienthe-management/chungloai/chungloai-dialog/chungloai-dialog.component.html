@@ -10,36 +10,29 @@
                 </nz-form-control>
             </nz-form-item>
         </div>
+
+    </div>
+
+    <div nz-row [nzGutter]="24">
+
         <div nz-col [nzSpan]="8">
             <nz-form-item>
                 <nz-form-label nzRequired>Màu sắc</nz-form-label>
                 <nz-form-control nzHasFeedback nzErrorTip="Vui lòng nhập màu sắc!">
-                    <textarea rows="2" nz-input [(ngModel)]="chungloaiDto.MauSac" placeholder="Màu sắc" formControlName="_ipTextarea_MauSac"></textarea>
+                    <input nz-input [(ngModel)]="chungloaiDto.MauSac" placeholder="Màu sắc" formControlName="_ipTextarea_MauSac" />
                 </nz-form-control>
             </nz-form-item>
         </div>
-    </div>
-    <div nz-row [nzGutter]="24">
 
 
 
-
-        <div nz-col [nzSpan]="8">
-            <nz-form-item>
-                <nz-form-label nzRequired>Mức độ chăm sóc</nz-form-label>
-                <nz-form-control nzHasFeedback nzErrorTip="Vui lòng nhập mức độ chăm sóc!">
-
-                    <textarea rows="5" nz-input [(ngModel)]="chungloaiDto.MucDoChamSoc" placeholder="Mức độ chăm sóc" formControlName="_ipTextarea_MucDoChamSoc"></textarea>
-                </nz-form-control>
-            </nz-form-item>
-        </div>
 
         <div nz-col [nzSpan]="8">
             <nz-form-item>
                 <nz-form-label nzRequired>Chế độ ăn </nz-form-label>
                 <nz-form-control nzHasFeedback nzErrorTip="Vui lòng nhập chế độ ăn!">
 
-                    <textarea rows="5" nz-input [(ngModel)]="chungloaiDto.CheDoAn" placeholder="Chế độ ăn" formControlName="_ipTextarea_CheDoAn"></textarea>
+                    <input nz-input [(ngModel)]="chungloaiDto.CheDoAn" placeholder="Ăn tạp" formControlName="_ipTextarea_CheDoAn" />
                 </nz-form-control>
             </nz-form-item>
         </div>
@@ -49,7 +42,19 @@
                 <nz-form-label nzRequired>Tính cách </nz-form-label>
                 <nz-form-control nzHasFeedback nzErrorTip="Vui lòng tính cách !">
 
-                    <input nz-input placeholder="Tính cách" [(ngModel)]="chungloaiDto.TinhCach" type="text" formControlName="_ipText_TinhCach" />
+                    <input nz-input placeholder="Hòa bình" [(ngModel)]="chungloaiDto.TinhCach" type="text" formControlName="_ipText_TinhCach" />
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="8">
+            <nz-form-item>
+                <nz-form-label nzRequired>Mức độ chăm sóc</nz-form-label>
+                <nz-form-control nzHasFeedback nzErrorTip="Vui lòng nhập mức độ chăm sóc!">
+
+                    <input nz-input [(ngModel)]="chungloaiDto.MucDoChamSoc" placeholder="Dễ dàng" formControlName="_ipTextarea_MucDoChamSoc" />
                 </nz-form-control>
             </nz-form-item>
         </div>
@@ -74,22 +79,27 @@
             </nz-form-item>
         </div>
 
-        <div nz-col [nzSpan]="8">
-            <nz-form-item>
-                <nz-form-label>Cách chăm sóc</nz-form-label>
-                <nz-form-control>
-
-                    <textarea rows="8" nz-input [(ngModel)]="chungloaiDto.CachChamSoc" placeholder="Cách chăm sóc" formControlName="_ipTextarea_CachChamSoc"></textarea>
-                </nz-form-control>
-            </nz-form-item>
-        </div>
-        <div nz-col [nzSpan]="8">
+    </div>
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="24">
             <nz-form-item>
                 <nz-form-label>Mô tả </nz-form-label>
                 <nz-form-control>
 
                     <ckeditor formControlName="_ipTextarea_MoTa" [(ngModel)]="chungloaiDto.MoTa"></ckeditor>
 
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+
+    </div>
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item>
+                <nz-form-label>Cách chăm sóc</nz-form-label>
+                <nz-form-control>
+
+                    <ckeditor [(ngModel)]="chungloaiDto.CachChamSoc" formControlName="_ipTextarea_CachChamSoc"></ckeditor>
                 </nz-form-control>
             </nz-form-item>
         </div>
