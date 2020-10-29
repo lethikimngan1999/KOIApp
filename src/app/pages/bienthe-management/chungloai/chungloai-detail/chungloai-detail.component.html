@@ -17,7 +17,8 @@
                     <nz-descriptions>
                         <nz-descriptions-item nzTitle="Tên chủng loại: ">{{selected.TenChungLoai}}
                         </nz-descriptions-item>
-                        <nz-descriptions-item nzTitle="Màu sắc đặc trung: ">{{selected.MauSac}}
+                        <nz-descriptions-item nzTitle="Màu sắc đặc trung: ">
+                            <p [innerHtml]='selected.MauSac'></p>
                         </nz-descriptions-item>
 
                         <nz-descriptions-item nzTitle="Kích thước tối đa: ">{{selected.KichThuocToiDa}}</nz-descriptions-item>

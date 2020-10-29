@@ -88,7 +88,8 @@
                 <nz-form-label>Mô tả </nz-form-label>
                 <nz-form-control>
 
-                    <textarea rows="5" nz-input [(ngModel)]="chungloaiDto.MoTa" placeholder="Mô tả chi tiết" formControlName="_ipTextarea_MoTa"></textarea>
+                    <ckeditor formControlName="_ipTextarea_MoTa" [(ngModel)]="chungloaiDto.MoTa"></ckeditor>
+
                 </nz-form-control>
             </nz-form-item>
         </div>

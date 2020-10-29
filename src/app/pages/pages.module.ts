@@ -31,6 +31,7 @@ import { BenhDialogComponent } from './benh-management/benh/benh-dialog/benh-dia
 import { ChungloaiListComponent } from './bienthe-management/chungloai/chungloai-list/chungloai-list.component';
 import { ChungloaiDialogComponent } from './bienthe-management/chungloai/chungloai-dialog/chungloai-dialog.component';
 import { ChungloaiDetailComponent } from './bienthe-management/chungloai/chungloai-detail/chungloai-detail.component';
+import { CKEditorModule } from 'ckeditor4-angular';
 
 
 
@@ -65,8 +66,8 @@ import { ChungloaiDetailComponent } from './bienthe-management/chungloai/chunglo
     FormsModule,
     HttpClientModule,
     NgbModule,
-    NzButtonModule
-
+    NzButtonModule,
+    CKEditorModule
   ],
   providers: [],
   entryComponents: [

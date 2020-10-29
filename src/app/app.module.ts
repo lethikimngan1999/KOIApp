@@ -24,6 +24,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { NhanvienService } from './shared/services/nhanvien.service';
 import { TrangchuComponent } from './trangchu/trangchu.component';
 import { TrangchuModule } from './trangchu/trangchu.module';
+import { CKEditorModule } from 'ckeditor4-angular';
 
 
 registerLocaleData(en);
@@ -37,7 +38,7 @@ registerLocaleData(en);
     AppRoutingModule,
     NgbModule,
     NgZorroAntdModule,
-   
+    CKEditorModule,
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
