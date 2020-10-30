@@ -4,7 +4,7 @@
             <nz-form-item>
                 <nz-form-label nzRequired>Tên thuốc</nz-form-label>
                 <nz-form-control>
-                    <nz-select [nzMaxTagCount]="4" nzMode="multiple" [nzMaxTagPlaceholder]="tagPlaceHolder" nzPlaceHolder="Please select" [(ngModel)]="MaThuocs" formControlName="_selectBox_thuoc" Vui lòng chọn thuốc điều trị bệnh>
+                    <nz-select [nzMaxTagCount]="4" nzMode="multiple" [nzMaxTagPlaceholder]="tagPlaceHolder" nzPlaceHolder="Please select" [(ngModel)]="maThuocs" formControlName="_selectBox_thuoc" Vui lòng chọn thuốc điều trị bệnh>
                         <ng-container *ngFor="let option of modelRoleModal">
                             <nz-option [nzLabel]="option.TenThuoc" [nzValue]="option.MaThuoc"></nz-option>
                         </ng-container>

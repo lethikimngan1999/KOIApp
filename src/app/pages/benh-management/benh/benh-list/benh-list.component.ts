@@ -44,7 +44,7 @@ export class BenhListComponent implements OnInit {
       nzComponentParams: {
         isShowAdd: true,
         benhDto: JSON.parse(JSON.stringify(data)),
-        listThuocs: JSON.parse(JSON.stringify(data.MaThuocs))
+        maThuocs: JSON.parse(JSON.stringify(data.MaThuocs))
       },
       nzWidth: '600',
     });

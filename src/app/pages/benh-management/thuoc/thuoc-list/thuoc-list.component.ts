@@ -38,7 +38,7 @@ export class ThuocListComponent implements OnInit {
       nzComponentParams: {
         isShowAdd: true,
         thuocDto: JSON.parse(JSON.stringify(data)),
-        listBenhs: JSON.parse(JSON.stringify(data.MaBenhs))
+        maBenhs: JSON.parse(JSON.stringify(data.MaBenhs))
       },
       nzWidth: '600',
     });

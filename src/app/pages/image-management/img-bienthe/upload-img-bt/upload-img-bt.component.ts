@@ -99,12 +99,28 @@ export class UploadImgBTComponent implements OnInit {
         });
         break;
       case 'error':
-        this.message.error('Network error');
+        this.message.error('Lỗi mạng!');
         this.loading = false;
         break;
     }
   }
 
+  //image
+  // seletedFile(event: any) {
+  //   if (event.target.files) {
+    
+  //     var reader = new FileReader();
+     
+  //     reader.readAsDataURL(event.target.files[0]);
+  //     reader.onload = (event: any) => {
+  //       this.avatarUrl = event.target.result;
+  //       this.hinhanhDto.DuongDan = this.avatarUrl;
+  //     };
+
+    
+  //   }
+  // }
+ 
 
   public handleSubmitButton(): void {
     this.isSaveLoading = true;

@@ -15,7 +15,7 @@ export class BenhOfthuocDialogComponent implements OnInit {
 
   @Input() isShowAdd: boolean;
   @Input() thuocDto: ThuocDTO;
-  @Input() MaBenhs: any;
+  @Input() maBenhs: any;
   @Input() listBenhs: any;
   listBenh: BenhDTO[] = [];
   modelRoleModal: any = [];
@@ -53,7 +53,7 @@ export class BenhOfthuocDialogComponent implements OnInit {
   
   public add() {
     const thuocdieutri: any[] = [];
-    this.MaBenhs.forEach((item: any) => {
+    this.maBenhs.forEach((item: any) => {
       thuocdieutri.push({ mathuoc: this.thuocDto.MaThuoc, mabenh: item });
     });
     this.benhService.CreateDieuTriBenh(thuocdieutri).subscribe(response => {
