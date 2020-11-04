@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NzMessageService, NzModalService } from 'ng-zorro-antd';
 import { TypeMessage } from 'src/app/app.constant';
+import { BenhDTO } from 'src/app/models/BenhDTO';
 import { BenhService } from 'src/app/shared/services/benh.service';
+import { BenhDialogComponent } from '../benh-dialog/benh-dialog.component';
 import { ThuocOfbenhDialogComponent } from '../thuoc-ofbenh-dialog/thuoc-ofbenh-dialog.component';
 
 @Component({
@@ -36,6 +38,36 @@ export class BenhListComponent implements OnInit {
     });
   }
 
+  create(): void {
+    const modalCreate = this.modalService.create({
+      nzTitle: 'Thêm bệnh',
+      nzContent: BenhDialogComponent,
+      nzComponentParams: {
+        isAdd: true,
+        benhDto: new BenhDTO()
+      },
+      nzWidth: '1000',
+    });
+    // Return a result when closed
+    modalCreate.afterClose.subscribe(() => {
+      return this.ngOnInit();
+    });
+  }
+
+  edit(data: any) {
+    const modalEdit = this.modalService.create({
+      nzTitle: 'Chỉnh sửa thông tin ',
+      nzContent: BenhDialogComponent,
+      nzComponentParams: {
+        benhDto: JSON.parse(JSON.stringify(data))
+      },
+      nzWidth: '1000',
+    });
+    // Return a result when closed
+    modalEdit.afterClose.subscribe(() => {
+      return this.ngOnInit();
+    });
+  }
 
   showModal(data: any) {
     const modalAdd = this.modalService.create({
@@ -55,14 +87,14 @@ export class BenhListComponent implements OnInit {
   }
 
   
-  // xem chi tiết nhân viên
+  // xem chi tiết 
   public view(mabenh: any) {
     this.navigateDetail(mabenh);
   }
 
   private navigateDetail(mabenh: any) {
     if (mabenh) {
-      // chuyen sang màn hình chi tiết nhan vien
+      // chuyen sang màn hình chi tiết 
       this.router.navigate(['admin/cac-loai-benh/chitiet/'], { queryParams: { mabenh: mabenh } });
     } else {
       this.message.create(TypeMessage.Error, 'Có lỗi xảy ra!');

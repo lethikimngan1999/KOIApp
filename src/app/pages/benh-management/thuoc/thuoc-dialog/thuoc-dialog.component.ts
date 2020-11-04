@@ -8,58 +8,59 @@ import { BenhService } from 'src/app/shared/services/benh.service';
 import { ThuocService } from 'src/app/shared/services/thuoc.service';
 
 @Component({
-  selector: 'app-benh-dialog',
-  templateUrl: './benh-dialog.component.html',
-  styleUrls: ['./benh-dialog.component.css']
+  selector: 'app-thuoc-dialog',
+  templateUrl: './thuoc-dialog.component.html',
+  styleUrls: ['./thuoc-dialog.component.css']
 })
-export class BenhDialogComponent implements OnInit {
+export class ThuocDialogComponent implements OnInit {
 
   isConfirmLoading = false;
   isShowAdd = false;
   isSaveLoading = false;
   @Input() isAdd: boolean;
-  @Input() benhDto: BenhDTO;
+  @Input() thuocDto: ThuocDTO;
+
   validateForm: FormGroup;
   loading = false;
-
   dataSource: any = [];
-  listThuoc: ThuocDTO[] = [];
-  modelThuocModal: any = [];
+
+  listBenh: BenhDTO[] = [];
+  modelbenhModal: any = [];
   
   constructor(
-    private thuocService: ThuocService,
+    private benhService: BenhService,
     private fb: FormBuilder,
     private modal: NzModalRef,
-    private benhService: BenhService,
+    private thuocService: ThuocService,
     private message: NzMessageService,
   ) { }
 
   ngOnInit(): void {
     // if (this.isAdd) {
-    //   this.initFormValidate();
+     this.initFormValidate();
     // } else {
     //   this.initFormValidateEdit();
+     
     // }
-    this.initFormValidate();
-    this.getThuocs();
+    this.getBenhs();
   }
 
   private initFormValidate(): void {
     this.validateForm = this.fb.group({
-      _ipText_TenBenh: ['', Validators.required],
-      _ipTextarea_NguyenNhan: ['', Validators.required],
-      _ipTextarea_CachDieuTri:  ['', Validators.required],
-      _ipTextarea_MoTa: ['', Validators.required],
-      _selectBox_thuoc: ['', [Validators.required]],
+      _ipText_TenThuoc: ['', Validators.required],
+      _ipTextarea_CongDung: ['', Validators.required],
+      _ipTextarea_CachDung:  ['', Validators.required],
+      _ipTextarea_LuuY: [''],
+      _selectBox_benh: [''],
     });
   }
   // private initFormValidateEdit(): void {
   //   this.validateForm = this.fb.group({
-  //     _ipText_TenBenh: ['', Validators.required],
-  //     _ipTextarea_NguyenNhan: ['', Validators.required],
-  //     _ipTextarea_CachDieuTri:  ['', Validators.required],
-  //     _ipTextarea_MoTa: ['', Validators.required],
-  //    // _selectBox_thuoc: ['', [Validators.required]],
+  //     _ipText_TenThuoc: ['', Validators.required],
+  //     _ipTextarea_CongDung: ['', Validators.required],
+  //     _ipTextarea_CachDung:  ['', Validators.required],
+  //     _ipTextarea_LuuY: [''],
+  //     // _selectBox_benh: ['', [Validators.required]],
   //   });
   // }
 
@@ -88,7 +89,7 @@ export class BenhDialogComponent implements OnInit {
 
   private saveData() {
     this.isConfirmLoading = true;
-    if (!this.benhDto || this.isAdd) {
+    if (!this.thuocDto || this.isAdd) {
       this.insert();
 
     } else {
@@ -96,15 +97,26 @@ export class BenhDialogComponent implements OnInit {
     }
   }
 
+  public loadList(): any {
+    this.thuocService.getAll().subscribe(response => {
+      if (response && response.Status) {
+        this.dataSource = response.Data;
+        this.isConfirmLoading = false;
+        // console.log(this.dataSource);
+      }
+    });
+  }
+
+
   // tao  moi
   private insert(): void {
-    if (this.benhDto) {
-      this.benhService.InsertAll(this.benhDto).subscribe(response => {
+    if (this.thuocDto) {
+        this.thuocService.create(this.thuocDto).subscribe(response => {
 
         if (response && response.Status) {
           this.message.create(TypeMessage.Success, 'Thêm thành công!'
           );
-          this.loadList();
+        // this.loadList();
         } else {
           this.message.create(TypeMessage.Error, 'Thêm không thành công!'
           );
@@ -116,15 +128,15 @@ export class BenhDialogComponent implements OnInit {
   }
 
   private update() {
-    if (this.benhDto) {
-      this.benhService.update(this.benhDto).subscribe(response => {
+    if (this.thuocDto) {
+
+      this.thuocService.update(this.thuocDto).subscribe(response => {
         if (response && response.Status) {
-          this.message.create(TypeMessage.Success, 'Cập nhật bệnh thành công!'
+          this.message.create(TypeMessage.Success, 'Cập nhật thành công!'
           );
-          console.log(this.benhDto);
-          this.loadList();
+          console.log(this.thuocDto);
         } else {
-          this.message.create(TypeMessage.Error, 'Cập nhật bệnh không thành công!'
+          this.message.create(TypeMessage.Error, 'Cập nhật không thành công!'
           );
         }
         this.isConfirmLoading = false;
@@ -132,23 +144,12 @@ export class BenhDialogComponent implements OnInit {
     }
   }
 
-  private getThuocs(): any {
-    this.thuocService.getAll().subscribe(response => {
-      if (response && response.Status) {
-        this.listThuoc = JSON.parse(JSON.stringify(response.Data));
-        this.modelThuocModal = JSON.parse(JSON.stringify(response.Data));
-      }
-    });
-  }
-
-  public loadList(): any {
+  private getBenhs(): any {
     this.benhService.getAll().subscribe(response => {
       if (response && response.Status) {
-        this.dataSource = response.Data;
-        this.isConfirmLoading = false;
-       // console.log(this.dataSource);
+        this.listBenh = JSON.parse(JSON.stringify(response.Data));
+        this.modelbenhModal = JSON.parse(JSON.stringify(response.Data));
       }
     });
   }
-
 }

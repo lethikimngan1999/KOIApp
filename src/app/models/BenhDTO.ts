@@ -1,3 +1,4 @@
+import { LieuTrinhDTO } from './LieuTrinhDTO';
 import { ThuocDTO } from './ThuocDTO';
 
 export class  BenhDTO {
@@ -8,4 +9,6 @@ export class  BenhDTO {
     MoTa: string;
     ListThuocs: ThuocDTO[];
     MaThuocs: string[];
+    ListLieuTrinhs: LieuTrinhDTO[];
+    MaLieuTrinhs: string[];
 }

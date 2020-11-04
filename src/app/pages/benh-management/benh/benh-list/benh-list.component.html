@@ -3,7 +3,7 @@
     <nz-page-header-extra>
         <!-- <input nz-input placeholder="Tìm kiếm" [(ngModel)]="sName" type="text" /> -->
         <!-- button create -->
-        <button nz-button nzType="primary" nzShape="round" class="btn-create">
+        <button nz-button nzType="primary" nzShape="round" class="btn-create" (click)="create()">
   <i nz-icon nzType="plus"></i>Thêm bệnh
 </button>
 
@@ -40,7 +40,7 @@
                         <button nz-button nzType="primary" nzShape="round" (click)="showModal(data)">
                 <i nz-icon nzType="setting" ></i>Thêm thuốc
               </button>
-                        <button nz-button nzType="primary" nzShape="round">
+                        <button nz-button nzType="primary" nzShape="round" (click)="edit(data)">
                 <i nz-icon nzType="edit"></i>Sửa
               </button>
                         <button nz-button nzType="danger" nzShape="round">

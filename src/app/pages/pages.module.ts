@@ -32,6 +32,8 @@ import { ChungloaiListComponent } from './bienthe-management/chungloai/chungloai
 import { ChungloaiDialogComponent } from './bienthe-management/chungloai/chungloai-dialog/chungloai-dialog.component';
 import { ChungloaiDetailComponent } from './bienthe-management/chungloai/chungloai-detail/chungloai-detail.component';
 import { CKEditorModule } from 'ckeditor4-angular';
+import { ThuocDialogComponent } from './benh-management/thuoc/thuoc-dialog/thuoc-dialog.component';
+import { ThuocDetailComponent } from './benh-management/thuoc/thuoc-detail/thuoc-detail.component';
 
 
 
@@ -57,7 +59,9 @@ import { CKEditorModule } from 'ckeditor4-angular';
     BenhDialogComponent,
     ChungloaiListComponent,
     ChungloaiDialogComponent,
-    ChungloaiDetailComponent],
+    ChungloaiDetailComponent,
+    ThuocDialogComponent,
+    ThuocDetailComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -78,6 +82,8 @@ import { CKEditorModule } from 'ckeditor4-angular';
     UserRoleDialogComponent,
     BenhDetailComponent,
     BenhDialogComponent,
+    ThuocDetailComponent,
+    ThuocDialogComponent,
     ChungloaiDialogComponent,
     ChungloaiDetailComponent,
     ThuocOfbenhDialogComponent,

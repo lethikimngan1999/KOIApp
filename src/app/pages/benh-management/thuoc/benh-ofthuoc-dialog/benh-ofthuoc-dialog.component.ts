@@ -50,7 +50,7 @@ export class BenhOfthuocDialogComponent implements OnInit {
     });
   }
 
-  
+
   public add() {
     const thuocdieutri: any[] = [];
     this.maBenhs.forEach((item: any) => {
@@ -60,6 +60,7 @@ export class BenhOfthuocDialogComponent implements OnInit {
       if (response.Status === true) {
         this.message.create(TypeMessage.Success, 'Thêm bệnh được thuốc điều trị thành công!');
         this.listThuoc.find(p => p.MaThuoc === this.thuocDto.MaThuoc).ListBenhs = this.listBenhs;
+        this.getBenhs();
       } else {
         this.message.create(TypeMessage.Error, 'Thêm bệnh được thuốc điều trị không thành công!');
       }

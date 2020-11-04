@@ -1,0 +1,55 @@
+<nz-page-header>
+    <nz-page-header-title>{{pageTitle}} {{selected.TenThuoc}}</nz-page-header-title>
+    <nz-page-header-extra>
+
+        <button nz-button nzType="default" nzShape="round" [routerLink]="'/admin/cac-loai-thuoc'">
+        <i nz-icon nzType="arrow-left"></i>Quay lại danh sách
+      </button>
+        <button nz-button nzType="primary" nzShape="round">
+        <i nz-icon nzType="edit"></i>Sửa
+      </button>
+    </nz-page-header-extra>
+    <!--content-->
+    <nz-page-header-content *ngIf="hasThuoc">
+        <div class="wrap">
+            <div class="content">
+                <div class="content" style="margin-left: -680px;">
+                    <nz-timeline nzMode="alternate">
+                        <nz-timeline-item nzColor="red" nzPosition="right">{{selected.TenThuoc}}</nz-timeline-item>
+                        <nz-timeline-item nzColor="red" nzPosition="right">Công dụng</nz-timeline-item>
+                        <nz-timeline-item nzColor="red" nzPosition="left">
+                            <div [innerHtml]='selected.CongDung'></div>
+                        </nz-timeline-item>
+
+
+                        <nz-timeline-item nzColor="green" nzPosition="right">Công dụng</nz-timeline-item>
+                        <nz-timeline-item nzPosition="left" nzColor="green">
+                            <div [innerHtml]='selected.CongDung'></div>
+                        </nz-timeline-item>
+
+                        <nz-timeline-item nzColor="green" nzPosition="right">Cách dùng</nz-timeline-item>
+                        <nz-timeline-item nzPosition="left" nzColor="green">
+                            <div [innerHtml]='selected.CachDung'></div>
+                        </nz-timeline-item>
+
+                        <nz-timeline-item nzColor="green" nzPosition="right">Lưu ý</nz-timeline-item>
+                        <nz-timeline-item nzPosition="left" nzColor="green">
+                            <div [innerHtml]='selected.LuuY'></div>
+                        </nz-timeline-item>
+
+                        <nz-timeline-item nzColor="green" nzPosition="right">Thuốc điều trị bệnh</nz-timeline-item>
+                        <nz-timeline-item nzPosition="left" nzColor="green">
+                            <p *ngFor="let item of selected?.ListBenhs">{{item.TenBenh}}</p>
+                        </nz-timeline-item>
+
+                    </nz-timeline>
+
+
+                    <ng-template #dotTemplate>
+                        <i nz-icon nzType="clock-circle-o" style="font-size: 16px;"></i>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </nz-page-header-content>
+</nz-page-header>

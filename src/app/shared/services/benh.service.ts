@@ -23,4 +23,12 @@ export class BenhService {
     return this.baseSevice.post<BaseResponse<any>>('api/ThuocDieuTri/CreateDieuTriBenh', data);
   }
 
+  public InsertAll(data: BenhDTO): Observable<BaseResponse<string>> {
+    return this.baseSevice.post<BaseResponse<string>>('api/Benh/InsertAll', data);
+  }
+
+  public update(data: BenhDTO): Observable<BaseResponse<string>> {
+    return this.baseSevice.put<BaseResponse<string>>('api/Benh', data);
+  }
+
 }
