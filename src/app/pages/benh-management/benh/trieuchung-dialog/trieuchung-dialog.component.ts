@@ -92,19 +92,19 @@ export class TrieuchungDialogComponent implements OnInit {
   }
 
   private update() {
-    // if (this.benhDto) {
-    //   this.benhService.update(this.benhDto).subscribe(response => {
-    //     if (response && response.Status) {
-    //       this.message.create(TypeMessage.Success, 'Cập nhật bệnh thành công!'
-    //       );
-    //       console.log(this.benhDto);
-    //       this.loadList();
-    //     } else {
-    //       this.message.create(TypeMessage.Error, 'Cập nhật bệnh không thành công!'
-    //       );
-    //     }
-    //     this.isConfirmLoading = false;
-    //   });
-    // }
+    if (this.trieuchungDto) {
+      this.benhService.updateTrieuChung(this.trieuchungDto).subscribe(response => {
+        if (response && response.Status) {
+          this.message.create(TypeMessage.Success, 'Cập nhật triệu chứng thành công!'
+          );
+          console.log(this.trieuchungDto);
+         // this.loadList();
+        } else {
+          this.message.create(TypeMessage.Error, 'Cập nhật triệu chứng không thành công!'
+          );
+        }
+        this.isConfirmLoading = false;
+      });
+    }
   }
 }

@@ -37,7 +37,15 @@ export class BenhService {
     return this.baseSevice.post<BaseResponse<string>>('api/LieuTrinh', data);
   }
 
+  public updateLieuTrinh(data: LieuTrinhDTO): Observable<BaseResponse<string>> {
+    return this.baseSevice.put<BaseResponse<string>>('api/LieuTrinh', data);
+  }
+
   public createTrieuChung(data: TrieuChungDTO): Observable<BaseResponse<string>> {
     return this.baseSevice.post<BaseResponse<string>>('api/TrieuChung', data);
+  }
+
+  public updateTrieuChung(data: TrieuChungDTO): Observable<BaseResponse<string>> {
+    return this.baseSevice.put<BaseResponse<string>>('api/TrieuChung', data);
   }
 }

@@ -29,7 +29,9 @@
                         <nz-timeline-item nzColor="green" nzPosition="right">Triệu chứng</nz-timeline-item>
                         <nz-timeline-item nzPosition="left" nzColor="green">
                             <div *ngFor="let item1 of selected?.ListTrieuChungs">
-                                <li [innerHtml]='item1.MoTaTrieuChung'></li>
+                                <a (click)="editTrieuChung(item1)">
+                                    <li [innerHtml]='item1.MoTaTrieuChung'></li>
+                                </a>
                             </div>
                         </nz-timeline-item>
                         <nz-timeline-item nzColor="green" nzPosition="right">Thuốc điều trị bệnh</nz-timeline-item>
@@ -46,7 +48,10 @@
                         <nz-timeline-item nzColor="green" nzPosition="right">Liệu trình điều trị</nz-timeline-item>
                         <nz-timeline-item nzPosition="left" nzColor="green">
                             <div *ngFor="let item of selected?.ListLieuTrinhs">
-                                <li [innerHtml]='item.MoTaLieuTrinh'></li>
+
+                                <a (click)="editLieuTrinh(item)">
+                                    <li [innerHtml]='item.MoTaLieuTrinh'></li>
+                                </a>
                             </div>
                         </nz-timeline-item>
 

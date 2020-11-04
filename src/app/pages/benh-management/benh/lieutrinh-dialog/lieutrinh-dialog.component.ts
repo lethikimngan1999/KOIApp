@@ -92,19 +92,19 @@ export class LieutrinhDialogComponent implements OnInit {
   }
 
   private update() {
-    // if (this.benhDto) {
-    //   this.benhService.update(this.benhDto).subscribe(response => {
-    //     if (response && response.Status) {
-    //       this.message.create(TypeMessage.Success, 'Cập nhật bệnh thành công!'
-    //       );
-    //       console.log(this.benhDto);
-    //       this.loadList();
-    //     } else {
-    //       this.message.create(TypeMessage.Error, 'Cập nhật bệnh không thành công!'
-    //       );
-    //     }
-    //     this.isConfirmLoading = false;
-    //   });
-    // }
+    if (this.lieutrinhDto) {
+      this.benhService.updateLieuTrinh(this.lieutrinhDto).subscribe(response => {
+        if (response && response.Status) {
+          this.message.create(TypeMessage.Success, 'Cập nhật liệu trình thành công!'
+          );
+          console.log(this.lieutrinhDto);
+         // this.loadList();
+        } else {
+          this.message.create(TypeMessage.Error, 'Cập nhật liệu trình không thành công!'
+          );
+        }
+        this.isConfirmLoading = false;
+      });
+    }
   }
 }
