@@ -54,5 +54,19 @@ export class NhanvienDetailComponent implements OnInit {
     this.color = colorList[idx];
   }
 
+  edit(data: any) {
+    const modalEdit = this.modalService.create({
+      nzTitle: 'Chinh sửa nhân viên',
+      nzContent: NhanvienDialogComponent,
+      nzComponentParams: {
+        nhanvienDto: JSON.parse(JSON.stringify(data))
+      },
+      nzWidth: '800',
+    });
+    // Return a result when closed
+    modalEdit.afterClose.subscribe(() => {
+      return this.ngOnInit();
+    });
+  }
 
 }

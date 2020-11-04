@@ -25,7 +25,7 @@ import { BenhDetailComponent } from './benh-management/benh/benh-detail/benh-det
 import { UserRoleDialogComponent } from './account-management/users/user-role-dialog/user-role-dialog.component';
 import { ThuocOfbenhDialogComponent } from './benh-management/benh/thuoc-ofbenh-dialog/thuoc-ofbenh-dialog.component';
 import { BenhOfthuocDialogComponent } from './benh-management/thuoc/benh-ofthuoc-dialog/benh-ofthuoc-dialog.component';
-import { TrieuchungListComponent } from './benh-management/trieuchung/trieuchung-list/trieuchung-list.component';
+
 import { BenhDialogComponent } from './benh-management/benh/benh-dialog/benh-dialog.component';
 import { ChungloaiListComponent } from './bienthe-management/chungloai/chungloai-list/chungloai-list.component';
 import { ChungloaiDialogComponent } from './bienthe-management/chungloai/chungloai-dialog/chungloai-dialog.component';
@@ -60,7 +60,6 @@ import { FilterThuocPipe } from '../pipes/filter-thuoc.pipe';
     UserRoleDialogComponent,
     ThuocOfbenhDialogComponent,
     BenhOfthuocDialogComponent,
-    TrieuchungListComponent,
     BenhDialogComponent,
     ChungloaiListComponent,
     ChungloaiDialogComponent,

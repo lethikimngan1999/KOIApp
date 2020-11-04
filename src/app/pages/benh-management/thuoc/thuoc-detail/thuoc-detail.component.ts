@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NzModalService } from 'ng-zorro-antd';
 import { ThuocService } from 'src/app/shared/services/thuoc.service';
+import { ThuocDialogComponent } from '../thuoc-dialog/thuoc-dialog.component';
 
 @Component({
   selector: 'app-thuoc-detail',
@@ -17,6 +19,7 @@ export class ThuocDetailComponent implements OnInit {
   constructor(
     public thuocService: ThuocService,
     public activatedRoute: ActivatedRoute,
+    private modalService: NzModalService
     ) { }
 
   ngOnInit() {
@@ -31,6 +34,21 @@ export class ThuocDetailComponent implements OnInit {
         this.hasThuoc = true;
       }
       console.log(this.selected);
+    });
+  }
+
+  edit(data: any) {
+    const modalEdit = this.modalService.create({
+      nzTitle: 'Chỉnh sửa thông tin ',
+      nzContent: ThuocDialogComponent,
+      nzComponentParams: {
+        thuocDto: JSON.parse(JSON.stringify(data)),
+      },
+      nzWidth: '1000',
+    });
+    // Return a result when closed
+    modalEdit.afterClose.subscribe(() => {
+      return this.ngOnInit();
     });
   }
 }
