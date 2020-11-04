@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NzModalService } from 'ng-zorro-antd';
+import { LieuTrinhDTO } from 'src/app/models/LieuTrinhDTO';
 import { BenhService } from 'src/app/shared/services/benh.service';
 import { BenhDialogComponent } from '../benh-dialog/benh-dialog.component';
+import { LieutrinhDialogComponent } from '../lieutrinh-dialog/lieutrinh-dialog.component';
+import { TrieuchungDialogComponent } from '../trieuchung-dialog/trieuchung-dialog.component';
 
 @Component({
   selector: 'app-benh-detail',
@@ -16,7 +19,7 @@ export class BenhDetailComponent implements OnInit {
   pageTitle = 'Chi tiết bệnh';
   selected: any = [];
   hasBenh: any = false;
-
+  hasLieuTrinh: any = false;
   constructor(
     public benhService: BenhService,
     public activatedRoute: ActivatedRoute,
@@ -49,6 +52,38 @@ export class BenhDetailComponent implements OnInit {
     });
     // Return a result when closed
     modalEdit.afterClose.subscribe(() => {
+      return this.ngOnInit();
+    });
+  }
+
+  createLieuTrinh(data: any): void {
+    const modalCreate = this.modalService.create({
+      nzTitle: 'Thêm liệu trình',
+      nzContent: LieutrinhDialogComponent,
+      nzComponentParams: {
+        isAddlt: true,
+        lieutrinhDto: JSON.parse(JSON.stringify(data))
+      },
+      nzWidth: '1000',
+    });
+    // Return a result when closed
+    modalCreate.afterClose.subscribe(() => {
+      return this.ngOnInit();
+    });
+  }
+
+  createTrieuChung(data: any): void {
+    const modalCreate = this.modalService.create({
+      nzTitle: 'Thêm triệu chứng',
+      nzContent: TrieuchungDialogComponent,
+      nzComponentParams: {
+        isAddtt: true,
+        trieuchungDto: JSON.parse(JSON.stringify(data))
+      },
+      nzWidth: '1000',
+    });
+    // Return a result when closed
+    modalCreate.afterClose.subscribe(() => {
       return this.ngOnInit();
     });
   }

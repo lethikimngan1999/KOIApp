@@ -36,6 +36,8 @@ import { ThuocDetailComponent } from './benh-management/thuoc/thuoc-detail/thuoc
 import { FilterChungLoaiPipe } from '../pipes/filter-chung-loai.pipe';
 import { FilterBenhPipe } from '../pipes/filter-benh.pipe';
 import { FilterThuocPipe } from '../pipes/filter-thuoc.pipe';
+import { LieutrinhDialogComponent } from './benh-management/benh/lieutrinh-dialog/lieutrinh-dialog.component';
+import { TrieuchungDialogComponent } from './benh-management/benh/trieuchung-dialog/trieuchung-dialog.component';
 
 
 
@@ -65,7 +67,9 @@ import { FilterThuocPipe } from '../pipes/filter-thuoc.pipe';
     ChungloaiDialogComponent,
     ChungloaiDetailComponent,
     ThuocDialogComponent,
-    ThuocDetailComponent],
+    ThuocDetailComponent,
+    LieutrinhDialogComponent,
+    TrieuchungDialogComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -88,6 +92,8 @@ import { FilterThuocPipe } from '../pipes/filter-thuoc.pipe';
     BenhDialogComponent,
     ThuocDetailComponent,
     ThuocDialogComponent,
+    LieutrinhDialogComponent,
+    TrieuchungDialogComponent,
     ChungloaiDialogComponent,
     ChungloaiDetailComponent,
     ThuocOfbenhDialogComponent,

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { BaseService } from 'src/app/common_base/base.service';
 import { BaseResponse } from 'src/app/models';
 import { BenhDTO } from 'src/app/models/BenhDTO';
+import { LieuTrinhDTO } from 'src/app/models/LieuTrinhDTO';
+import { TrieuChungDTO } from 'src/app/models/TrieuChungDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -31,4 +33,11 @@ export class BenhService {
     return this.baseSevice.put<BaseResponse<string>>('api/Benh', data);
   }
 
+  public createLieuTrinh(data: LieuTrinhDTO): Observable<BaseResponse<string>> {
+    return this.baseSevice.post<BaseResponse<string>>('api/LieuTrinh', data);
+  }
+
+  public createTrieuChung(data: TrieuChungDTO): Observable<BaseResponse<string>> {
+    return this.baseSevice.post<BaseResponse<string>>('api/TrieuChung', data);
+  }
 }

@@ -1,7 +1,12 @@
 <nz-page-header>
     <nz-page-header-title>{{pageTitle}} {{selected.TenBenh}}</nz-page-header-title>
     <nz-page-header-extra>
-
+        <button nz-button nzType="primary" nzShape="round" (click)="createTrieuChung(selected)">
+            <i nz-icon nzType="plus"></i>Thêm triệu chứng
+          </button>
+        <button nz-button nzType="primary" nzShape="round" (click)="createLieuTrinh(selected)">
+            <i nz-icon nzType="plus"></i>Thêm liệu trình
+          </button>
         <button nz-button nzType="default" nzShape="round" [routerLink]="'/admin/cac-loai-benh'">
         <i nz-icon nzType="arrow-left"></i>Quay lại danh sách
       </button>
@@ -23,7 +28,9 @@
                         </nz-timeline-item>
                         <nz-timeline-item nzColor="green" nzPosition="right">Triệu chứng</nz-timeline-item>
                         <nz-timeline-item nzPosition="left" nzColor="green">
-                            <p *ngFor="let item of selected?.ListTrieuChungs">{{item.TenTrieuChung}}: {{item.MoTaTrieuChung}} </p>
+                            <div *ngFor="let item1 of selected?.ListTrieuChungs">
+                                <li [innerHtml]='item1.MoTaTrieuChung'></li>
+                            </div>
                         </nz-timeline-item>
                         <nz-timeline-item nzColor="green" nzPosition="right">Thuốc điều trị bệnh</nz-timeline-item>
                         <nz-timeline-item nzPosition="left" nzColor="green">
@@ -38,11 +45,13 @@
                         <nz-timeline-item nzPosition="left" nzColor="green">{{selected.MoTa}}</nz-timeline-item> -->
                         <nz-timeline-item nzColor="green" nzPosition="right">Liệu trình điều trị</nz-timeline-item>
                         <nz-timeline-item nzPosition="left" nzColor="green">
-                            <p *ngFor="let item of selected?.ListLieuTrinhs">{{item.TenLieuTrinh}}: {{item.MoTaLieuTrinh}} </p>
+                            <div *ngFor="let item of selected?.ListLieuTrinhs">
+                                <li [innerHtml]='item.MoTaLieuTrinh'></li>
+                            </div>
                         </nz-timeline-item>
+
+
                     </nz-timeline>
-
-
 
                     <ng-template #dotTemplate>
                         <i nz-icon nzType="clock-circle-o" style="font-size: 16px;"></i>
