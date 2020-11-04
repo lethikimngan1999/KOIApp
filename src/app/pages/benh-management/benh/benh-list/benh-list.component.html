@@ -1,7 +1,7 @@
 <nz-page-header>
     <nz-page-header-title>{{pageTitle | uppercase}}</nz-page-header-title>
     <nz-page-header-extra>
-        <!-- <input nz-input placeholder="Tìm kiếm" [(ngModel)]="sName" type="text" /> -->
+        <input nz-input placeholder="Tìm theo tên hoặc nguyên nhân" [(ngModel)]="sName" type="text" />
         <!-- button create -->
         <button nz-button nzType="primary" nzShape="round" class="btn-create" (click)="create()">
   <i nz-icon nzType="plus"></i>Thêm bệnh
@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let data of Table.data ; index as i; ">
+                <tr *ngFor="let data of Table.data | filterBenh: sName ; index as i; ">
                     <td>{{i+1}}</td>
                     <td>{{data.TenBenh}}</td>
                     <td>

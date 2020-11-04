@@ -61,7 +61,7 @@ ngOnInit() {
         isAdd: true,
         chungloaiDto: new ChungLoaiDTO()
       },
-      nzWidth: '800',
+      nzWidth: '1000',
     });
     // Return a result when closed
     modalCreate.afterClose.subscribe(() => {
@@ -76,7 +76,7 @@ ngOnInit() {
       nzComponentParams: {
         chungloaiDto: JSON.parse(JSON.stringify(data))
       },
-      nzWidth: '800',
+      nzWidth: '1000',
     });
     // Return a result when closed
     modalEdit.afterClose.subscribe(() => {

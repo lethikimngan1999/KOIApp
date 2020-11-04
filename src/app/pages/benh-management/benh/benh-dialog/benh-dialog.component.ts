@@ -50,7 +50,7 @@ export class BenhDialogComponent implements OnInit {
       _ipTextarea_NguyenNhan: ['', Validators.required],
       _ipTextarea_CachDieuTri:  ['', Validators.required],
       _ipTextarea_MoTa: ['', Validators.required],
-      _selectBox_thuoc: ['', [Validators.required]],
+      _selectBox_thuoc: [''],
     });
   }
   // private initFormValidateEdit(): void {

@@ -17,6 +17,7 @@ export class BenhListComponent implements OnInit {
   isConfirmLoading = false;
   pageTitle = 'Danh sách các loại bệnh';
   dataSource: any = [];
+  sName: string ='';
 
   constructor(private benhService: BenhService,
               private message: NzMessageService,

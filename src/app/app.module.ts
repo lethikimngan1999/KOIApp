@@ -16,16 +16,11 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-
-import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesModule } from './pages/pages.module';
-import { PagesRoutingModule } from './pages/pages-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { NhanvienService } from './shared/services/nhanvien.service';
-import { TrangchuComponent } from './trangchu/trangchu.component';
 import { TrangchuModule } from './trangchu/trangchu.module';
 import { CKEditorModule } from 'ckeditor4-angular';
-
 
 registerLocaleData(en);
 
@@ -56,6 +51,5 @@ registerLocaleData(en);
     CUSTOM_ELEMENTS_SCHEMA
   ],
   bootstrap: [AppComponent],
- 
 })
 export class AppModule { }

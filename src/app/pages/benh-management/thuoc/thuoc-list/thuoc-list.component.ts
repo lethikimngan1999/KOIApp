@@ -16,6 +16,7 @@ export class ThuocListComponent implements OnInit {
   isConfirmLoading = false;
   pageTitle = 'Danh sách các loại thuốc';
   dataSource: any = [];
+  sName: string = '';
 
   constructor(private thuocService: ThuocService,
               private modalService: NzModalService,

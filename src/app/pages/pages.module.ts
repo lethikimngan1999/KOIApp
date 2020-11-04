@@ -2,7 +2,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
-import { LoginComponent } from './login/login.component';
 import { NgZorroAntdModule, NzButtonModule } from 'ng-zorro-antd';
 
 import { PagesComponent } from './pages.component';
@@ -34,6 +33,9 @@ import { ChungloaiDetailComponent } from './bienthe-management/chungloai/chunglo
 import { CKEditorModule } from 'ckeditor4-angular';
 import { ThuocDialogComponent } from './benh-management/thuoc/thuoc-dialog/thuoc-dialog.component';
 import { ThuocDetailComponent } from './benh-management/thuoc/thuoc-detail/thuoc-detail.component';
+import { FilterChungLoaiPipe } from '../pipes/filter-chung-loai.pipe';
+import { FilterBenhPipe } from '../pipes/filter-benh.pipe';
+import { FilterThuocPipe } from '../pipes/filter-thuoc.pipe';
 
 
 
@@ -44,6 +46,9 @@ import { ThuocDetailComponent } from './benh-management/thuoc/thuoc-detail/thuoc
     NhanvienDetailComponent,
     NhanvienDialogComponent,
     FilterNVPipe,
+    FilterChungLoaiPipe,
+    FilterBenhPipe,
+    FilterThuocPipe,
     UserListComponent,
     UserDialogComponent,
     ImgListComponent,
