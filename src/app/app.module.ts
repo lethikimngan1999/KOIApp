@@ -21,15 +21,18 @@ import { LoginComponent } from './pages/login/login.component';
 import { NhanvienService } from './shared/services/nhanvien.service';
 import { TrangchuModule } from './trangchu/trangchu.module';
 import { CKEditorModule } from 'ckeditor4-angular';
+import { FilterPipe } from './pipes/filter.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent, LoginComponent
+    AppComponent, LoginComponent,  
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NgbModule,
     NgZorroAntdModule,

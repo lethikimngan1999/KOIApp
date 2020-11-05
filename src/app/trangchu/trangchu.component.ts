@@ -11,7 +11,10 @@ import { HinhanhService } from '../shared/services/hinhanh.service';
 export class TrangchuComponent implements OnInit {
 
   dataSource: any = [];
-  
+  Search = '';
+  sName: string = '';
+  //sName: string = '';
+ 
   constructor( public bientheService: BientheService,
     public hinhanhService: HinhanhService,
     public router: Router,) { }
@@ -19,6 +22,10 @@ export class TrangchuComponent implements OnInit {
   ngOnInit(): void {
     this.loadList();
   }
+
+  // onFilter() {
+  //   this.Search = this.TenBienThe;
+  // }
 
    // get danh sach 
    public loadList(): any {

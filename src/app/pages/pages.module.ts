@@ -38,6 +38,8 @@ import { FilterBenhPipe } from '../pipes/filter-benh.pipe';
 import { FilterThuocPipe } from '../pipes/filter-thuoc.pipe';
 import { LieutrinhDialogComponent } from './benh-management/benh/lieutrinh-dialog/lieutrinh-dialog.component';
 import { TrieuchungDialogComponent } from './benh-management/benh/trieuchung-dialog/trieuchung-dialog.component';
+import { FilterPipe } from '../pipes/filter.pipe';
+import { SortPipe } from '../pipes/sort.pipe';
 
 
 
@@ -51,6 +53,8 @@ import { TrieuchungDialogComponent } from './benh-management/benh/trieuchung-dia
     FilterChungLoaiPipe,
     FilterBenhPipe,
     FilterThuocPipe,
+
+    SortPipe,
     UserListComponent,
     UserDialogComponent,
     ImgListComponent,
