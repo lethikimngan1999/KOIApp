@@ -32,4 +32,8 @@ export class ThuocService {
     const httpParams = new HttpParams().set('mathuoc', mathuoc);
     return this.baseSevice.get<BaseResponse<string>>('api/Thuoc/GetById', httpParams);
   }
+
+  public delete(data: any): Observable<BaseResponse<any>> {
+    return this.baseSevice.delete<BaseResponse<any>>('api/Thuoc', data);
+  }
 }

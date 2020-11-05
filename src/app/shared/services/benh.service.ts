@@ -48,4 +48,8 @@ export class BenhService {
   public updateTrieuChung(data: TrieuChungDTO): Observable<BaseResponse<string>> {
     return this.baseSevice.put<BaseResponse<string>>('api/TrieuChung', data);
   }
+
+  public delete(data: any): Observable<BaseResponse<any>> {
+    return this.baseSevice.delete<BaseResponse<any>>('api/Benh', data);
+  }
 }

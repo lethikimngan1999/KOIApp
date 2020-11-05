@@ -102,4 +102,37 @@ export class BenhListComponent implements OnInit {
     }
   }
 
+  public confirmDelete(mabenh: any) {
+    const modalDelete = this.modalService.confirm({
+      nzTitle: 'Bạn có chắc chắn xóa bệnh này?',
+      nzContent: `<b style='color: red;'> Mã bệnh: ${mabenh}</b>`,
+      nzOkText: 'Xóa',
+      nzOkType: 'danger',
+      nzOnOk: () => this.delete(mabenh),
+      nzCancelText: 'Hủy',
+    });
+    // Return a result when closed
+    modalDelete.afterClose.subscribe(() => {
+      return this.ngOnInit();
+    });
+  }
+
+
+   /**
+ * delete data
+ */
+private delete(mabenh: any) {
+  const param: any = { mabenh: mabenh };
+  this.benhService.delete(param).subscribe(response => {
+    if (response.Status === true) {
+      this.message.create(TypeMessage.Success, 'Xóa thành công!');
+      // get lai danh sach nhan vien
+      this.loadList();
+    } else {
+      this.message.create(TypeMessage.Error, 'Xóa không thành công!');
+    }
+  });
+}
+
+
 }

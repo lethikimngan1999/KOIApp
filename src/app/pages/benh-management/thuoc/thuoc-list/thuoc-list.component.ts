@@ -38,7 +38,6 @@ export class ThuocListComponent implements OnInit {
     });
   }
 
-
   showModal(data: any) {
     const modalAdd = this.modalService.create({
       nzTitle: 'Thêm bệnh được thuốc điều trị ',
@@ -56,7 +55,7 @@ export class ThuocListComponent implements OnInit {
     });
   }
 
-  // xem chi tiết 
+  // xem chi tiết
   public view(mathuoc: any) {
     this.navigateDetail(mathuoc);
   }
@@ -100,5 +99,35 @@ export class ThuocListComponent implements OnInit {
       return this.ngOnInit();
     });
   }
+
+  public confirmDelete(mathuoc: any) {
+    const modalDelete = this.modalService.confirm({
+      nzTitle: 'Bạn có chắc chắn xóa bệnh này?',
+      nzContent: `<b style='color: red;'> Mã bệnh: ${mathuoc}</b>`,
+      nzOkText: 'Xóa',
+      nzOkType: 'danger',
+      nzOnOk: () => this.delete(mathuoc),
+      nzCancelText: 'Hủy',
+    });
+    // Return a result when closed
+    modalDelete.afterClose.subscribe(() => {
+      return this.ngOnInit();
+    });
+  }
+   /**
+ * delete data
+ */
+private delete(mathuoc: any) {
+  const param: any = { mathuoc: mathuoc };
+  this.thuocService.delete(param).subscribe(response => {
+    if (response.Status === true) {
+      this.message.create(TypeMessage.Success, 'Xóa thành công!');
+     
+      this.loadList();
+    } else {
+      this.message.create(TypeMessage.Error, 'Xóa không thành công!');
+    }
+  });
+}
 
 }
