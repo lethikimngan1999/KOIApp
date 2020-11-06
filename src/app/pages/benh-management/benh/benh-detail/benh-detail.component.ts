@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NzModalService } from 'ng-zorro-antd';
+import { NzMessageService, NzModalService } from 'ng-zorro-antd';
+import { TypeMessage } from 'src/app/app.constant';
 import { LieuTrinhDTO } from 'src/app/models/LieuTrinhDTO';
 import { BenhService } from 'src/app/shared/services/benh.service';
+import { LieutrinhService } from 'src/app/shared/services/lieutrinh.service';
+import { TrieuchungService } from 'src/app/shared/services/trieuchung.service';
 import { BenhDialogComponent } from '../benh-dialog/benh-dialog.component';
 import { LieutrinhDialogComponent } from '../lieutrinh-dialog/lieutrinh-dialog.component';
 import { TrieuchungDialogComponent } from '../trieuchung-dialog/trieuchung-dialog.component';
@@ -22,8 +25,11 @@ export class BenhDetailComponent implements OnInit {
   hasLieuTrinh: any = false;
   constructor(
     public benhService: BenhService,
+    public lieutrinhService: LieutrinhService,
+    public trieuchungService: TrieuchungService,
     public activatedRoute: ActivatedRoute,
     private modalService: NzModalService,
+    private message: NzMessageService,
     ) { }
 
   ngOnInit() {
@@ -117,5 +123,66 @@ export class BenhDetailComponent implements OnInit {
       return this.ngOnInit();
     });
   }
+
+
+  public confirmDeleteLieuTrinh(data: any) {
+    const modalDelete = this.modalService.confirm({
+      nzTitle: 'Bạn có chắc chắn xóa liệu trình này?',
+      nzContent: `<b style='color: red;'> Thông tin:${data.MoTaLieuTrinh} </b>`,
+      nzOkText: 'Xóa',
+      nzOkType: 'danger',
+      nzOnOk: () => this.deleteLieuTrinh(data.MaLieuTrinh),
+      nzCancelText: 'Hủy',
+    });
+    // Return a result when closed
+    modalDelete.afterClose.subscribe(() => {
+      return this.ngOnInit();
+    });
+  }
+
+/**
+* delete data
+*/
+private deleteLieuTrinh(malieutrinh: any) {
+  const param: any = { malieutrinh: malieutrinh };
+  this.lieutrinhService.delete(param).subscribe(response => {
+    if (response.Status === true) {
+      this.message.create(TypeMessage.Success, 'Xóa thành công!');
+   
+    } else {
+      this.message.create(TypeMessage.Error, 'Xóa không thành công!');
+    }
+  });
+  }
+
+  /**
+ * delete data
+ */
+private deleteTrieuChung(matrieuchung: any) {
+  const param: any = { matrieuchung: matrieuchung };
+  this.trieuchungService.delete(param).subscribe(response => {
+    if (response.Status === true) {
+      this.message.create(TypeMessage.Success, 'Xóa thành công!');
+   
+    } else {
+      this.message.create(TypeMessage.Error, 'Xóa không thành công!');
+    }
+  });
+}
+
+public confirmDeleteTrieuChung(data: any) {
+  const modalDelete = this.modalService.confirm({
+    nzTitle: 'Bạn có chắc chắn xóa triệu chứng này?',
+    nzContent: `<b style='color: red;'> Thông tin:${data.MoTaTrieuChung} </b>`,
+    nzOkText: 'Xóa',
+    nzOkType: 'danger',
+    nzOnOk: () => this.deleteTrieuChung(data.MaTrieuChung),
+    nzCancelText: 'Hủy',
+  });
+  // Return a result when closed
+  modalDelete.afterClose.subscribe(() => {
+    return this.ngOnInit();
+  });
+}
 
 }

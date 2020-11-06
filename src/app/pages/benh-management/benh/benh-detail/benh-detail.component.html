@@ -29,9 +29,22 @@
                         <nz-timeline-item nzColor="green" nzPosition="right">Triệu chứng</nz-timeline-item>
                         <nz-timeline-item nzPosition="left" nzColor="green">
                             <div *ngFor="let item1 of selected?.ListTrieuChungs">
-                                <a (click)="editTrieuChung(item1)">
-                                    <li [innerHtml]='item1.MoTaTrieuChung'></li>
-                                </a>
+                                <li [innerHtml]='item1.MoTaTrieuChung'></li>
+
+                                <ul>
+                                    <li style="display: inline-block; width: 30px;">
+                                        <a (click)="editTrieuChung(item1)" style="color: #1890ff;">
+                                            <i nz-icon [nzType]="'edit'" [nzTheme]="'twotone'"></i>
+                                        </a>
+                                    </li>
+                                    <li style="display: inline-block; ">
+                                        <a (click)="confirmDeleteTrieuChung(item1)" style="color: red;">
+                                            <i nz-icon nzType="delete" nzTheme="outline"></i>
+                                        </a>
+                                    </li>
+
+                                </ul>
+
                             </div>
                         </nz-timeline-item>
                         <nz-timeline-item nzColor="green" nzPosition="right">Thuốc điều trị bệnh</nz-timeline-item>
@@ -48,10 +61,22 @@
                         <nz-timeline-item nzColor="green" nzPosition="right">Liệu trình điều trị</nz-timeline-item>
                         <nz-timeline-item nzPosition="left" nzColor="green">
                             <div *ngFor="let item of selected?.ListLieuTrinhs">
+                                <li [innerHtml]='item.MoTaLieuTrinh'></li>
+                                <ul>
+                                    <li style="display: inline-block; width: 30px;">
+                                        <a (click)="editLieuTrinh(item)" style="color: #1890ff;">
+                                            <i nz-icon [nzType]="'edit'" [nzTheme]="'twotone'"></i>
+                                        </a>
+                                    </li>
+                                    <li style="display: inline-block; ">
+                                        <a (click)="confirmDeleteLieuTrinh(item)" style="color: red;">
+                                            <i nz-icon nzType="delete" nzTheme="outline"></i>
+                                        </a>
+                                    </li>
 
-                                <a (click)="editLieuTrinh(item)">
-                                    <li [innerHtml]='item.MoTaLieuTrinh'></li>
-                                </a>
+                                </ul>
+
+
                             </div>
                         </nz-timeline-item>
                         <nz-timeline-item nzColor="green" nzPosition="right">Hình ảnh minh họa</nz-timeline-item>

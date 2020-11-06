@@ -21,4 +21,8 @@ export class LieutrinhService {
     const httpParams = new HttpParams().set('malieutrinh', malieutrinh);
     return this.baseSevice.get<BaseResponse<string>>('api/LieuTrinh/GetById', httpParams);
   }
+
+  public delete(data: any): Observable<BaseResponse<any>> {
+    return this.baseSevice.delete<BaseResponse<any>>('api/LieuTrinh', data);
+  }
 }

@@ -21,4 +21,8 @@ export class TrieuchungService {
     const httpParams = new HttpParams().set('matrieuchung', matrieuchung);
     return this.baseSevice.get<BaseResponse<string>>('api/TrieuChung/GetById', httpParams);
   }
+
+  public delete(data: any): Observable<BaseResponse<any>> {
+    return this.baseSevice.delete<BaseResponse<any>>('api/TrieuChung', data);
+  }
 }
