@@ -16,7 +16,7 @@ export class BenhDetailComponent implements OnInit {
 
 
   
-  pageTitle = 'Chi tiết bệnh';
+  pageTitle = 'Chi tiết ';
   selected: any = [];
   hasBenh: any = false;
   hasLieuTrinh: any = false;

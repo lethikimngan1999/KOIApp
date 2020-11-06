@@ -34,7 +34,7 @@ export class LieutrinhDialogComponent implements OnInit {
 
   private initFormValidate(): void {
     this.validateForm = this.fb.group({
-      _ipText_Tenlieutrinh:  ['', Validators.required],
+     // _ipText_Tenlieutrinh:  ['', Validators.required],
       _ipTextarea_MoTa: ['', Validators.required],
     });
   }

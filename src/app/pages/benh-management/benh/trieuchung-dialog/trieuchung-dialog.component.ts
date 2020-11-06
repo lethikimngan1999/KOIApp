@@ -34,7 +34,7 @@ export class TrieuchungDialogComponent implements OnInit {
 
   private initFormValidate(): void {
     this.validateForm = this.fb.group({
-      _ipText_Tentrieuchung:  ['', Validators.required],
+    //  _ipText_Tentrieuchung:  ['', Validators.required],
       _ipTextarea_MoTa: ['', Validators.required],
     });
   }

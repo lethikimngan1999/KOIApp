@@ -5,9 +5,9 @@
             <nz-form-item>
                 <nz-form-label nzRequired>Số CMND:</nz-form-label>
                 <nz-form-control nzHasFeedback [nzErrorTip]="employeeIdErrorTpl">
-                    <input nz-input placeholder="Số chứng minh nhân dân" [(ngModel)]="nhanvienDto.CMND" type="text" formControlName="_ipText_CMND" />
+                    <input nz-input placeholder="Số chứng minh nhân dân" [(ngModel)]="nhanvienDto.CMND" type="text" formControlName="_ipText_CMND" minlength="8" maxlength="12" />
                     <ng-template #employeeIdErrorTpl let-control>
-                        <ng-container *ngIf="control.hasError('maxlength')">Số chứng minh nhân dân tối đa 20 kí tự</ng-container>
+                        <ng-container *ngIf="control.hasError('maxlength')">Số chứng minh nhân dân tối đa 12 kí tự</ng-container>
                         <ng-container *ngIf="control.hasError('minlength')">Số chứng minh nhân dân ít nhất 8 kí tự</ng-container>
                         <ng-container *ngIf="control.hasError('required')">Vui lòng nhập Số chứng minh nhân dân!</ng-container>
                     </ng-template>
@@ -73,9 +73,9 @@
             <nz-form-item>
                 <nz-form-label nzRequired>Số điện thoại</nz-form-label>
                 <nz-form-control nzHasFeedback [nzErrorTip]="SdtErrorTpl">
-                    <input nz-input placeholder="SĐT" [(ngModel)]="nhanvienDto.Sdt" type="text" formControlName="_ipText_Sdt" />
+                    <input nz-input placeholder="SĐT" [(ngModel)]="nhanvienDto.Sdt" type="text" formControlName="_ipText_Sdt" maxlength="11" />
                     <ng-template #SdtErrorTpl let-control>
-                        <ng-container *ngIf="control.hasError('maxlength')">Số điện thoại tối đa 13 kí tự</ng-container>
+                        <ng-container *ngIf="control.hasError('maxlength')">Số điện thoại tối đa 11 kí tự</ng-container>
                         <ng-container *ngIf="control.hasError('required')">Vui lòng nhập Số điện thoại nhân viên!</ng-container>
                     </ng-template>
                 </nz-form-control>

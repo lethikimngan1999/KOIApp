@@ -100,13 +100,13 @@ export class ThuocListComponent implements OnInit {
     });
   }
 
-  public confirmDelete(mathuoc: any) {
+  public confirmDelete(data: any) {
     const modalDelete = this.modalService.confirm({
-      nzTitle: 'Bạn có chắc chắn xóa bệnh này?',
-      nzContent: `<b style='color: red;'> Mã bệnh: ${mathuoc}</b>`,
+      nzTitle: 'Bạn có chắc chắn xóa thuốc này?',
+      nzContent: `<b style='color: red;'> Thuốc: ${data.TenThuoc}</b>`,
       nzOkText: 'Xóa',
       nzOkType: 'danger',
-      nzOnOk: () => this.delete(mathuoc),
+      nzOnOk: () => this.delete(data.MaThuoc),
       nzCancelText: 'Hủy',
     });
     // Return a result when closed

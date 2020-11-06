@@ -15,7 +15,7 @@ export class NhanvienDialogComponent implements OnInit {
   isConfirmLoading = false;
   isShowAddNhanVien = false;
   isSaveLoading = false;
-
+  dataSource: any = [];
   @Input() isAdd: boolean;
   @Input() nhanvienDto: NhanVienDTO;
 
@@ -94,13 +94,14 @@ export class NhanvienDialogComponent implements OnInit {
         if (response && response.Status) {
           this.message.create(TypeMessage.Success, 'Thêm nhân viên thành công!'
           );
+          this.loadNhanVienList();
         } else {
           this.message.create(TypeMessage.Error, 'Thêm nhân viên không thành công!'
           );
         }
         this.isConfirmLoading = false;
-        this.resetForm();
       });
+      this.resetForm();
     }
   }
 
@@ -110,7 +111,6 @@ export class NhanvienDialogComponent implements OnInit {
         if (response && response.Status) {
           this.message.create(TypeMessage.Success, 'Cập nhật nhân viên thành công!'
           );
-          console.log(this.nhanvienDto);
         } else {
           this.message.create(TypeMessage.Error, 'Cập nhật nhân viên không thành công!'
           );
@@ -120,4 +120,14 @@ export class NhanvienDialogComponent implements OnInit {
     }
   }
 
+ // get danh sach nhan vien
+ public loadNhanVienList(): any {
+  this.nhanvienService.getAll().subscribe(response => {
+    if (response && response.Status) {
+      this.dataSource = response.Data;
+      this.isConfirmLoading = false;
+     // console.log(this.dataSource);
+    }
+  });
+}
 }

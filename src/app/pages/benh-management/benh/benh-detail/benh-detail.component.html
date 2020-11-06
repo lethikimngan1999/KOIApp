@@ -23,7 +23,7 @@
                         <nz-timeline-item nzColor="red" nzPosition="right">{{selected.TenBenh}}</nz-timeline-item>
                         <nz-timeline-item nzColor="red" nzPosition="right">Nguyên nhân</nz-timeline-item>
                         <nz-timeline-item nzColor="red" nzPosition="left">
-                            <div [innerHtml]='selected.MoTa'></div>
+                            <div [innerHtml]='selected.NguyenNhan'></div>
                             <!-- {{selected.NguyenNhan}}-->
                         </nz-timeline-item>
                         <nz-timeline-item nzColor="green" nzPosition="right">Triệu chứng</nz-timeline-item>
@@ -54,7 +54,11 @@
                                 </a>
                             </div>
                         </nz-timeline-item>
-
+                        <nz-timeline-item nzColor="green" nzPosition="right">Hình ảnh minh họa</nz-timeline-item>
+                        <nz-timeline-item nzPosition="left" nzColor="green">
+                            <div [innerHtml]='selected.MoTa'></div>
+                            <!-- {{selected.CachDieuTri}} -->
+                        </nz-timeline-item>
 
                     </nz-timeline>
 

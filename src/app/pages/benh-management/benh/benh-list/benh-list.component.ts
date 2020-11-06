@@ -102,13 +102,13 @@ export class BenhListComponent implements OnInit {
     }
   }
 
-  public confirmDelete(mabenh: any) {
+  public confirmDelete(data: any) {
     const modalDelete = this.modalService.confirm({
       nzTitle: 'Bạn có chắc chắn xóa bệnh này?',
-      nzContent: `<b style='color: red;'> Mã bệnh: ${mabenh}</b>`,
+      nzContent: `<b style='color: red;'> Bệnh: ${data.TenBenh}</b>`,
       nzOkText: 'Xóa',
       nzOkType: 'danger',
-      nzOnOk: () => this.delete(mabenh),
+      nzOnOk: () => this.delete(data.MaBenh),
       nzCancelText: 'Hủy',
     });
     // Return a result when closed

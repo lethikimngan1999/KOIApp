@@ -84,13 +84,13 @@ ngOnInit() {
     });
   }
 
-  public confirmDelete(manhanvien: any) {
+  public confirmDelete(data: any) {
     const modalDelete = this.modalService.confirm({
       nzTitle: 'Bạn có chắc chắn xóa nhân viên này?',
-      nzContent: `<b style='color: red;'> Mã nhân viên: ${manhanvien}</b>`,
+      nzContent: `<b style='color: red;'> Tên nhân viên:${data.HoLot} ${data.TenNhanVien}</b>`,
       nzOkText: 'Xóa',
       nzOkType: 'danger',
-      nzOnOk: () => this.deleteNhanVien(manhanvien),
+      nzOnOk: () => this.deleteNhanVien(data.MaNhanVien),
       nzCancelText: 'Hủy',
     });
     // Return a result when closed
