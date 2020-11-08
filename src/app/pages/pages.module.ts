@@ -40,6 +40,8 @@ import { LieutrinhDialogComponent } from './benh-management/benh/lieutrinh-dialo
 import { TrieuchungDialogComponent } from './benh-management/benh/trieuchung-dialog/trieuchung-dialog.component';
 import { FilterPipe } from '../pipes/filter.pipe';
 import { SortPipe } from '../pipes/sort.pipe';
+import { BientheListComponent } from './bienthe-management/bienthe/bienthe-list/bienthe-list.component';
+import { BientheDialogComponent } from './bienthe-management/bienthe/bienthe-dialog/bienthe-dialog.component';
 
 
 
@@ -73,7 +75,9 @@ import { SortPipe } from '../pipes/sort.pipe';
     ThuocDialogComponent,
     ThuocDetailComponent,
     LieutrinhDialogComponent,
-    TrieuchungDialogComponent],
+    TrieuchungDialogComponent,
+    BientheListComponent,
+    BientheDialogComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -102,6 +106,7 @@ import { SortPipe } from '../pipes/sort.pipe';
     ChungloaiDetailComponent,
     ThuocOfbenhDialogComponent,
     BenhOfthuocDialogComponent,
+    BientheDialogComponent,
     UserResetPasswordComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

@@ -97,8 +97,8 @@ export class ChungloaiDialogComponent implements OnInit {
           );
         }
         this.isConfirmLoading = false;
-        this.resetForm();
       });
+      this.resetForm();
     }
   }
 

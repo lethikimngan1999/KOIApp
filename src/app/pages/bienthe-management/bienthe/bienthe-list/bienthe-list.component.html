@@ -1,0 +1,111 @@
+<nz-page-header>
+    <nz-page-header-title>{{pageTitle | uppercase}}</nz-page-header-title>
+    <nz-page-header-extra>
+        <!-- <input nz-input placeholder="Tìm theo tên hoặc CMND hoặc Sđt hoặc Email" [(ngModel)]="sName" type="text" /> -->
+        <!-- button create -->
+        <button nz-button nzType="primary" nzShape="round" class="btn-create" (click)="create()">
+  <i nz-icon nzType="plus"></i>Thêm biến thể
+</button>
+    </nz-page-header-extra>
+    <nz-page-header-content>
+        <!-- data table -->
+
+        <!-- <nz-table #groupingTable [nzData]="dataSource" nzBordered nzSize="middle" [nzScroll]="{ x: '1200px', y: '240px' }">
+            <thead>
+                <tr>
+                    <th rowspan="4" nzLeft>Name</th>
+                    <th colspan="4">Other</th>
+                    <th colspan="2">Company</th>
+                    <th rowspan="4" nzRight>Gender</th>
+                </tr>
+                <tr>
+                    <th rowspan="3">Age</th>
+                    <th colspan="3">Address</th>
+                    <th rowspan="3">Company Address</th>
+                    <th rowspan="3">Company Name</th>
+                </tr>
+                <tr>
+                    <th rowspan="2">Street</th>
+                    <th colspan="2">Block</th>
+                </tr>
+                <tr>
+                    <th>Building</th>
+                    <th>Door No.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of groupingTable.data">
+                    <td nzLeft>{{ data.TenBienThe }}</td>
+                    <td>{{ data.MauSac }}</td>
+                    <td>{{ data.TinhTrang }}</td>
+                    <td>{{ data.TenBienThe }}</td>
+                    <td>{{ data.TenBienThe }}</td>
+                    <td>{{ data.TenBienThe }}</td>
+                    <td>{{ data.TenBienThe }}</td>
+                    <td nzRight>{{ data.TinhTrang }}</td>
+                </tr>
+            </tbody>
+        </nz-table> -->
+
+        <nz-table #nzTable nzBordered [nzData]="dataSource" nzTableLayout="fixed" [nzLoading]="isConfirmLoading">
+            <thead>
+                <tr>
+                    <th nzWidth="20px">STT</th>
+
+                    <th nzWidth="120px">
+                        Tên biến thể
+                        <!-- <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu1">
+                            <i nz-icon nzType="search"></i>
+                        </nz-filter-trigger> -->
+                    </th>
+                    <th>Thuộc chủng loại</th>
+                    <th>Màu sắc</th>
+                    <th>Hình ảnh</th>
+                    <th>Tình trạng</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of nzTable.data ; index as i; ">
+                    <td>{{i+1}}</td>
+
+                    <td>{{ data.TenBienThe }}</td>
+                    <td>{{ data.ChungLoais.TenChungLoai }}</td>
+                    <td>{{ data.MauSac }}</td>
+                    <!-- <td><img [src]="data.Mahas" style="width: 100px" /></td> -->
+                    <td>
+                        <ng-container *ngIf="data.TinhTrang == true">
+                            <span class="active"><i nz-icon nzType="check-circle" nzTheme="outline"></i>Còn hàng</span>
+                        </ng-container>
+                        <ng-container *ngIf="data.TinhTrang == false">
+                            <span class="locked"><i nz-icon nzType="lock" nzTheme="outline"></i>Hết hàng</span>
+                        </ng-container>
+                    </td>
+                    <td>
+                        <button nz-button nzType="default" nzShape="round">
+                <i nz-icon nzType="eye"></i>Xem
+              </button>
+                        <button nz-button nzType="primary" nzShape="round" (click)="edit(data)">
+                <i nz-icon nzType="edit"></i>Sửa
+              </button>
+                        <button nz-button nzType="danger" nzShape="round">
+                <i nz-icon nzType="delete"></i>Xóa
+              </button>
+                    </td>
+                </tr>
+            </tbody>
+            <!-- <nz-dropdown-menu #menu1="nzDropdownMenu">
+                <div class="ant-table-filter-dropdown">
+                    <div class="search-box">
+                        <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+                        <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">
+                      Search
+                    </button>
+                        <button nz-button nzSize="small" (click)="reset()">Reset</button>
+                    </div>
+                </div>
+            </nz-dropdown-menu> -->
+        </nz-table>
+
+    </nz-page-header-content>
+</nz-page-header>

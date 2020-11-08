@@ -15,4 +15,17 @@ export class BientheService {
   public getAll(): Observable<BaseResponse<BienTheDTO>> {
       return this.baseSevice.get<BaseResponse<BienTheDTO[]>>('api/BienThe/GetAll');
   }
+
+
+  public getListAll(): Observable<BaseResponse<BienTheDTO>> {
+    return this.baseSevice.get<BaseResponse<BienTheDTO[]>>('api/BienThe/GetListAll');
+}
+
+  public create(data: BienTheDTO): Observable<BaseResponse<string>> {
+    return this.baseSevice.post<BaseResponse<string>>('api/BienThe', data);
+  }
+
+  public update(data: BienTheDTO): Observable<BaseResponse<string>> {
+    return this.baseSevice.put<BaseResponse<string>>('api/BienThe', data);
+  }
 }
