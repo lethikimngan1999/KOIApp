@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NzModalService } from 'ng-zorro-antd';
 import { BienTheDTO } from 'src/app/models/BienTheDTO';
+import { HinhAnhBienTheDTO } from 'src/app/models/HinhAnhBienTheDTO';
+import { UploadImgBTComponent } from 'src/app/pages/image-management/img-bienthe/upload-img-bt/upload-img-bt.component';
 import { BientheService } from 'src/app/shared/services/bienthe.service';
 import { BientheDialogComponent } from '../bienthe-dialog/bienthe-dialog.component';
+import { UploadDialogComponent } from '../upload-dialog/upload-dialog.component';
 
 interface DataItem {
   name: string;
@@ -86,4 +89,20 @@ export class BientheListComponent implements OnInit {
       return this.ngOnInit();
     });
   }
+
+  add(data: any) {
+    const modalCreate = this.modalService.create({
+      nzTitle: 'Thêm biến thể',
+      nzContent: UploadDialogComponent,
+      nzComponentParams: {
+        isAdd: true,
+        hinhanhDto: JSON.parse(JSON.stringify(data))
+      },
+      nzWidth: '1000',
+    });
+    // Return a result when closed
+    modalCreate.afterClose.subscribe(() => {
+      return this.ngOnInit();
+    });
+}
 }

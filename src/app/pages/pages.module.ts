@@ -42,6 +42,7 @@ import { FilterPipe } from '../pipes/filter.pipe';
 import { SortPipe } from '../pipes/sort.pipe';
 import { BientheListComponent } from './bienthe-management/bienthe/bienthe-list/bienthe-list.component';
 import { BientheDialogComponent } from './bienthe-management/bienthe/bienthe-dialog/bienthe-dialog.component';
+import { UploadDialogComponent } from './bienthe-management/bienthe/upload-dialog/upload-dialog.component';
 
 
 
@@ -77,7 +78,8 @@ import { BientheDialogComponent } from './bienthe-management/bienthe/bienthe-dia
     LieutrinhDialogComponent,
     TrieuchungDialogComponent,
     BientheListComponent,
-    BientheDialogComponent],
+    BientheDialogComponent,
+    UploadDialogComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -107,6 +109,7 @@ import { BientheDialogComponent } from './bienthe-management/bienthe/bienthe-dia
     ThuocOfbenhDialogComponent,
     BenhOfthuocDialogComponent,
     BientheDialogComponent,
+    UploadDialogComponent,
     UserResetPasswordComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

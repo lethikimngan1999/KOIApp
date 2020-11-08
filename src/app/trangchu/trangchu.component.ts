@@ -29,7 +29,7 @@ export class TrangchuComponent implements OnInit {
 
    // get danh sach 
    public loadList(): any {
-    this.bientheService.getAll().subscribe(response => {
+    this.bientheService.getListAll().subscribe(response => {
       if (response && response.Status) {
         this.dataSource = response.Data;
         //this.isConfirmLoading = false;

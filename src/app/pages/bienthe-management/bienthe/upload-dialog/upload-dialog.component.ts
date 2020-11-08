@@ -1,20 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzMessageService, NzModalRef, UploadFile } from 'ng-zorro-antd';
-import { Observable, Observer } from 'rxjs';
+import { Observer } from 'rxjs';
+import { Observable } from 'rxjs/internal/Observable';
 import { TypeMessage } from 'src/app/app.constant';
-import { BienTheDTO } from 'src/app/models/BienTheDTO';
 import { HinhAnhBienTheDTO } from 'src/app/models/HinhAnhBienTheDTO';
 import { BientheService } from 'src/app/shared/services/bienthe.service';
 import { HinhanhService } from 'src/app/shared/services/hinhanh.service';
 
 @Component({
-  selector: 'app-upload-img-bt',
-  templateUrl: './upload-img-bt.component.html',
-  styleUrls: ['./upload-img-bt.component.css']
+  selector: 'app-upload-dialog',
+  templateUrl: './upload-dialog.component.html',
+  styleUrls: ['./upload-dialog.component.css']
 })
-export class UploadImgBTComponent implements OnInit {
-
+export class UploadDialogComponent implements OnInit {
   isConfirmLoading = false;
   isShowAddEmployee = false;
   isSaveLoading = false;
@@ -45,7 +44,7 @@ export class UploadImgBTComponent implements OnInit {
     if (!this.isAdd) {
       this.avatarUrl = this.hinhanhDto.DuongDan;
     }
-    this.getBT();
+ //   this.getBT();
   }
 
 
@@ -53,7 +52,7 @@ export class UploadImgBTComponent implements OnInit {
     this.validateForm = this.fb.group({
       _ipText_lastName: ['', Validators.required],
       _rdo_gender: ['False', Validators.required],
-      _selectBox_employeePostition: ['', Validators.required],
+     
       _ipUpload_image: ['', ''],
     });
   }
@@ -105,22 +104,6 @@ export class UploadImgBTComponent implements OnInit {
     }
   }
 
-  //image
-  // seletedFile(event: any) {
-  //   if (event.target.files) {
-    
-  //     var reader = new FileReader();
-     
-  //     reader.readAsDataURL(event.target.files[0]);
-  //     reader.onload = (event: any) => {
-  //       this.avatarUrl = event.target.result;
-  //       this.hinhanhDto.DuongDan = this.avatarUrl;
-  //     };
-
-    
-  //   }
-  // }
- 
 
   public handleSubmitButton(): void {
     this.isSaveLoading = true;
@@ -178,7 +161,7 @@ export class UploadImgBTComponent implements OnInit {
   }
 
   private getBT(): any {
-    this.bientheService.getListAll().subscribe(response => {
+    this.bientheService.getAll().subscribe(response => {
       if (response && response.Status) {
         this.listBienThe = response.Data;
       }
