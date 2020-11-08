@@ -72,7 +72,8 @@
                     <td>{{ data.TenBienThe }}</td>
                     <td>{{ data.ChungLoais.TenChungLoai }}</td>
                     <td>{{ data.MauSac }}</td>
-                    <!-- <td><img [src]="data.Mahas" style="width: 100px" /></td> -->
+                    <td>
+                        <img [src]="data.Mahas" style="width: 100px" /></td>
                     <td>
                         <ng-container *ngIf="data.TinhTrang == true">
                             <span class="active"><i nz-icon nzType="check-circle" nzTheme="outline"></i>Còn hàng</span>
