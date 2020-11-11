@@ -1,0 +1,113 @@
+<!-- ##### Breadcrumb Area Start ##### -->
+<div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url('../../../assets/img/bg-img/silde2.jpg');">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="breadcrumb-text">
+                    <h2>Chi tiết</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="famie-breadcrumb">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i> Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Chi tiết</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- ##### Breadcrumb Area End ##### -->
+
+
+<!-- ##### About Us Area Start ##### -->
+<section class="about-us-area">
+    <div class="container">
+        <div class="row align-items-center" *ngIf="has">
+
+            <!-- About Us Thumbnail -->
+            <div class="col-12 col-lg-6">
+                <div class="about-us-thumbnail mb-100">
+
+                    <img [src]="selected.Mahas" style="width: 263px; height: 261px;" alt="" />
+                </div>
+            </div>
+
+            <!-- About Us Content -->
+            <div class="col-12 col-lg-6">
+                <div class="about-us-content mb-100">
+                    <!-- Section Heading -->
+                    <div class="section-heading">
+                        <p>Thông tin chi tiết</p>
+                        <!-- <h2><span>Farming Practices</span> &amp; Methods</h2> -->
+                        <h2><span>{{selected.TenBienThe}}</span> </h2>
+                        <p [innerHtml]='selected.MoTa'></p>
+                        <h6>Thuộc chủng loại: {{selected.ChungLoais.TenChungLoai}}</h6>
+                        <h6>Loại: {{selected.Giongs.TenGiong}}</h6>
+                        <h6>Chất lượng: {{selected.ChatLuongs.TenChatLuong}}</h6>
+                        <!-- <img [src]="selected.Mahas" alt=""> -->
+                    </div>
+                    <p [innerHtml]='selected.MoTa'></p>
+                    <!-- <a href="#" class="btn famie-btn mt-30">Read More</a> -->
+                </div>
+            </div>
+
+        </div>
+        <div class="row align-items-center" *ngIf="has">
+            <nz-tabset>
+
+                <nz-tab nzTitle="Mô tả">
+                    <div class="wrap">
+                        <div class="content">
+                            <div nz-row>
+                                <div [innerHtml]='selected.ChungLoais.MoTa'></div>
+                            </div>
+                        </div>
+                    </div>
+                </nz-tab>
+                <nz-tab nzTitle="Thông tin bổ sung">
+                    <div class="wrap">
+                        <div class="content">
+                            <div nz-row>
+                                <nz-table nzBordered>
+                                    <tbody>
+
+                                        <tr>
+                                            <td>Loại</td>
+                                            <td>{{selected.Giongs.TenGiong}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Giống cá Koi</td>
+                                            <td>{{selected.ChungLoais.TenChungLoai}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Màu sắc</td>
+                                            <td>{{selected.ChungLoais.MauSac}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Quốc gia</td>
+                                            <td>Nhật bản, Việt Nam </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Size</td>
+                                            <td>> 15 cm, > 20 cm, > 50 cm,
+                                                <15 cm, 15 – 18 cm, 15 – 25 cm, 18 – 20 cm, 20 – 30 cm, 20 cm, 25 cm, 30 cm, 35 cm, 40 cm, 45 cm, 50 cm,> 60 cm, 10 – 15 cm, 10 – 65 cm, 15 – 20 cm, 20 – 25 cm, 25 – 30 cm, 30 – 35 cm, 35 – 40 cm, 40 – 45 cm, 45 – 50 cm, 50 – 60 cm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Chất lượng</td>
+                                            <td>{{selected.ChatLuongs.TenChatLuong}} </td>
+                                        </tr>
+                                    </tbody>
+                                </nz-table>
+                            </div>
+                        </div>
+                    </div>
+
+                </nz-tab>
+            </nz-tabset>
+        </div>
+    </div>
+</section>

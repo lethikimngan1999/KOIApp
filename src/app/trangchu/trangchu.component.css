@@ -91,6 +91,31 @@ img {
     max-width: 100%;
 }
 
+.search-widget-form {
+    position: relative;
+    z-index: 1;
+}
+
+.search-widget-form .form-control {
+    padding: 0 15px;
+    margin-bottom: 0;
+}
+
+.search-widget-form button {
+    position: absolute;
+    width: auto;
+    height: 48px;
+    line-height: 50px;
+    top: 0;
+    right: 15px;
+    border: none;
+    font-size: 18px;
+    color: #707070;
+    z-index: 99;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 input:focus,
 select:focus,
 button:focus,

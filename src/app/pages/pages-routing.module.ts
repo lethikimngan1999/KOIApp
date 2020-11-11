@@ -10,6 +10,7 @@ import { BenhDetailComponent } from './benh-management/benh/benh-detail/benh-det
 import { BenhListComponent } from './benh-management/benh/benh-list/benh-list.component';
 import { ThuocDetailComponent } from './benh-management/thuoc/thuoc-detail/thuoc-detail.component';
 import { ThuocListComponent } from './benh-management/thuoc/thuoc-list/thuoc-list.component';
+import { BientheDetailComponent } from './bienthe-management/bienthe/bienthe-detail/bienthe-detail.component';
 import { BientheListComponent } from './bienthe-management/bienthe/bienthe-list/bienthe-list.component';
 
 import { ChungloaiDetailComponent } from './bienthe-management/chungloai/chungloai-detail/chungloai-detail.component';
@@ -72,7 +73,10 @@ const routes: Routes = [
         path: 'bien-the',
         component: BientheListComponent
       },
-
+      {
+        path: 'bien-the/chitiet',
+        component: BientheDetailComponent
+      },
     ]
   }
 ];

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NzModalService } from 'ng-zorro-antd';
+import { Router } from '@angular/router';
+import { NzMessageService, NzModalService } from 'ng-zorro-antd';
+import { TypeMessage } from 'src/app/app.constant';
 import { BienTheDTO } from 'src/app/models/BienTheDTO';
 import { HinhAnhBienTheDTO } from 'src/app/models/HinhAnhBienTheDTO';
 import { UploadImgBTComponent } from 'src/app/pages/image-management/img-bienthe/upload-img-bt/upload-img-bt.component';
@@ -28,6 +30,8 @@ export class BientheListComponent implements OnInit {
   isConfirmLoading = false;
 
   constructor(public bienTheService: BientheService,
+              public router: Router,
+              private message: NzMessageService,
               private modalService: NzModalService) { }
 
   ngOnInit(): void {
@@ -88,6 +92,19 @@ export class BientheListComponent implements OnInit {
     modalEdit.afterClose.subscribe(() => {
       return this.ngOnInit();
     });
+  }
+
+  public view(mabienthe: any) {
+    this.navigateDetail(mabienthe);
+  }
+
+  private navigateDetail(mabienthe: any) {
+    if (mabienthe) {
+      // chuyen sang màn hình chi tiết nhan vien
+      this.router.navigate(['admin/bien-the/chitiet/'], { queryParams: { mabienthe: mabienthe } });
+    } else {
+      this.message.create(TypeMessage.Error, 'Có lỗi xảy ra!');
+    }
   }
 
   add(data: any) {

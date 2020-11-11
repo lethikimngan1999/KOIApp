@@ -1,6 +1,7 @@
 <nz-page-header>
     <nz-page-header-title>{{pageTitle | uppercase}}</nz-page-header-title>
     <nz-page-header-extra>
+
         <!-- <input nz-input placeholder="Tìm theo tên hoặc CMND hoặc Sđt hoặc Email" [(ngModel)]="sName" type="text" /> -->
         <!-- button create -->
         <button nz-button nzType="primary" nzShape="round" class="btn-create" (click)="create()">
@@ -61,7 +62,7 @@
                     <th>Thuộc chủng loại</th>
                     <th>Màu sắc</th>
                     <th>Hình ảnh</th>
-                    <th>Tình trạng</th>
+                    <!-- <th>Tình trạng</th> -->
                     <th></th>
                 </tr>
             </thead>
@@ -86,7 +87,7 @@
                         <button nz-button nzType="default" nzShape="round" (click)="add(data)">
                             <i nz-icon nzType="plus"></i>Ảnh hiển thị
                           </button>
-                        <button nz-button nzType="default" nzShape="round">
+                        <button nz-button nzType="default" nzShape="round" (click)="view(data.MaBienThe)">
                 <i nz-icon nzType="eye"></i>Xem
               </button>
                         <button nz-button nzType="primary" nzShape="round" (click)="edit(data)">

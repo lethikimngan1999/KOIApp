@@ -132,10 +132,10 @@ export class UploadDialogComponent implements OnInit {
       this.hinhanhService.create(this.hinhanhDto).subscribe(response => {
 
         if (response && response.Status) {
-          this.message.create(TypeMessage.Success, 'Thêm nhân viên thành công!'
+          this.message.create(TypeMessage.Success, 'Thêm thành công!'
           );
         } else {
-          this.message.create(TypeMessage.Error, 'Thêm nhân viên không thành công!'
+          this.message.create(TypeMessage.Error, 'Thêm không thành công!'
           );
         }
         this.isConfirmLoading = false;
@@ -148,11 +148,11 @@ export class UploadDialogComponent implements OnInit {
     if (this.hinhanhDto) {
       this.hinhanhService.update(this.hinhanhDto).subscribe(response => {
         if (response && response.Status) {
-          this.message.create(TypeMessage.Success, 'Cập nhật nhân viên thành công!'
+          this.message.create(TypeMessage.Success, 'Cập nhật thành công!'
           );
           console.log(this.hinhanhDto);
         } else {
-          this.message.create(TypeMessage.Error, 'Cập nhật nhân viên không thành công!'
+          this.message.create(TypeMessage.Error, 'Cập nhật không thành công!'
           );
         }
         this.isConfirmLoading = false;
