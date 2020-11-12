@@ -13,7 +13,7 @@
 
 
         <!-- data table -->
-        <nz-table #Table [nzData]="dataSource" [nzLoading]="isConfirmLoading">
+        <nz-table #Table nzBordered [nzData]="dataSource" [nzLoading]="isConfirmLoading">
             <thead>
                 <tr>
                     <th>STT</th>
@@ -34,7 +34,11 @@
                     <td>
                         <ul>
                             <ng-container *ngFor="let item of data.ListBenhs">
-                                <li>{{item.TenBenh}} </li>
+                                <a (click)="viewBenh(item.MaBenh)">
+                                    <li> {{item.TenBenh}}</li>
+                                </a>
+
+
                             </ng-container>
                         </ul>
                     </td>

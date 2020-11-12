@@ -1,5 +1,5 @@
 <nz-page-header>
-    <nz-page-header-title>{{pageTitle}} {{selected.TenThuoc}}</nz-page-header-title>
+    <nz-page-header-title>{{pageTitle}}</nz-page-header-title>
     <nz-page-header-extra>
 
         <button nz-button nzType="default" nzShape="round" [routerLink]="'/admin/cac-loai-thuoc'">
@@ -11,7 +11,47 @@
     </nz-page-header-extra>
     <!--content-->
     <nz-page-header-content *ngIf="hasThuoc">
-        <div class="wrap">
+        <nz-tabset>
+            <nz-tab nzTitle="Chi tiết">
+                <div class="wrap">
+                    <div class="content">
+                        <div nz-row>
+                            <div nz-col [nzSpan]="18" [nzPush]="6">
+                                <h5>{{selected.TenThuoc}}</h5>
+                                <h6>Công dụng:
+                                    <p [innerHtml]='selected.CongDung'></p>
+                                </h6>
+
+                                <h6>Cách dùng:
+                                    <p [innerHtml]='selected.CachDung'></p>
+                                </h6>
+                                <h6>Lưu ý:
+                                    <p [innerHtml]='selected.LuuY'></p>
+                                </h6>
+                            </div>
+                            <div nz-col [nzSpan]="6" [nzPull]="18">
+                                <img [src]="selected.HinhAnh" style="width: 200px" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </nz-tab>
+
+
+            <nz-tab nzTitle="Liệu trình">
+                <div class="wrap">
+                    <div class="content">
+                        <div nz-row>
+
+                        </div>
+                    </div>
+                </div>
+
+            </nz-tab>
+        </nz-tabset>
+    </nz-page-header-content>
+    <!-- <div class="wrap">
             <div class="content">
                 <div class="content" style="margin-left: -680px;">
                     <nz-timeline nzMode="alternate">
@@ -22,11 +62,7 @@
                         </nz-timeline-item>
 
 
-                        <nz-timeline-item nzColor="green" nzPosition="right">Công dụng</nz-timeline-item>
-                        <nz-timeline-item nzPosition="left" nzColor="green">
-                            <div [innerHtml]='selected.CongDung'></div>
-                        </nz-timeline-item>
-
+                      
                         <nz-timeline-item nzColor="green" nzPosition="right">Cách dùng</nz-timeline-item>
                         <nz-timeline-item nzPosition="left" nzColor="green">
                             <div [innerHtml]='selected.CachDung'></div>
@@ -44,9 +80,9 @@
 
                         <nz-timeline-item nzColor="green" nzPosition="right">Hình ảnh</nz-timeline-item>
                         <nz-timeline-item nzPosition="left" nzColor="green">
-                            <img [src]="selected.HinhAnh" style="width: 200px" />
-                            <!-- <div [innerHtml]='selected.LuuY'></div> -->
-                        </nz-timeline-item>
+                            <img [src]="selected.HinhAnh" style="width: 200px" />-->
+    <!-- <div [innerHtml]='selected.LuuY'></div> -->
+    <!-- </nz-timeline-item>
 
                     </nz-timeline>
 
@@ -57,5 +93,5 @@
                 </div>
             </div>
         </div>
-    </nz-page-header-content>
+    </nz-page-header-content> -->
 </nz-page-header>

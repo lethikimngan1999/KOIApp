@@ -19,7 +19,7 @@ export class BenhDetailComponent implements OnInit {
 
 
   
-  pageTitle = 'Chi tiết ';
+  pageTitle = 'Thông tin chi tiết ';
   selected: any = [];
   hasBenh: any = false;
   hasLieuTrinh: any = false;
@@ -62,21 +62,21 @@ export class BenhDetailComponent implements OnInit {
     });
   }
 
-  createLieuTrinh(data: any): void {
-    const modalCreate = this.modalService.create({
-      nzTitle: 'Thêm liệu trình',
-      nzContent: LieutrinhDialogComponent,
-      nzComponentParams: {
-        isAddlt: true,
-        lieutrinhDto: JSON.parse(JSON.stringify(data))
-      },
-      nzWidth: '1000',
-    });
-    // Return a result when closed
-    modalCreate.afterClose.subscribe(() => {
-      return this.ngOnInit();
-    });
-  }
+  // createLieuTrinh(data: any): void {
+  //   const modalCreate = this.modalService.create({
+  //     nzTitle: 'Thêm liệu trình',
+  //     nzContent: LieutrinhDialogComponent,
+  //     nzComponentParams: {
+  //       isAddlt: true,
+  //       lieutrinhDto: JSON.parse(JSON.stringify(data))
+  //     },
+  //     nzWidth: '1000',
+  //   });
+  //   // Return a result when closed
+  //   modalCreate.afterClose.subscribe(() => {
+  //     return this.ngOnInit();
+  //   });
+  // }
 
   createTrieuChung(data: any): void {
     const modalCreate = this.modalService.create({
@@ -125,35 +125,35 @@ export class BenhDetailComponent implements OnInit {
   }
 
 
-  public confirmDeleteLieuTrinh(data: any) {
-    const modalDelete = this.modalService.confirm({
-      nzTitle: 'Bạn có chắc chắn xóa liệu trình này?',
-      nzContent: `<b style='color: red;'> Thông tin:${data.MoTaLieuTrinh} </b>`,
-      nzOkText: 'Xóa',
-      nzOkType: 'danger',
-      nzOnOk: () => this.deleteLieuTrinh(data.MaLieuTrinh),
-      nzCancelText: 'Hủy',
-    });
-    // Return a result when closed
-    modalDelete.afterClose.subscribe(() => {
-      return this.ngOnInit();
-    });
-  }
+  // public confirmDeleteLieuTrinh(data: any) {
+  //   const modalDelete = this.modalService.confirm({
+  //     nzTitle: 'Bạn có chắc chắn xóa liệu trình này?',
+  //     nzContent: `<b style='color: red;'> Thông tin:${data.MoTaLieuTrinh} </b>`,
+  //     nzOkText: 'Xóa',
+  //     nzOkType: 'danger',
+  //     nzOnOk: () => this.deleteLieuTrinh(data.MaLieuTrinh),
+  //     nzCancelText: 'Hủy',
+  //   });
+  //   // Return a result when closed
+  //   modalDelete.afterClose.subscribe(() => {
+  //     return this.ngOnInit();
+  //   });
+  // }
 
 /**
 * delete data
 */
-private deleteLieuTrinh(malieutrinh: any) {
-  const param: any = { malieutrinh: malieutrinh };
-  this.lieutrinhService.delete(param).subscribe(response => {
-    if (response.Status === true) {
-      this.message.create(TypeMessage.Success, 'Xóa thành công!');
+// private deleteLieuTrinh(malieutrinh: any) {
+//   const param: any = { malieutrinh: malieutrinh };
+//   this.lieutrinhService.delete(param).subscribe(response => {
+//     if (response.Status === true) {
+//       this.message.create(TypeMessage.Success, 'Xóa thành công!');
    
-    } else {
-      this.message.create(TypeMessage.Error, 'Xóa không thành công!');
-    }
-  });
-  }
+//     } else {
+//       this.message.create(TypeMessage.Error, 'Xóa không thành công!');
+//     }
+//   });
+//   }
 
   /**
  * delete data

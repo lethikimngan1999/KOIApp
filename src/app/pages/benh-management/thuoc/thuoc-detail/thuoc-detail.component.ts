@@ -11,8 +11,8 @@ import { ThuocDialogComponent } from '../thuoc-dialog/thuoc-dialog.component';
 })
 export class ThuocDetailComponent implements OnInit {
 
-   
-  pageTitle = 'Chi tiết thuốc';
+
+  pageTitle = 'Thông tin chi tiết';
   selected: any = [];
   hasThuoc: any = false;
 

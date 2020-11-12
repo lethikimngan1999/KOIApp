@@ -12,7 +12,7 @@
     <nz-page-header-content>
 
         <!-- data table -->
-        <nz-table #Table [nzData]="dataSource" [nzLoading]="isConfirmLoading">
+        <nz-table #Table nzBordered [nzData]="dataSource" [nzLoading]="isConfirmLoading">
             <thead>
                 <tr>
                     <th>STT</th>
@@ -29,7 +29,9 @@
                     <td>
                         <ul>
                             <ng-container *ngFor="let item of data.ListThuocs">
-                                <li>{{item.TenThuoc}} </li>
+                                <a (click)="viewThuoc(item.MaThuoc)">
+                                    <li>{{item.TenThuoc}} </li>
+                                </a>
                             </ng-container>
                         </ul>
                     </td>

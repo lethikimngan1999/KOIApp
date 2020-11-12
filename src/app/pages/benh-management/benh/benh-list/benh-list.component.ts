@@ -102,6 +102,21 @@ export class BenhListComponent implements OnInit {
     }
   }
 
+  // xem chi tiết 
+  public viewThuoc(mathuoc: any) {
+    this.navigateDetailThuoc(mathuoc);
+  }
+
+  private navigateDetailThuoc(mathuoc: any) {
+    if (mathuoc) {
+      // chuyen sang màn hình chi tiết 
+      this.router.navigate(['admin/cac-loai-thuoc/chitiet/'], { queryParams: { mathuoc: mathuoc } });
+    } else {
+      this.message.create(TypeMessage.Error, 'Có lỗi xảy ra!');
+    }
+  }
+
+
   public confirmDelete(data: any) {
     const modalDelete = this.modalService.confirm({
       nzTitle: 'Bạn có chắc chắn xóa bệnh này?',

@@ -1,0 +1,32 @@
+/* unvisited link */
+
+a {
+    font-family: unset !important;
+    font-weight: normal;
+}
+
+a:link {
+    color: #1890ff !important;
+}
+
+
+/* visited link */
+
+a:visited {
+    color: #1890ff !important;
+}
+
+
+/* mouse over link */
+
+a:hover {
+    color: #1890ff !important;
+    text-decoration: underline !important;
+}
+
+
+/* selected link */
+
+a:active {
+    color: #1890ff !important;
+}

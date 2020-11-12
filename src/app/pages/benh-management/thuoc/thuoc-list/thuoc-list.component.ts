@@ -130,4 +130,19 @@ private delete(mathuoc: any) {
   });
 }
 
+// xem chi tiết 
+public viewBenh(mabenh: any) {
+  this.navigateDetailBenh(mabenh);
+}
+
+private navigateDetailBenh(mabenh: any) {
+  if (mabenh) {
+    // chuyen sang màn hình chi tiết 
+    this.router.navigate(['admin/cac-loai-benh/chitiet/'], { queryParams: { mabenh: mabenh } });
+  } else {
+    this.message.create(TypeMessage.Error, 'Có lỗi xảy ra!');
+  }
+}
+
+
 }

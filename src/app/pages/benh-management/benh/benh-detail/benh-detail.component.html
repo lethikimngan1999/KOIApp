@@ -1,12 +1,12 @@
 <nz-page-header>
-    <nz-page-header-title>{{pageTitle}} {{selected.TenBenh}}</nz-page-header-title>
+    <nz-page-header-title>{{pageTitle}}</nz-page-header-title>
     <nz-page-header-extra>
         <button nz-button nzType="primary" nzShape="round" (click)="createTrieuChung(selected)">
             <i nz-icon nzType="plus"></i>Thêm triệu chứng
           </button>
-        <button nz-button nzType="primary" nzShape="round" (click)="createLieuTrinh(selected)">
+        <!-- <button nz-button nzType="primary" nzShape="round" (click)="createLieuTrinh(selected)">
             <i nz-icon nzType="plus"></i>Thêm liệu trình
-          </button>
+          </button> -->
         <button nz-button nzType="default" nzShape="round" [routerLink]="'/admin/cac-loai-benh'">
         <i nz-icon nzType="arrow-left"></i>Quay lại danh sách
       </button>
@@ -16,6 +16,50 @@
     </nz-page-header-extra>
     <!--content-->
     <nz-page-header-content *ngIf="hasBenh">
+        <nz-tabset>
+            <nz-tab nzTitle="Chi tiết">
+                <div class="wrap">
+                    <div class="content">
+                        <div nz-row>
+
+                        </div>
+
+                    </div>
+                </div>
+            </nz-tab>
+            <nz-tab nzTitle="Nguyên nhân">
+                <div class="wrap">
+                    <div class="content">
+                        <div nz-row>
+                            <!-- <div [innerHtml]='selected.ChungLoais.MoTa'></div> -->
+                        </div>
+                    </div>
+                </div>
+            </nz-tab>
+            <nz-tab nzTitle="Triệu chứng">
+                <div class="wrap">
+                    <div class="content">
+                        <div nz-row>
+
+                        </div>
+                    </div>
+                </div>
+
+            </nz-tab>
+            <nz-tab nzTitle="Liệu trình">
+                <div class="wrap">
+                    <div class="content">
+                        <div nz-row>
+
+                        </div>
+                    </div>
+                </div>
+
+            </nz-tab>
+        </nz-tabset>
+    </nz-page-header-content>
+
+    <!-- <nz-page-header-content *ngIf="hasBenh">
         <div class="wrap">
             <div class="content">
                 <div class="content" style="margin-left: -680px;">
@@ -23,9 +67,9 @@
                         <nz-timeline-item nzColor="red" nzPosition="right">{{selected.TenBenh}}</nz-timeline-item>
                         <nz-timeline-item nzColor="red" nzPosition="right">Nguyên nhân</nz-timeline-item>
                         <nz-timeline-item nzColor="red" nzPosition="left">
-                            <div [innerHtml]='selected.NguyenNhan'></div>
-                            <!-- {{selected.NguyenNhan}}-->
-                        </nz-timeline-item>
+                            <div [innerHtml]='selected.NguyenNhan'></div> -->
+    <!-- {{selected.NguyenNhan}}-->
+    <!-- </nz-timeline-item>
                         <nz-timeline-item nzColor="green" nzPosition="right">Triệu chứng</nz-timeline-item>
                         <nz-timeline-item nzPosition="left" nzColor="green">
                             <div *ngFor="let item1 of selected?.ListTrieuChungs">
@@ -53,13 +97,13 @@
                         </nz-timeline-item>
                         <nz-timeline-item nzColor="green" nzPosition="right">Cách điều trị</nz-timeline-item>
                         <nz-timeline-item nzPosition="left" nzColor="green">
-                            <div [innerHtml]='selected.CachDieuTri'></div>
-                            <!-- {{selected.CachDieuTri}} -->
-                        </nz-timeline-item>
-                        <!-- <nz-timeline-item nzColor="green" nzPosition="right">Mô tả</nz-timeline-item>
+                            <div [innerHtml]='selected.CachDieuTri'></div> -->
+    <!-- {{selected.CachDieuTri}} -->
+    <!-- </nz-timeline-item> -->
+    <!-- <nz-timeline-item nzColor="green" nzPosition="right">Mô tả</nz-timeline-item>
                         <nz-timeline-item nzPosition="left" nzColor="green">{{selected.MoTa}}</nz-timeline-item> -->
-                        <nz-timeline-item nzColor="green" nzPosition="right">Liệu trình điều trị</nz-timeline-item>
-                        <nz-timeline-item nzPosition="left" nzColor="green">
+    <!-- <nz-timeline-item nzColor="green" nzPosition="right">Liệu trình điều trị</nz-timeline-item> -->
+    <!-- <nz-timeline-item nzPosition="left" nzColor="green">
                             <div *ngFor="let item of selected?.ListLieuTrinhs">
                                 <li [innerHtml]='item.MoTaLieuTrinh'></li>
                                 <ul>
@@ -78,12 +122,12 @@
 
 
                             </div>
-                        </nz-timeline-item>
-                        <nz-timeline-item nzColor="green" nzPosition="right">Hình ảnh minh họa</nz-timeline-item>
+                        </nz-timeline-item> -->
+    <!-- <nz-timeline-item nzColor="green" nzPosition="right">Hình ảnh minh họa</nz-timeline-item>
                         <nz-timeline-item nzPosition="left" nzColor="green">
-                            <div [innerHtml]='selected.MoTa'></div>
-                            <!-- {{selected.CachDieuTri}} -->
-                        </nz-timeline-item>
+                            <div [innerHtml]='selected.MoTa'></div> -->
+    <!-- {{selected.CachDieuTri}} -->
+    <!-- </nz-timeline-item>
 
                     </nz-timeline>
 
@@ -92,6 +136,6 @@
                     </ng-template>
                 </div>
             </div>
-        </div>
-    </nz-page-header-content>
+        </div> -->
+
 </nz-page-header>
