@@ -8,6 +8,7 @@ export class  BenhDTO {
     NguyenNhan: string;
     CachDieuTri: string;
     MoTa: string;
+    HinhAnh: string;
     ListThuocs: ThuocDTO[];
     MaThuocs: string[];
    

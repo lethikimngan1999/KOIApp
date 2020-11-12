@@ -21,7 +21,22 @@
                 <div class="wrap">
                     <div class="content">
                         <div nz-row>
+                            <div nz-col [nzSpan]="18" [nzPush]="6">
+                                <h5>{{selected.TenBenh}}</h5>
+                                <!-- <h6>Công dụng:
+                                    <p [innerHtml]='selected.CongDung'></p>
+                                </h6>
 
+                                <h6>Cách dùng:
+                                    <p [innerHtml]='selected.CachDung'></p>
+                                </h6>
+                                <h6>Lưu ý:
+                                    <p [innerHtml]='selected.LuuY'></p>
+                                </h6> -->
+                            </div>
+                            <div nz-col [nzSpan]="6" [nzPull]="18">
+                                <img [src]="selected.HinhAnh" style="width: 200px" />
+                            </div>
                         </div>
 
                     </div>
