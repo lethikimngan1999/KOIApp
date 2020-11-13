@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { SanphamComponent } from './sanpham/sanpham.component';
+import { SanphamOfChungloaiComponent } from './sanpham/sanpham-of-chungloai/sanpham-of-chungloai.component';
 
 
 const routes: Routes = [
@@ -18,9 +19,13 @@ const routes: Routes = [
         path: 'lienhe',
         component: LienheComponent
       },
+      // {
+      //   path: 'san-pham/chitiet',
+      //   component: ProductDetailComponent
+      // },
       {
-        path: 'san-pham/chitiet',
-        component: ProductDetailComponent
+        path: 'san-pham/bienthe',
+        component: SanphamOfChungloaiComponent
       },
       {
         path: 'san-pham',

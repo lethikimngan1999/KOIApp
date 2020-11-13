@@ -26,6 +26,11 @@ export class BientheService {
     return this.baseSevice.get<BaseResponse<BienTheDTO[]>>('api/BienThe/GetListAll');
 }
 
+public GetListOfChungLoai(machungloai: string): Observable<BaseResponse<BienTheDTO>> {
+  const httpParams = new HttpParams().set('machungloai', machungloai);
+  return this.baseSevice.get<BaseResponse<BienTheDTO[]>>('api/BienThe/GetListOfChungLoai', httpParams);
+}
+
   public create(data: BienTheDTO): Observable<BaseResponse<string>> {
     return this.baseSevice.post<BaseResponse<string>>('api/BienThe', data);
   }

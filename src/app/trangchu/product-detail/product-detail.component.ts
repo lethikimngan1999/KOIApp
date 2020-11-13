@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BienTheDTO } from 'src/app/models/BienTheDTO';
 import { BientheService } from 'src/app/shared/services/bienthe.service';
 
 @Component({
@@ -11,23 +12,32 @@ export class ProductDetailComponent implements OnInit {
 
   selected: any = [];
   has: any = false;
-
+  @Input() mabienthe: any;
+  
   constructor(private bientheService: BientheService,
     public activatedRoute: ActivatedRoute,) { }
 
   ngOnInit() {
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.getDetail(params.mabienthe);
-    });
+    // this.activatedRoute.queryParams.subscribe(params => {
+    //   this.getDetail(params.mabienthe);
+    // });
+    this.getDetail(this.mabienthe);
   }
   public getDetail(mabienthe: string) {
     this.bientheService.getDetail(mabienthe).subscribe(response => {
       if (response.Status === true) {
         this.selected = response.Data;
-        this.has = true;
+       // this.has = true;
       }
-      console.log(this.selected);
+      //console.log(this.selected);
     });
   }
-
+  // private getThuocs(): any {
+  //   this.thuocService.getAll().subscribe(response => {
+  //     if (response && response.Status) {
+  //       this.listThuoc = JSON.parse(JSON.stringify(response.Data));
+  //       this.modelRoleModal = JSON.parse(JSON.stringify(response.Data));
+  //     }
+  //   });
+  // }
 }
