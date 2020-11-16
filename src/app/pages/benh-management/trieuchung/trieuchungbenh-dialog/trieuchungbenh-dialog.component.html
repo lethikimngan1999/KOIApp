@@ -5,7 +5,7 @@
                 <nz-form-label nzRequired>Tên bệnh</nz-form-label>
                 <nz-form-control>
                     <nz-select [nzMaxTagCount]="4" nzMode="multiple" [nzMaxTagPlaceholder]="tagPlaceHolder" nzPlaceHolder="Please select" [(ngModel)]="maBenhs" formControlName="_selectBox_benh" Vui lòng chọn thuốc điều trị bệnh>
-                        <ng-container *ngFor="let option of modelRoleModal">
+                        <ng-container *ngFor="let option of modelModal">
                             <nz-option [nzLabel]="option.TenBenh" [nzValue]="option.MaBenh"></nz-option>
                         </ng-container>
                     </nz-select>

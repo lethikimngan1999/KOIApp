@@ -40,6 +40,21 @@
                 <input type="file" (change)="seletedFile($event)" /> -->
             </nz-form-item>
         </div>
+
+        <div nz-col [nzSpan]="12" *ngIf="isAdd">
+            <nz-form-item>
+                <nz-form-label nzRequired>Triệu chứng</nz-form-label>
+                <nz-form-control>
+                    <nz-select [nzMaxTagCount]="3" nzMode="multiple" [nzMaxTagPlaceholder]="tagPlaceHolder" nzPlaceHolder="Please select" [(ngModel)]="benhDto.MaTrieuChungs" formControlName="_selectBox_trieuchung" nzHasFeedback nzErrorTip="Vui lòng chọn triệu chứng!">
+                        <ng-container *ngFor="let option of modelTrieuChungModal">
+                            <nz-option [nzLabel]="option.TenTrieuChung" [nzValue]="option.MaTrieuChung"></nz-option>
+                        </ng-container>
+                    </nz-select>
+                    <ng-template #tagPlaceHolder let-selectedList> and {{ selectedList.length }} more selected </ng-template>
+
+                </nz-form-control>
+            </nz-form-item>
+        </div>
     </div>
 
     <div nz-row [nzGutter]="24">

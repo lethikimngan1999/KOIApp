@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzMessageService, NzModalRef } from 'ng-zorro-antd';
 import { TypeMessage } from 'src/app/app.constant';
+import { BenhDTO } from 'src/app/models/BenhDTO';
 import { TrieuChungDTO } from 'src/app/models/TrieuChungDTO';
 import { BenhService } from 'src/app/shared/services/benh.service';
 
@@ -20,7 +21,9 @@ export class TrieuchungDialogComponent implements OnInit {
   validateForm: FormGroup;
 
   selected: any = [];
-
+  listBenh: BenhDTO[] = [];
+  modelbenhModal: any = [];
+  
   constructor(
     private benhService: BenhService,
     private message: NzMessageService,
@@ -30,12 +33,14 @@ export class TrieuchungDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.initFormValidate();
+    this.getBenhs();
   }
 
   private initFormValidate(): void {
     this.validateForm = this.fb.group({
-    //  _ipText_Tentrieuchung:  ['', Validators.required],
-      _ipTextarea_MoTa: ['', Validators.required],
+      _ipText_Tentrieuchung:  ['', Validators.required],
+      _selectBox_benh: [''],
+     // _ipTextarea_MoTa: ['', Validators.required],
     });
   }
 
@@ -86,8 +91,9 @@ export class TrieuchungDialogComponent implements OnInit {
           );
         }
         this.isConfirmLoading = false;
-        this.resetForm();
+        
       });
+      this.resetForm();
     }
   }
 
@@ -107,4 +113,15 @@ export class TrieuchungDialogComponent implements OnInit {
       });
     }
   }
+
+  
+  private getBenhs(): any {
+    this.benhService.getAll().subscribe(response => {
+      if (response && response.Status) {
+        this.listBenh = JSON.parse(JSON.stringify(response.Data));
+        this.modelbenhModal = JSON.parse(JSON.stringify(response.Data));
+      }
+    });
+  }
+
 }

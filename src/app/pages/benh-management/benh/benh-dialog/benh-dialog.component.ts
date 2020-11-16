@@ -6,8 +6,10 @@ import { Observer } from 'rxjs/internal/types';
 import { TypeMessage } from 'src/app/app.constant';
 import { BenhDTO } from 'src/app/models/BenhDTO';
 import { ThuocDTO } from 'src/app/models/ThuocDTO';
+import { TrieuChungDTO } from 'src/app/models/TrieuChungDTO';
 import { BenhService } from 'src/app/shared/services/benh.service';
 import { ThuocService } from 'src/app/shared/services/thuoc.service';
+import { TrieuchungService } from 'src/app/shared/services/trieuchung.service';
 
 @Component({
   selector: 'app-benh-dialog',
@@ -27,9 +29,14 @@ export class BenhDialogComponent implements OnInit {
   dataSource: any = [];
   listThuoc: ThuocDTO[] = [];
   modelThuocModal: any = [];
+
+  listTrieuchung: TrieuChungDTO[] = [];
+  modelTrieuChungModal: any = [];
+  
   
   constructor(
     private thuocService: ThuocService,
+    private trieuChungService: TrieuchungService,
     private fb: FormBuilder,
     private modal: NzModalRef,
     private benhService: BenhService,
@@ -44,6 +51,7 @@ export class BenhDialogComponent implements OnInit {
     // }
     this.initFormValidate();
     this.getThuocs();
+    this.getTrieuChungs();
   }
 
   private initFormValidate(): void {
@@ -53,6 +61,7 @@ export class BenhDialogComponent implements OnInit {
       _ipTextarea_CachDieuTri:  ['', Validators.required],
       _ipTextarea_MoTa: ['', Validators.required],
       _selectBox_thuoc: [''],
+      _selectBox_trieuchung: [''],
       _ipUpload_image: ['']
     });
   }
@@ -140,6 +149,15 @@ export class BenhDialogComponent implements OnInit {
       if (response && response.Status) {
         this.listThuoc = JSON.parse(JSON.stringify(response.Data));
         this.modelThuocModal = JSON.parse(JSON.stringify(response.Data));
+      }
+    });
+  }
+
+  private getTrieuChungs(): any {
+    this.trieuChungService.getAll().subscribe(response => {
+      if (response && response.Status) {
+        this.listTrieuchung = JSON.parse(JSON.stringify(response.Data));
+        this.modelTrieuChungModal = JSON.parse(JSON.stringify(response.Data));
       }
     });
   }

@@ -11,7 +11,6 @@ export class  BenhDTO {
     HinhAnh: string;
     ListThuocs: ThuocDTO[];
     MaThuocs: string[];
-   
     ListTrieuChungs: TrieuChungDTO[];
     MaTrieuChungs: string[];
 }

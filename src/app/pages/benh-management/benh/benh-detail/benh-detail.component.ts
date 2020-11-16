@@ -3,12 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { NzMessageService, NzModalService } from 'ng-zorro-antd';
 import { TypeMessage } from 'src/app/app.constant';
 import { LieuTrinhDTO } from 'src/app/models/LieuTrinhDTO';
+import { TrieuChungDTO } from 'src/app/models/TrieuChungDTO';
 import { BenhService } from 'src/app/shared/services/benh.service';
 import { LieutrinhService } from 'src/app/shared/services/lieutrinh.service';
 import { TrieuchungService } from 'src/app/shared/services/trieuchung.service';
 import { BenhDialogComponent } from '../benh-dialog/benh-dialog.component';
 import { LieutrinhDialogComponent } from '../lieutrinh-dialog/lieutrinh-dialog.component';
-import { TrieuchungDialogComponent } from '../trieuchung-dialog/trieuchung-dialog.component';
+
 
 @Component({
   selector: 'app-benh-detail',
@@ -78,21 +79,6 @@ export class BenhDetailComponent implements OnInit {
   //   });
   // }
 
-  createTrieuChung(data: any): void {
-    const modalCreate = this.modalService.create({
-      nzTitle: 'Thêm triệu chứng',
-      nzContent: TrieuchungDialogComponent,
-      nzComponentParams: {
-        isAddtt: true,
-        trieuchungDto: JSON.parse(JSON.stringify(data))
-      },
-      nzWidth: '1000',
-    });
-    // Return a result when closed
-    modalCreate.afterClose.subscribe(() => {
-      return this.ngOnInit();
-    });
-  }
 
   editLieuTrinh(data: any) {
     const modalEdit = this.modalService.create({
@@ -109,21 +95,7 @@ export class BenhDetailComponent implements OnInit {
     });
   }
 
-  editTrieuChung(data: any) {
-    const modalEdit = this.modalService.create({
-      nzTitle: 'Chỉnh sửa thông tin ',
-      nzContent: TrieuchungDialogComponent,
-      nzComponentParams: {
-        trieuchungDto: JSON.parse(JSON.stringify(data))
-      },
-      nzWidth: '1000',
-    });
-    // Return a result when closed
-    modalEdit.afterClose.subscribe(() => {
-      return this.ngOnInit();
-    });
-  }
-
+ 
 
   // public confirmDeleteLieuTrinh(data: any) {
   //   const modalDelete = this.modalService.confirm({

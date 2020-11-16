@@ -37,13 +37,17 @@ import { FilterChungLoaiPipe } from '../pipes/filter-chung-loai.pipe';
 import { FilterBenhPipe } from '../pipes/filter-benh.pipe';
 import { FilterThuocPipe } from '../pipes/filter-thuoc.pipe';
 import { LieutrinhDialogComponent } from './benh-management/benh/lieutrinh-dialog/lieutrinh-dialog.component';
-import { TrieuchungDialogComponent } from './benh-management/benh/trieuchung-dialog/trieuchung-dialog.component';
+
 
 import { SortPipe } from '../pipes/sort.pipe';
 import { BientheListComponent } from './bienthe-management/bienthe/bienthe-list/bienthe-list.component';
 import { BientheDialogComponent } from './bienthe-management/bienthe/bienthe-dialog/bienthe-dialog.component';
 import { UploadDialogComponent } from './bienthe-management/bienthe/upload-dialog/upload-dialog.component';
 import { BientheDetailComponent } from './bienthe-management/bienthe/bienthe-detail/bienthe-detail.component';
+import { TrieuchungListComponent } from './benh-management/trieuchung/trieuchung-list/trieuchung-list.component';
+import { TrieuchungbenhDialogComponent } from './benh-management/trieuchung/trieuchungbenh-dialog/trieuchungbenh-dialog.component';
+import { TrieuchungDialogComponent } from './benh-management/trieuchung/trieuchung-dialog/trieuchung-dialog.component';
+import { TrieuchungOfBenhComponent } from './benh-management/benh/trieuchung-of-benh/trieuchung-of-benh.component';
 
 
 
@@ -81,7 +85,10 @@ import { BientheDetailComponent } from './bienthe-management/bienthe/bienthe-det
     BientheListComponent,
     BientheDialogComponent,
     UploadDialogComponent,
-    BientheDetailComponent],
+    BientheDetailComponent,
+    TrieuchungListComponent,
+    TrieuchungbenhDialogComponent,
+    TrieuchungOfBenhComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -113,7 +120,8 @@ import { BientheDetailComponent } from './bienthe-management/bienthe/bienthe-det
     BenhOfthuocDialogComponent,
     BientheDialogComponent,
     UploadDialogComponent,
-    UserResetPasswordComponent],
+    UserResetPasswordComponent,
+    TrieuchungbenhDialogComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })

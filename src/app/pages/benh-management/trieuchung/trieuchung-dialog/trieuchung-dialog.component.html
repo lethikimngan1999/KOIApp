@@ -1,16 +1,32 @@
 <!-- Tao hoac chinh sua thong tin nhan vien -->
 <form nz-form [formGroup]="validateForm" class="ant-advanced-search-form">
-    <!-- <div nz-row [nzGutter]="24">
+    <div nz-row [nzGutter]="24">
         <div nz-col [nzSpan]="8">
             <nz-form-item>
-                <nz-form-label nzRequired>Tên liệu trình</nz-form-label>
+                <nz-form-label nzRequired>Tên triệu chứng</nz-form-label>
                 <nz-form-control nzHasFeedback nzErrorTip="Vui lòng nhập tên triệu chứng!">
                     <input nz-input placeholder="Tên triệu chứng" [(ngModel)]="trieuchungDto.TenTrieuChung" type="text" formControlName="_ipText_Tentrieuchung" />
                 </nz-form-control>
             </nz-form-item>
         </div>
-    </div> -->
-    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="12" *ngIf="isAddtt">
+            <nz-form-item>
+                <nz-form-label nzRequired>Triệu chứng của bệnh</nz-form-label>
+                <nz-form-control>
+                    <nz-select [nzMaxTagCount]="4" nzMode="multiple" [nzMaxTagPlaceholder]="tagPlaceHolder" nzPlaceHolder="Please select" [(ngModel)]="trieuchungDto.MaBenhs" formControlName="_selectBox_benh" nzHasFeedback nzErrorTip="Vui lòng chọn bệnh mà thuốc điều trị bệnh">
+                        <ng-container *ngFor="let option of modelbenhModal">
+                            <nz-option [nzLabel]="option.TenBenh" [nzValue]="option.MaBenh"></nz-option>
+                        </ng-container>
+                    </nz-select>
+                    <ng-template #tagPlaceHolder let-selectedList> and {{ selectedList.length }} more selected </ng-template>
+
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+
+
+    <!-- <div nz-row [nzGutter]="24">
         <div nz-col [nzSpan]="24">
             <nz-form-item>
                 <nz-form-label nzRequired>Triệu chứng </nz-form-label>
@@ -21,7 +37,7 @@
                 </nz-form-control>
             </nz-form-item>
         </div>
-    </div>
+    </div> -->
 
     <div *nzModalFooter>
         <button nz-button nzType="default" (click)="handleCancelButton()">Hủy</button>

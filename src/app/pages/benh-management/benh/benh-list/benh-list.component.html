@@ -17,6 +17,7 @@
                 <tr>
                     <th>STT</th>
                     <th>Tên bệnh</th>
+                    <th>Triệu chứng</th>
                     <th>Thuốc điều trị</th>
 
                     <th></th>
@@ -26,6 +27,15 @@
                 <tr *ngFor="let data of Table.data | filterBenh: sName ; index as i; ">
                     <td>{{i+1}}</td>
                     <td>{{data.TenBenh}}</td>
+                    <td>
+                        <ul>
+                            <ng-container *ngFor="let item of data.ListTrieuChungs">
+
+                                <li>{{item.TenTrieuChung}} </li>
+
+                            </ng-container>
+                        </ul>
+                    </td>
                     <td>
                         <ul>
                             <ng-container *ngFor="let item of data.ListThuocs">

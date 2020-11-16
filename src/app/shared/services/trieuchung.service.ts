@@ -25,4 +25,9 @@ export class TrieuchungService {
   public delete(data: any): Observable<BaseResponse<any>> {
     return this.baseSevice.delete<BaseResponse<any>>('api/TrieuChung', data);
   }
+
+  
+  public CreateTrieuChungBenh(data: any): Observable<BaseResponse<any>> {
+    return this.baseSevice.post<BaseResponse<any>>('api/TrieuChungBenh/CreateTrieuChungBenh', data);
+  }
 }
