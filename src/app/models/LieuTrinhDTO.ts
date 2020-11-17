@@ -1,10 +1,11 @@
 import { BenhDTO } from './BenhDTO';
+import { ThuocDTO } from './ThuocDTO';
 
 
 export class LieuTrinhDTO {
     MaLieuTrinh: string;
-    MaBenh: string;
+    MaThuoc: string;
     TenLieuTrinh: string;
     MoTaLieuTrinh: boolean;
-    Benh: BenhDTO;
+    Thuoc: ThuocDTO;
 }

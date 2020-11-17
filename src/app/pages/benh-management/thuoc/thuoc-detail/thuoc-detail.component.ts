@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NzModalService } from 'ng-zorro-antd';
 import { ThuocService } from 'src/app/shared/services/thuoc.service';
+import { LieutrinhDialogComponent } from '../lieutrinh-dialog/lieutrinh-dialog.component';
+
 import { ThuocDialogComponent } from '../thuoc-dialog/thuoc-dialog.component';
 
 @Component({
@@ -34,6 +36,22 @@ export class ThuocDetailComponent implements OnInit {
         this.hasThuoc = true;
       }
       console.log(this.selected);
+    });
+  }
+
+    createLieuTrinh(data: any): void {
+    const modalCreate = this.modalService.create({
+      nzTitle: 'Thêm liệu trình',
+      nzContent: LieutrinhDialogComponent,
+      nzComponentParams: {
+        isAddlt: true,
+        lieutrinhDto: JSON.parse(JSON.stringify(data))
+      },
+      nzWidth: '1000',
+    });
+    // Return a result when closed
+    modalCreate.afterClose.subscribe(() => {
+      return this.ngOnInit();
     });
   }
 

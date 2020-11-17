@@ -4,6 +4,7 @@ import { NzMessageService, NzModalRef } from 'ng-zorro-antd';
 import { TypeMessage } from 'src/app/app.constant';
 import { LieuTrinhDTO } from 'src/app/models/LieuTrinhDTO';
 import { BenhService } from 'src/app/shared/services/benh.service';
+import { ThuocService } from 'src/app/shared/services/thuoc.service';
 
 @Component({
   selector: 'app-lieutrinh-dialog',
@@ -22,7 +23,7 @@ export class LieutrinhDialogComponent implements OnInit {
   selected: any = [];
 
   constructor(
-    private benhService: BenhService,
+    private thuocService: ThuocService,
     private message: NzMessageService,
     private modal: NzModalRef,
     private fb: FormBuilder,
@@ -34,7 +35,7 @@ export class LieutrinhDialogComponent implements OnInit {
 
   private initFormValidate(): void {
     this.validateForm = this.fb.group({
-     // _ipText_Tenlieutrinh:  ['', Validators.required],
+     _ipText_Tenlieutrinh:  ['', Validators.required],
       _ipTextarea_MoTa: ['', Validators.required],
     });
   }
@@ -75,7 +76,7 @@ export class LieutrinhDialogComponent implements OnInit {
    // tao  moi
    private insert(): void {
     if (this.lieutrinhDto) {
-      this.benhService.createLieuTrinh(this.lieutrinhDto).subscribe(response => {
+      this.thuocService.createLieuTrinh(this.lieutrinhDto).subscribe(response => {
 
         if (response && response.Status) {
           this.message.create(TypeMessage.Success, 'Thêm thành công!'
@@ -93,7 +94,7 @@ export class LieutrinhDialogComponent implements OnInit {
 
   private update() {
     if (this.lieutrinhDto) {
-      this.benhService.updateLieuTrinh(this.lieutrinhDto).subscribe(response => {
+      this.thuocService.updateLieuTrinh(this.lieutrinhDto).subscribe(response => {
         if (response && response.Status) {
           this.message.create(TypeMessage.Success, 'Cập nhật liệu trình thành công!'
           );

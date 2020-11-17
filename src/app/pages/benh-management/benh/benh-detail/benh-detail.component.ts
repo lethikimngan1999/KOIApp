@@ -6,9 +6,11 @@ import { LieuTrinhDTO } from 'src/app/models/LieuTrinhDTO';
 import { TrieuChungDTO } from 'src/app/models/TrieuChungDTO';
 import { BenhService } from 'src/app/shared/services/benh.service';
 import { LieutrinhService } from 'src/app/shared/services/lieutrinh.service';
+import { ThuocService } from 'src/app/shared/services/thuoc.service';
 import { TrieuchungService } from 'src/app/shared/services/trieuchung.service';
 import { BenhDialogComponent } from '../benh-dialog/benh-dialog.component';
-import { LieutrinhDialogComponent } from '../lieutrinh-dialog/lieutrinh-dialog.component';
+
+import { TrieuchungOfBenhComponent } from '../trieuchung-of-benh/trieuchung-of-benh.component';
 
 
 @Component({
@@ -19,11 +21,13 @@ import { LieutrinhDialogComponent } from '../lieutrinh-dialog/lieutrinh-dialog.c
 export class BenhDetailComponent implements OnInit {
 
 
-  
+
   pageTitle = 'Thông tin chi tiết ';
   selected: any = [];
+  selectedThuoc: any = [];
   hasBenh: any = false;
-  hasLieuTrinh: any = false;
+  //hasThuoc: any = false;
+
   constructor(
     public benhService: BenhService,
     public lieutrinhService: LieutrinhService,
@@ -31,7 +35,8 @@ export class BenhDetailComponent implements OnInit {
     public activatedRoute: ActivatedRoute,
     private modalService: NzModalService,
     private message: NzMessageService,
-    ) { }
+    public thuocService: ThuocService,
+  ) { }
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -63,39 +68,41 @@ export class BenhDetailComponent implements OnInit {
     });
   }
 
-  // createLieuTrinh(data: any): void {
-  //   const modalCreate = this.modalService.create({
-  //     nzTitle: 'Thêm liệu trình',
+
+
+  create(data: any) {
+    const modalCreate = this.modalService.create({
+      nzTitle: 'Cập nhật triệu chứng',
+      nzContent: TrieuchungOfBenhComponent,
+      nzComponentParams: {
+        //  isShowAdd: true,
+        benhDto: JSON.parse(JSON.stringify(data)),
+        maTrieuchungs: JSON.parse(JSON.stringify(data.MaTrieuChungs))
+      },
+      nzWidth: '1000',
+    });
+    // Return a result when closed
+    modalCreate.afterClose.subscribe(() => {
+      return this.ngOnInit();
+    });
+  }
+
+  // editLieuTrinh(data: any) {
+  //   const modalEdit = this.modalService.create({
+  //     nzTitle: 'Chỉnh sửa thông tin ',
   //     nzContent: LieutrinhDialogComponent,
   //     nzComponentParams: {
-  //       isAddlt: true,
   //       lieutrinhDto: JSON.parse(JSON.stringify(data))
   //     },
   //     nzWidth: '1000',
   //   });
   //   // Return a result when closed
-  //   modalCreate.afterClose.subscribe(() => {
+  //   modalEdit.afterClose.subscribe(() => {
   //     return this.ngOnInit();
   //   });
   // }
 
 
-  editLieuTrinh(data: any) {
-    const modalEdit = this.modalService.create({
-      nzTitle: 'Chỉnh sửa thông tin ',
-      nzContent: LieutrinhDialogComponent,
-      nzComponentParams: {
-        lieutrinhDto: JSON.parse(JSON.stringify(data))
-      },
-      nzWidth: '1000',
-    });
-    // Return a result when closed
-    modalEdit.afterClose.subscribe(() => {
-      return this.ngOnInit();
-    });
-  }
-
- 
 
   // public confirmDeleteLieuTrinh(data: any) {
   //   const modalDelete = this.modalService.confirm({
@@ -112,49 +119,59 @@ export class BenhDetailComponent implements OnInit {
   //   });
   // }
 
-/**
-* delete data
-*/
-// private deleteLieuTrinh(malieutrinh: any) {
-//   const param: any = { malieutrinh: malieutrinh };
-//   this.lieutrinhService.delete(param).subscribe(response => {
-//     if (response.Status === true) {
-//       this.message.create(TypeMessage.Success, 'Xóa thành công!');
-   
-//     } else {
-//       this.message.create(TypeMessage.Error, 'Xóa không thành công!');
-//     }
-//   });
-//   }
+  /**
+  * delete data
+  */
+  // private deleteLieuTrinh(malieutrinh: any) {
+  //   const param: any = { malieutrinh: malieutrinh };
+  //   this.lieutrinhService.delete(param).subscribe(response => {
+  //     if (response.Status === true) {
+  //       this.message.create(TypeMessage.Success, 'Xóa thành công!');
+
+  //     } else {
+  //       this.message.create(TypeMessage.Error, 'Xóa không thành công!');
+  //     }
+  //   });
+  //   }
 
   /**
  * delete data
  */
-private deleteTrieuChung(matrieuchung: any) {
-  const param: any = { matrieuchung: matrieuchung };
-  this.trieuchungService.delete(param).subscribe(response => {
-    if (response.Status === true) {
-      this.message.create(TypeMessage.Success, 'Xóa thành công!');
-   
-    } else {
-      this.message.create(TypeMessage.Error, 'Xóa không thành công!');
-    }
-  });
-}
+  private deleteTrieuChung(matrieuchung: any) {
+    const param: any = { matrieuchung };
+    this.trieuchungService.delete(param).subscribe(response => {
+      if (response.Status === true) {
+        this.message.create(TypeMessage.Success, 'Xóa thành công!');
 
-public confirmDeleteTrieuChung(data: any) {
-  const modalDelete = this.modalService.confirm({
-    nzTitle: 'Bạn có chắc chắn xóa triệu chứng này?',
-    nzContent: `<b style='color: red;'> Thông tin:${data.MoTaTrieuChung} </b>`,
-    nzOkText: 'Xóa',
-    nzOkType: 'danger',
-    nzOnOk: () => this.deleteTrieuChung(data.MaTrieuChung),
-    nzCancelText: 'Hủy',
-  });
-  // Return a result when closed
-  modalDelete.afterClose.subscribe(() => {
-    return this.ngOnInit();
-  });
-}
+      } else {
+        this.message.create(TypeMessage.Error, 'Xóa không thành công!');
+      }
+    });
+  }
 
+  public confirmDeleteTrieuChung(data: any) {
+    const modalDelete = this.modalService.confirm({
+      nzTitle: 'Bạn có chắc chắn xóa triệu chứng này?',
+      nzContent: `<b style='color: red;'> Thông tin:${data.MoTaTrieuChung} </b>`,
+      nzOkText: 'Xóa',
+      nzOkType: 'danger',
+      nzOnOk: () => this.deleteTrieuChung(data.MaTrieuChung),
+      nzCancelText: 'Hủy',
+    });
+    // Return a result when closed
+    modalDelete.afterClose.subscribe(() => {
+      return this.ngOnInit();
+    });
+  }
+  // xem chi tiết
+  public viewLT(mathuoc: any) {
+   // const param: any = { mathuoc };
+    this.thuocService.getDetail(mathuoc).subscribe(response => {
+      if (response.Status === true) {
+        this.selectedThuoc = response.Data;
+      //  this.hasThuoc = true;
+      }
+      console.log(this.selectedThuoc);
+    });
+  }
 }

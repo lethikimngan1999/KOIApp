@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BaseService } from 'src/app/common_base/base.service';
 import { BaseResponse } from 'src/app/models';
+import { LieuTrinhDTO } from 'src/app/models/LieuTrinhDTO';
 import { ThuocDTO } from 'src/app/models/ThuocDTO';
 
 @Injectable({
@@ -35,5 +36,13 @@ export class ThuocService {
 
   public delete(data: any): Observable<BaseResponse<any>> {
     return this.baseSevice.delete<BaseResponse<any>>('api/Thuoc', data);
+  }
+
+  public createLieuTrinh(data: LieuTrinhDTO): Observable<BaseResponse<string>> {
+    return this.baseSevice.post<BaseResponse<string>>('api/LieuTrinh', data);
+  }
+
+  public updateLieuTrinh(data: LieuTrinhDTO): Observable<BaseResponse<string>> {
+    return this.baseSevice.put<BaseResponse<string>>('api/LieuTrinh', data);
   }
 }

@@ -36,7 +36,7 @@ import { ThuocDetailComponent } from './benh-management/thuoc/thuoc-detail/thuoc
 import { FilterChungLoaiPipe } from '../pipes/filter-chung-loai.pipe';
 import { FilterBenhPipe } from '../pipes/filter-benh.pipe';
 import { FilterThuocPipe } from '../pipes/filter-thuoc.pipe';
-import { LieutrinhDialogComponent } from './benh-management/benh/lieutrinh-dialog/lieutrinh-dialog.component';
+
 
 
 import { SortPipe } from '../pipes/sort.pipe';
@@ -48,6 +48,7 @@ import { TrieuchungListComponent } from './benh-management/trieuchung/trieuchung
 import { TrieuchungbenhDialogComponent } from './benh-management/trieuchung/trieuchungbenh-dialog/trieuchungbenh-dialog.component';
 import { TrieuchungDialogComponent } from './benh-management/trieuchung/trieuchung-dialog/trieuchung-dialog.component';
 import { TrieuchungOfBenhComponent } from './benh-management/benh/trieuchung-of-benh/trieuchung-of-benh.component';
+import { LieutrinhDialogComponent } from './benh-management/thuoc/lieutrinh-dialog/lieutrinh-dialog.component';
 
 
 
@@ -121,7 +122,8 @@ import { TrieuchungOfBenhComponent } from './benh-management/benh/trieuchung-of-
     BientheDialogComponent,
     UploadDialogComponent,
     UserResetPasswordComponent,
-    TrieuchungbenhDialogComponent],
+    TrieuchungbenhDialogComponent,
+    TrieuchungOfBenhComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })

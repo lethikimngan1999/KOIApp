@@ -4,49 +4,120 @@
         <button nz-button nzType="default" nzShape="round" [routerLink]="'/admin/chung-loai'">
         <i nz-icon nzType="arrow-left"></i>Quay lại danh sách 
       </button>
+        <button nz-button nzType="primary" nzShape="round" (click)="create()">
+        <i nz-icon nzType="plus"></i>Thêm biến thể
+      </button>
         <button nz-button nzType="primary" nzShape="round">
         <i nz-icon nzType="edit"></i>Sửa
       </button>
     </nz-page-header-extra>
-    <!--content-->
+
     <nz-page-header-content *ngIf="has">
-        <div class="wrap">
-            <div class="content">
-                <div class="content">
-                    <nz-descriptions nzTitle="Đôi nét giới thiệu: ">
-                        <!-- <nz-descriptions-item nzTitle="Tên chủng loại: ">
-                        </nz-descriptions-item> -->
-                        <nz-descriptions-item nzTitle="Màu sắc đặc trưng: ">{{selected.MauSac}}</nz-descriptions-item>
-                    </nz-descriptions>
-                    <nz-descriptions>
-                        <nz-descriptions-item nzTitle="Kích thước tối đa: ">{{selected.KichThuocToiDa}}</nz-descriptions-item>
-                    </nz-descriptions>
-                    <nz-descriptions>
-                        <nz-descriptions-item nzTitle="Tính cách: ">{{selected.TinhCach}}</nz-descriptions-item>
-                    </nz-descriptions>
-                    <nz-descriptions>
-                        <nz-descriptions-item nzTitle="Điều kiện nước">{{selected.DieuKienNuoc}}</nz-descriptions-item>
-                    </nz-descriptions>
-                    <nz-descriptions>
-                        <nz-descriptions-item nzTitle="Chế độ ăn: ">{{selected.CheDoAn}}</nz-descriptions-item>
-                    </nz-descriptions>
-                    <nz-descriptions>
-                        <nz-descriptions-item nzTitle="Mức độ chăm sóc: ">{{selected.MucDoChamSoc}}</nz-descriptions-item>
-                    </nz-descriptions>
-                    <nz-descriptions nzTitle="Mô tả chi tiết: ">
-                        <nz-descriptions-item>
-                            <div [innerHtml]='selected.MoTa'></div>
-                            <!-- {{selected.MoTa}} -->
-                        </nz-descriptions-item>
-                    </nz-descriptions>
-                    <nz-descriptions nzTitle="Cách chăm sóc: ">
-                        <nz-descriptions-item>
-                            <div [innerHtml]='selected.CachChamSoc'></div>
-                            <!-- {{selected.CachChamSoc}} -->
-                        </nz-descriptions-item>
-                    </nz-descriptions>
+
+        <nz-tabset>
+            <nz-tab nzTitle="Danh sách biến thể">
+                <div class="wrap">
+                    <div class="content">
+                        <div nz-row>
+                            <nz-table #nzTable nzBordered [nzData]="dataSource" nzTableLayout="fixed">
+                                <thead>
+                                    <tr>
+                                        <th nzWidth="20px">STT</th>
+
+                                        <th nzWidth="120px">
+                                            Tên biến thể
+
+                                        </th>
+                                        <th>Thuộc chủng loại</th>
+                                        <th>Màu sắc</th>
+                                        <th>Hình ảnh</th>
+                                        <!-- <th>Tình trạng</th> -->
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let data of nzTable.data ; index as i; ">
+                                        <td>{{i+1}}</td>
+
+                                        <td>{{ data.TenBienThe }}</td>
+                                        <td>{{ data.ChungLoais.TenChungLoai }}</td>
+                                        <td>{{ data.MauSac }}</td>
+                                        <td>
+                                            <img [src]="data.Mahas" style="width: 100px" /></td>
+                                        <td>
+                                            <ng-container *ngIf="data.TinhTrang == true">
+                                                <span class="active"><i nz-icon nzType="check-circle" nzTheme="outline"></i>Còn hàng</span>
+                                            </ng-container>
+                                            <ng-container *ngIf="data.TinhTrang == false">
+                                                <span class="locked"><i nz-icon nzType="lock" nzTheme="outline"></i>Hết hàng</span>
+                                            </ng-container>
+                                        </td>
+                                        <td>
+                                            <button nz-button nzType="default" nzShape="round" (click)="add(data)">
+                                                <i nz-icon nzType="plus"></i>Ảnh hiển thị
+                                              </button>
+                                            <button nz-button nzType="default" nzShape="round" (click)="view(data.MaBienThe)">
+                                    <i nz-icon nzType="eye"></i>Xem
+                                  </button>
+                                            <button nz-button nzType="primary" nzShape="round" (click)="edit(data)">
+                                    <i nz-icon nzType="edit"></i>Sửa
+                                  </button>
+                                            <!-- <button nz-button nzType="danger" nzShape="round">
+                                    <i nz-icon nzType="delete"></i>Xóa
+                                  </button> -->
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </nz-table>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </nz-tab>
+            <nz-tab nzTitle="Chi tiết">
+                <div class="wrap">
+                    <div class="content">
+                        <div class="content">
+                            <nz-descriptions nzTitle="Đôi nét giới thiệu: ">
+                                <!-- <nz-descriptions-item nzTitle="Tên chủng loại: ">
+                        </nz-descriptions-item> -->
+                                <nz-descriptions-item nzTitle="Màu sắc đặc trưng: ">{{selected.MauSac}}</nz-descriptions-item>
+                            </nz-descriptions>
+                            <nz-descriptions>
+                                <nz-descriptions-item nzTitle="Kích thước tối đa: ">{{selected.KichThuocToiDa}}</nz-descriptions-item>
+                            </nz-descriptions>
+                            <nz-descriptions>
+                                <nz-descriptions-item nzTitle="Tính cách: ">{{selected.TinhCach}}</nz-descriptions-item>
+                            </nz-descriptions>
+                            <nz-descriptions>
+                                <nz-descriptions-item nzTitle="Điều kiện nước">{{selected.DieuKienNuoc}}</nz-descriptions-item>
+                            </nz-descriptions>
+                            <nz-descriptions>
+                                <nz-descriptions-item nzTitle="Chế độ ăn: ">{{selected.CheDoAn}}</nz-descriptions-item>
+                            </nz-descriptions>
+                            <nz-descriptions>
+                                <nz-descriptions-item nzTitle="Mức độ chăm sóc: ">{{selected.MucDoChamSoc}}</nz-descriptions-item>
+                            </nz-descriptions>
+                            <nz-descriptions nzTitle="Mô tả chi tiết: ">
+                                <nz-descriptions-item>
+                                    <div [innerHtml]='selected.MoTa'></div>
+                                    <!-- {{selected.MoTa}} -->
+                                </nz-descriptions-item>
+                            </nz-descriptions>
+                            <nz-descriptions nzTitle="Cách chăm sóc: ">
+                                <nz-descriptions-item>
+                                    <div [innerHtml]='selected.CachChamSoc'></div>
+                                    <!-- {{selected.CachChamSoc}} -->
+                                </nz-descriptions-item>
+                            </nz-descriptions>
+                        </div>
+
+                    </div>
+                </div>
+            </nz-tab>
+
+
+        </nz-tabset>
     </nz-page-header-content>
 </nz-page-header>

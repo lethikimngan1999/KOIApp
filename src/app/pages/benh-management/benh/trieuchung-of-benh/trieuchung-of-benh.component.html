@@ -1,1 +1,21 @@
-<p>trieuchung-of-benh works!</p>
+<form nz-form [formGroup]="validateForm" class="ant-advanced-search-form">
+    <div nz-row [nzGutter]="24">
+        <div nz-col>
+            <nz-form-item>
+                <nz-form-label nzRequired>Tên triệu chứng</nz-form-label>
+                <nz-form-control>
+                    <nz-select [nzMaxTagCount]="4" nzMode="multiple" [nzMaxTagPlaceholder]="tagPlaceHolder" nzPlaceHolder="Please select" [(ngModel)]="maTrieuchungs" formControlName="_selectBox_trieuchung" Vui lòng chọn triệu chứng>
+                        <ng-container *ngFor="let option of modelModal">
+                            <nz-option [nzLabel]="option.TenTrieuChung" [nzValue]="option.MaTrieuChung"></nz-option>
+                        </ng-container>
+                    </nz-select>
+                    <ng-template #tagPlaceHolder let-selectedList> and {{ selectedList.length }} more selected </ng-template>
+
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <div *nzModalFooter>
+        <button nz-button [nzType]="'primary'" (click)="add()" [disabled]="!validateForm.valid">Lưu</button>
+    </div>
+</form>

@@ -25,7 +25,7 @@ export class BientheListComponent implements OnInit {
   searchValue = '';
   visible = false;
 
-  pageTitle = 'Danh sách biến thể';
+  pageTitle = 'Danh sách tất cả biến thể';
   dataSource: any = [];
   isConfirmLoading = false;
 

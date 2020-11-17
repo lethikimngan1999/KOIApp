@@ -62,7 +62,7 @@ export class ThuocListComponent implements OnInit {
 
   private navigateDetail(mathuoc: any) {
     if (mathuoc) {
-      // chuyen sang màn hình chi tiết 
+      // chuyen sang màn hình chi tiết
       this.router.navigate(['admin/cac-loai-thuoc/chitiet/'], { queryParams: { mathuoc: mathuoc } });
     } else {
       this.message.create(TypeMessage.Error, 'Có lỗi xảy ra!');

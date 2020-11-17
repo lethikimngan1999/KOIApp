@@ -30,4 +30,9 @@ export class TrieuchungService {
   public CreateTrieuChungBenh(data: any): Observable<BaseResponse<any>> {
     return this.baseSevice.post<BaseResponse<any>>('api/TrieuChungBenh/CreateTrieuChungBenh', data);
   }
+
+  
+  public Create(data: any): Observable<BaseResponse<any>> {
+    return this.baseSevice.post<BaseResponse<any>>('api/TrieuChungBenh', data);
+  }
 }
