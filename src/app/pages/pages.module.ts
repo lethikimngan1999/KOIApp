@@ -49,6 +49,8 @@ import { TrieuchungbenhDialogComponent } from './benh-management/trieuchung/trie
 import { TrieuchungDialogComponent } from './benh-management/trieuchung/trieuchung-dialog/trieuchung-dialog.component';
 import { TrieuchungOfBenhComponent } from './benh-management/benh/trieuchung-of-benh/trieuchung-of-benh.component';
 import { LieutrinhDialogComponent } from './benh-management/thuoc/lieutrinh-dialog/lieutrinh-dialog.component';
+import { TrieuchungbenhComponent } from './benh-management/trieuchung/trieuchungbenh/trieuchungbenh.component';
+import { FilterTrieuchungbenhPipe } from '../pipes/filter-trieuchungbenh.pipe';
 
 
 
@@ -62,7 +64,7 @@ import { LieutrinhDialogComponent } from './benh-management/thuoc/lieutrinh-dial
     FilterChungLoaiPipe,
     FilterBenhPipe,
     FilterThuocPipe,
-
+    FilterTrieuchungbenhPipe,
     SortPipe,
     UserListComponent,
     UserDialogComponent,
@@ -89,7 +91,8 @@ import { LieutrinhDialogComponent } from './benh-management/thuoc/lieutrinh-dial
     BientheDetailComponent,
     TrieuchungListComponent,
     TrieuchungbenhDialogComponent,
-    TrieuchungOfBenhComponent],
+    TrieuchungOfBenhComponent,
+    TrieuchungbenhComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

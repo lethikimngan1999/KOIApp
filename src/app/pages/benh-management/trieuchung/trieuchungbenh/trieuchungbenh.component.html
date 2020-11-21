@@ -1,0 +1,35 @@
+<!-- Checkbox -->
+<form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+    <!-- Form elements goes here -->
+    <div *ngFor="let data of dataSource; let i=index">
+        <label>
+          <input type="checkbox" [value]="data.MaTrieuChung" (change)="onCheckboxChange($event)" />
+          {{data.TenTrieuChung}}
+        </label>
+    </div>
+    <input type="submit" value="Submit">
+</form>
+
+
+<nz-table #Table nzBordered [nzData]="dataSourceTT">
+    <thead>
+        <tr>
+            <th>STT</th>
+
+            <th>Triệu chứng bệnh</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of Table.data  ; index as i; ">
+            <td>{{i+1}}</td>
+
+            <td>
+                <ul>
+                    <li> {{data.MaBenh}}</li>
+                </ul>
+            </td>
+
+        </tr>
+    </tbody>
+</nz-table>

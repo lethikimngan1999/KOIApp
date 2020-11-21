@@ -12,7 +12,7 @@ export class FilterBenhPipe implements PipeTransform {
     return value.filter(s =>
       s.TenBenh.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()) ||
       s.NguyenNhan.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
-   //   s.ListThuocs.TenThuoc.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
+      // s.MaThuocs.includes(searchText.toLocaleLowerCase())
       );
     }
 

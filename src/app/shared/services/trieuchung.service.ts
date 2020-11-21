@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BaseService } from 'src/app/common_base/base.service';
 import { BaseResponse } from 'src/app/models';
+import { BenhDTO } from 'src/app/models/BenhDTO';
+import { SearchDTO, TrieuChungBenhDTO } from 'src/app/models/TrieuChungBenhDTO';
 import { TrieuChungDTO } from 'src/app/models/TrieuChungDTO';
 
 @Injectable({
@@ -31,8 +33,21 @@ export class TrieuchungService {
     return this.baseSevice.post<BaseResponse<any>>('api/TrieuChungBenh/CreateTrieuChungBenh', data);
   }
 
+  public GetAllTrieuChung(matrieuchung: string): Observable<BaseResponse<TrieuChungBenhDTO>> {
+    const httpParams = new HttpParams().set('matrieuchung', matrieuchung);
+    return this.baseSevice.get<BaseResponse<TrieuChungBenhDTO[]>>('api/TrieuChungBenh/GetAllTrieuChung', httpParams);
+  }
+  
+  public GetAllBenhByType(matrieuchung: string): Observable<BaseResponse<TrieuChungBenhDTO>> {
+    const httpParams = new HttpParams().set('matrieuchung', matrieuchung);
+    return this.baseSevice.get<BaseResponse<TrieuChungBenhDTO[]>>('api/TrieuChungBenh/GetAllBenhByType', httpParams);
+  }
   
   public Create(data: any): Observable<BaseResponse<any>> {
     return this.baseSevice.post<BaseResponse<any>>('api/TrieuChungBenh', data);
+  }
+
+  public GetListBenhByListTrieuChung(data: any): Observable<BaseResponse<TrieuChungBenhDTO[]>> {
+    return this.baseSevice.post<BaseResponse<TrieuChungBenhDTO[]>>('api/TrieuChungBenh/GetAllTrieuChung', data);
   }
 }

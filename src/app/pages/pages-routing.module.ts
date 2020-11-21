@@ -11,6 +11,7 @@ import { BenhListComponent } from './benh-management/benh/benh-list/benh-list.co
 import { ThuocDetailComponent } from './benh-management/thuoc/thuoc-detail/thuoc-detail.component';
 import { ThuocListComponent } from './benh-management/thuoc/thuoc-list/thuoc-list.component';
 import { TrieuchungListComponent } from './benh-management/trieuchung/trieuchung-list/trieuchung-list.component';
+import { TrieuchungbenhComponent } from './benh-management/trieuchung/trieuchungbenh/trieuchungbenh.component';
 import { BientheDetailComponent } from './bienthe-management/bienthe/bienthe-detail/bienthe-detail.component';
 import { BientheListComponent } from './bienthe-management/bienthe/bienthe-list/bienthe-list.component';
 
@@ -53,6 +54,10 @@ const routes: Routes = [
       {
         path: 'trieu-chung',
         component: TrieuchungListComponent
+      },
+      {
+        path: 'trieu-chung-benh',
+        component: TrieuchungbenhComponent
       },
       {
         path: 'imgBT-management',

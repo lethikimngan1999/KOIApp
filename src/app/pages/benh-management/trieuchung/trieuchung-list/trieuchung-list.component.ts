@@ -7,12 +7,23 @@ import { TrieuchungService } from 'src/app/shared/services/trieuchung.service';
 import { TrieuchungDialogComponent } from '../trieuchung-dialog/trieuchung-dialog.component';
 import { TrieuchungbenhDialogComponent } from '../trieuchungbenh-dialog/trieuchungbenh-dialog.component';
 
+import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';  
+
 @Component({
   selector: 'app-trieuchung-list',
   templateUrl: './trieuchung-list.component.html',
   styleUrls: ['./trieuchung-list.component.css']
 })
 export class TrieuchungListComponent implements OnInit {
+
+  // Data: Array<any> = [
+  //   { name: 'Pear', value: 'pear' },
+  //   { name: 'Plum', value: 'plum' },
+  //   { name: 'Kiwi', value: 'kiwi' },
+  //   { name: 'Apple', value: 'apple' },
+  //   { name: 'Lime', value: 'lime' }
+  // ];
+
 
   pageTitle = 'Danh sách các triệu chứng';
   dataSource: any = [];
@@ -21,12 +32,18 @@ export class TrieuchungListComponent implements OnInit {
   constructor( private modalService: NzModalService,
     private trieuchungService: TrieuchungService,
     private message: NzMessageService,
-    private router: Router) { }
+    private router: Router,
+    ) { }
 
   ngOnInit(): void {
     this.isConfirmLoading = true;
     this.loadList();
+    
+   
   }
+
+ 
+
   public loadList(): any {
     this.trieuchungService.getAll().subscribe(response => {
       if (response && response.Status) {
