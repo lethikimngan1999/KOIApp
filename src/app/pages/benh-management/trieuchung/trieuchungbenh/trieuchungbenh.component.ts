@@ -21,11 +21,11 @@ export class TrieuchungbenhComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadList();
-    // checkbox
-    // this.form = this.fb.group({
-    //   checkArray: this.fb.array([])
+   // checkbox
+    this.form = this.fb.group({
+      trieuchungbenh: this.fb.array([])
 
-    // });
+    });
 
   }
 
