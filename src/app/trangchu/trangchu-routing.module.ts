@@ -8,6 +8,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { SanphamComponent } from './sanpham/sanpham.component';
 import { SanphamOfChungloaiComponent } from './sanpham/sanpham-of-chungloai/sanpham-of-chungloai.component';
+import { BenhListComponent } from './benh/benh-list/benh-list.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,10 @@ const routes: Routes = [
       {
         path: 'san-pham',
         component: SanphamComponent
+      },
+      {
+        path: 'cac-loai-benh',
+        component: BenhListComponent
       },
     ]
   }

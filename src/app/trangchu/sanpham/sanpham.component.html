@@ -116,10 +116,10 @@
                     <!-- Title -->
                     <h5 class="widget-title">Danh mục</h5>
                     <!-- Cata List -->
-                    <ul class="cata-list shop-page">
+                    <ul class="cata-list ">
                         <li><a routerLink="/trangchu/san-pham">Tất cả</a></li>
                     </ul>
-                    <ul class="cata-list shop-page" *ngFor="let data of dataChungLoai">
+                    <ul class="cata-list " *ngFor="let data of dataChungLoai">
 
                         <li><a (click)="viewChungLoai(data.MaChungLoai)">{{data.TenChungLoai}}</a></li>
                         <!--  <li><a href="#">Các bệnh cá</a></li>

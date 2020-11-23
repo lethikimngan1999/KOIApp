@@ -20,12 +20,12 @@ export class SanphamComponent implements OnInit {
   sName = '';
   // sName: string = '';
 
-  constructor( public bientheService: BientheService,
-               public chungloaiService: ChungloaiService,
-               public hinhanhService: HinhanhService,
-               private message: NzMessageService,
-               public router: Router,
-               private modalService: NzModalService, ) { }
+  constructor(public bientheService: BientheService,
+    public chungloaiService: ChungloaiService,
+    public hinhanhService: HinhanhService,
+    private message: NzMessageService,
+    public router: Router,
+    private modalService: NzModalService,) { }
 
   ngOnInit(): void {
     this.loadList();
@@ -36,51 +36,51 @@ export class SanphamComponent implements OnInit {
   //   this.Search = this.TenBienThe;
   // }
 
-   // get danh sach
-   public loadList(): any {
+  // get danh sach
+  public loadList(): any {
     this.bientheService.getListAll().subscribe(response => {
       if (response && response.Status) {
         this.dataSource = response.Data;
         // this.isConfirmLoading = false;
-       // console.log(this.dataSource);
+        // console.log(this.dataSource);
       }
     });
   }
 
 
-   // get danh sach
-   public loadListChungLoai(): any {
+  // get danh sach
+  public loadListChungLoai(): any {
     this.chungloaiService.getAll().subscribe(response => {
       if (response && response.Status) {
         this.dataChungLoai = response.Data;
         // this.isConfirmLoading = false;
-       // console.log(this.dataSource);
+        // console.log(this.dataSource);
       }
     });
   }
 
   //  // xem chi tiết nhân viên
-   public view(mabienthe: any) {
+  public view(mabienthe: any) {
     this.navigateDetail(mabienthe);
   }
 
-   private navigateDetail(mabienthe: any) {
+  private navigateDetail(mabienthe: any) {
     if (mabienthe) {
       // chuyen sang màn hình chi tiết nhan vien
       const modalAdd = this.modalService.create({
-        
-             nzContent: ProductDetailComponent,
-           nzComponentParams: { 
-            
-                mabienthe: JSON.parse(JSON.stringify(mabienthe)),
-        //    //   maThuocs: JSON.parse(JSON.stringify(data.MaThuocs))
-      },
-          nzWidth: '1200',
-       });
-       // Return a result when closed
-          modalAdd.afterClose.subscribe(() => {
-            return this.ngOnInit();
-          });
+
+        nzContent: ProductDetailComponent,
+        nzComponentParams: {
+
+          mabienthe: JSON.parse(JSON.stringify(mabienthe)),
+          //    //   maThuocs: JSON.parse(JSON.stringify(data.MaThuocs))
+        },
+        nzWidth: '1200',
+      });
+      // Return a result when closed
+      modalAdd.afterClose.subscribe(() => {
+        return this.ngOnInit();
+      });
     } else {
       this.message.create(TypeMessage.Error, 'Có lỗi xảy ra!');
     }
@@ -91,7 +91,7 @@ export class SanphamComponent implements OnInit {
   //     nzTitle: 'Thêm thuốc điều trị cho bệnh ',
   //     nzContent: ProductDetailComponent,
   //     nzComponentParams: {
-     
+
   //       bientheDto: JSON.parse(JSON.stringify(data)),
   //    //   maThuocs: JSON.parse(JSON.stringify(data.MaThuocs))
   //     },

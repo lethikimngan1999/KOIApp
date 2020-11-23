@@ -32,6 +32,14 @@ export class ProductDetailComponent implements OnInit {
       //console.log(this.selected);
     });
   }
+
+  //  link = document.querySelectorAll('li a');
+  // let imgBox = document.querySelector('.imgBox>img');
+
+  // link.forEach(el => {
+  //     el.addEventListener('mouseover', (e) => imgBox.src = el.href);
+  // });
+
   // private getThuocs(): any {
   //   this.thuocService.getAll().subscribe(response => {
   //     if (response && response.Status) {

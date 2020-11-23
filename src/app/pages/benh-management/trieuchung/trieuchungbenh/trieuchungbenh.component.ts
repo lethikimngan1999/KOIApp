@@ -65,6 +65,7 @@ export class TrieuchungbenhComponent implements OnInit {
 
   submitForm() {
     this.load(this.trieuchungbenh);
+//    this.resetForm();
   }
   // public loadListBenh(value: string) {
   //   this.trieuchungService.GetAllTrieuChung(value).subscribe(response => {
@@ -96,4 +97,14 @@ export class TrieuchungbenhComponent implements OnInit {
       }
     });
   }
+
+  resetForm(): void {
+    this.form.reset();
+    // tslint:disable-next-line: forin
+    for (const key in this.form.controls) {
+      this.form.controls[key].markAsPristine();
+      this.form.controls[key].updateValueAndValidity();
+    }
+  }
+
 }
