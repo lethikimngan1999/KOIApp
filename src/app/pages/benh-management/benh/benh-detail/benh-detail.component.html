@@ -50,8 +50,11 @@
             <nz-tab nzTitle="Triệu chứng">
                 <div class="wrap">
                     <div class="content">
+                        <button nz-button nzType="primary" nzShape="round" class="btn-create" (click)="createTrieuChung()">
+                            <i nz-icon nzType="plus"></i>Thêm triệu chứng mới
+                          </button>
                         <button nz-button nzType="primary" nzShape="round" class="btn-create" (click)="create(selected)">
-                            <i nz-icon nzType="plus"></i>Thêm triệu chứng
+                            <i nz-icon nzType="plus"></i>Cập nhật triệu chứng
                           </button>
                         <div nz-row>
                             <ng-container *ngFor="let item of selected.ListTrieuChungs">

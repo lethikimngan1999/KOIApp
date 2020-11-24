@@ -9,6 +9,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { SanphamComponent } from './sanpham/sanpham.component';
 import { SanphamOfChungloaiComponent } from './sanpham/sanpham-of-chungloai/sanpham-of-chungloai.component';
 import { BenhListComponent } from './benh/benh-list/benh-list.component';
+import { IndexComponent } from './index/index.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,10 @@ const routes: Routes = [
     path: 'trangchu',
     component: TrangchuComponent,
     children: [
+      {
+        path: 'index',
+        component: IndexComponent
+      },
       {
         path: 'lienhe',
         component: LienheComponent

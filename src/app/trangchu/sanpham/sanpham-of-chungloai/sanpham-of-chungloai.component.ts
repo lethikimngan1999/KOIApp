@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NzMessageService } from 'ng-zorro-antd';
+import { NzMessageService, NzModalService } from 'ng-zorro-antd';
 import { TypeMessage } from 'src/app/app.constant';
 import { BientheService } from 'src/app/shared/services/bienthe.service';
 import { ChungloaiService } from 'src/app/shared/services/chungloai.service';
 import { HinhanhService } from 'src/app/shared/services/hinhanh.service';
+import { ProductDetailComponent } from '../../product-detail/product-detail.component';
 
 @Component({
   selector: 'app-sanpham-of-chungloai',
@@ -27,7 +28,8 @@ export class SanphamOfChungloaiComponent implements OnInit {
                public hinhanhService: HinhanhService,
                private message: NzMessageService,
                public router: Router,
-               public activatedRoute: ActivatedRoute,) { }
+               public activatedRoute: ActivatedRoute,
+               private modalService: NzModalService,) { }
 
   ngOnInit(): void {
     
@@ -63,7 +65,7 @@ export class SanphamOfChungloaiComponent implements OnInit {
       }
     });
   }
-  
+
   public viewChungLoai(machungloai: any) {
     this.navigateChungLoai(machungloai);
   }
@@ -77,6 +79,35 @@ export class SanphamOfChungloaiComponent implements OnInit {
     }
   }
  
+
+  //  // xem chi tiết 
+  public view(mabienthe: any) {
+    this.navigateDetail(mabienthe);
+  }
+
+  private navigateDetail(mabienthe: any) {
+    if (mabienthe) {
+      // chuyen sang màn hình chi tiết
+      const modalAdd = this.modalService.info({
+
+        nzContent: ProductDetailComponent,
+        nzComponentParams: {
+
+          mabienthe: JSON.parse(JSON.stringify(mabienthe)),
+          //    //   maThuocs: JSON.parse(JSON.stringify(data.MaThuocs))
+        },
+        nzWidth: '1200',
+        nzOkText: 'Đóng'
+      });
+      // Return a result when closed
+      modalAdd.afterClose.subscribe(() => {
+        return this.ngOnInit();
+      });
+    } else {
+      this.message.create(TypeMessage.Error, 'Có lỗi xảy ra!');
+    }
+  }
+
   // public getDetail(mabienthe: string) {
   //   this.bientheService.getDetail(mabienthe).subscribe(response => {
   //     if (response.Status === true) {

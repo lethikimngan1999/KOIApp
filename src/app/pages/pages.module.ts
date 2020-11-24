@@ -51,6 +51,7 @@ import { TrieuchungOfBenhComponent } from './benh-management/benh/trieuchung-of-
 import { LieutrinhDialogComponent } from './benh-management/thuoc/lieutrinh-dialog/lieutrinh-dialog.component';
 import { TrieuchungbenhComponent } from './benh-management/trieuchung/trieuchungbenh/trieuchungbenh.component';
 import { FilterTrieuchungbenhPipe } from '../pipes/filter-trieuchungbenh.pipe';
+import { NewTrieuChungComponent } from './benh-management/benh/new-trieu-chung/new-trieu-chung.component';
 
 
 
@@ -92,7 +93,8 @@ import { FilterTrieuchungbenhPipe } from '../pipes/filter-trieuchungbenh.pipe';
     TrieuchungListComponent,
     TrieuchungbenhDialogComponent,
     TrieuchungOfBenhComponent,
-    TrieuchungbenhComponent],
+    TrieuchungbenhComponent,
+    NewTrieuChungComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -126,7 +128,8 @@ import { FilterTrieuchungbenhPipe } from '../pipes/filter-trieuchungbenh.pipe';
     UploadDialogComponent,
     UserResetPasswordComponent,
     TrieuchungbenhDialogComponent,
-    TrieuchungOfBenhComponent],
+    TrieuchungOfBenhComponent,
+    NewTrieuChungComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })

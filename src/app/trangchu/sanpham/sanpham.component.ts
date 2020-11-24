@@ -59,15 +59,15 @@ export class SanphamComponent implements OnInit {
     });
   }
 
-  //  // xem chi tiết nhân viên
+  //  // xem chi tiết 
   public view(mabienthe: any) {
     this.navigateDetail(mabienthe);
   }
 
   private navigateDetail(mabienthe: any) {
     if (mabienthe) {
-      // chuyen sang màn hình chi tiết nhan vien
-      const modalAdd = this.modalService.create({
+      // chuyen sang màn hình chi tiết
+      const modalAdd = this.modalService.info({
 
         nzContent: ProductDetailComponent,
         nzComponentParams: {
@@ -76,6 +76,7 @@ export class SanphamComponent implements OnInit {
           //    //   maThuocs: JSON.parse(JSON.stringify(data.MaThuocs))
         },
         nzWidth: '1200',
+        nzOkText: 'Đóng'
       });
       // Return a result when closed
       modalAdd.afterClose.subscribe(() => {

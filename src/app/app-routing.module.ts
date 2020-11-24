@@ -41,7 +41,7 @@ import { TrangchuModule } from './trangchu/trangchu.module';
 //   }
 // ];
 const appRoutes: Routes = [
-  { path: '',   redirectTo: '/trangchu', pathMatch: 'full' },
+  { path: '',   redirectTo: '/trangchu/index', pathMatch: 'full' },
   // This component defines the shared main content around a router outlet.
   { 
     path: 'trangchu', component: TrangchuComponent, children: [

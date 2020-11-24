@@ -10,6 +10,7 @@ import { SanphamComponent } from './sanpham/sanpham.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { SanphamOfChungloaiComponent } from './sanpham/sanpham-of-chungloai/sanpham-of-chungloai.component';
 import { BenhListComponent } from './benh/benh-list/benh-list.component';
+import { IndexComponent } from './index/index.component';
 
 
 
@@ -22,7 +23,8 @@ import { BenhListComponent } from './benh/benh-list/benh-list.component';
     ProductDetailComponent,
     SanphamComponent,
     SanphamOfChungloaiComponent,
-    BenhListComponent],
+    BenhListComponent,
+    IndexComponent],
   imports: [
     CommonModule,
     FormsModule,

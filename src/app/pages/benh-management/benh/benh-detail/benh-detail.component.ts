@@ -8,7 +8,9 @@ import { BenhService } from 'src/app/shared/services/benh.service';
 import { LieutrinhService } from 'src/app/shared/services/lieutrinh.service';
 import { ThuocService } from 'src/app/shared/services/thuoc.service';
 import { TrieuchungService } from 'src/app/shared/services/trieuchung.service';
+
 import { BenhDialogComponent } from '../benh-dialog/benh-dialog.component';
+import { NewTrieuChungComponent } from '../new-trieu-chung/new-trieu-chung.component';
 
 import { TrieuchungOfBenhComponent } from '../trieuchung-of-benh/trieuchung-of-benh.component';
 
@@ -87,6 +89,22 @@ export class BenhDetailComponent implements OnInit {
     });
   }
 
+  createTrieuChung(): void {
+    const modalCreate = this.modalService.create({
+      nzTitle: 'Thêm triệu chứng',
+      nzContent: NewTrieuChungComponent,
+      nzComponentParams: {
+        isAddtt: true,
+        trieuchungDto: new TrieuChungDTO()
+      //  trieuchungDto: JSON.parse(JSON.stringify(data))
+      },
+      nzWidth: '500',
+    });
+    // Return a result when closed
+    modalCreate.afterClose.subscribe(() => {
+      return this.ngOnInit();
+    });
+  }
   // editLieuTrinh(data: any) {
   //   const modalEdit = this.modalService.create({
   //     nzTitle: 'Chỉnh sửa thông tin ',
