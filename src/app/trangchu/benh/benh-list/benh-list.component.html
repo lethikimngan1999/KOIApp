@@ -31,21 +31,6 @@
             <!-- Posts Area -->
             <div class="col-12 col-md-8">
                 <div class="posts-area">
-                    <h4>Tra cứu bệnh: </h4>
-                    <h6>Các triệu chứng thường gặp </h6>
-                    <!-- <div class="posts-area"> -->
-                    <!-- Checkbox -->
-                    <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
-                        <!-- Form elements goes here -->
-                        <div *ngFor="let data of dataSourceListTT; let i=index">
-                            <label>
-                             <input type="checkbox" [value]="data.MaTrieuChung" (change)="onCheckboxChange($event)" />
-                            {{data.TenTrieuChung}}
-                            </label>
-                        </div>
-                        <input type="submit" value="Tìm">
-                    </form>
-
                     <!-- </div> -->
                     <div hidden *ngIf="expression; then hello; else employeeEdit"></div>
                     <ng-template #hello>
@@ -119,13 +104,34 @@
                 <div class="sidebar-area">
 
                     <!-- Single Widget Area -->
-                    <div class="single-widget-area">
+                    <div class="single-widget-area" style="margin-bottom: 30px;">
                         <form action="#" method="post" class="search-widget-form">
                             <input type="search" class="form-control" placeholder="Search">
                             <button type="submit"><i class="icon_search" aria-hidden="true"></i></button>
                         </form>
                     </div>
+                    <div class="single-widget-area">
+                        <h4>Tra cứu bệnh: </h4>
+                        <h6>Các triệu chứng thường gặp </h6>
+                        <!-- <div class="posts-area"> -->
+                        <!-- Checkbox -->
+                        <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+                            <!-- Form elements goes here -->
+                            <div>
 
+                                <label *ngFor="let data of dataSourceListTT; let i=index">
+                             <input type="checkbox"  [value]="data.MaTrieuChung" (change)="onCheckboxChange($event)" />
+                            {{data.TenTrieuChung}}
+                            </label>
+                            </div>
+                            <!-- <label>
+                                <input type="checkbox" [checked]="uncheck" (change)="unCheckAll($event)">
+                                None of Above
+                              </label> -->
+                            <input type="submit" value="Tìm">
+                        </form>
+
+                    </div>
                     <!-- Single Widget Area -->
                     <div class="single-widget-area">
                         <!-- Title -->

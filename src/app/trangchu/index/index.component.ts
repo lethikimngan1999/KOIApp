@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NzMessageService, NzModalService } from 'ng-zorro-antd';
 import { TypeMessage } from 'src/app/app.constant';
+import { BenhService } from 'src/app/shared/services/benh.service';
 import { BientheService } from 'src/app/shared/services/bienthe.service';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
@@ -13,13 +14,16 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
 export class IndexComponent implements OnInit {
 
   dataSource: any = [];
-  constructor(public bientheService: BientheService,
+  dataSourceBenh: any = [];
+  constructor(public benhService: BenhService,
+    public bientheService: BientheService,
     private message: NzMessageService,
     public router: Router,
     private modalService: NzModalService) { }
 
   ngOnInit(): void {
     this.loadList();
+    this.loadListBenh();
   }
 
    // get danh sach
@@ -33,6 +37,14 @@ export class IndexComponent implements OnInit {
     });
   }
 
+   // get danh sach
+   public loadListBenh(): any {
+    this.benhService.getAll().subscribe(response => {
+      if (response && response.Status) {
+        this.dataSourceBenh = response.Data;
+      }
+    });
+}
     //  // xem chi tiết 
     public view(mabienthe: any) {
       this.navigateDetail(mabienthe);

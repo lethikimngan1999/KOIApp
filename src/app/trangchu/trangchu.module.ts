@@ -11,6 +11,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { SanphamOfChungloaiComponent } from './sanpham/sanpham-of-chungloai/sanpham-of-chungloai.component';
 import { BenhListComponent } from './benh/benh-list/benh-list.component';
 import { IndexComponent } from './index/index.component';
+import { GioithieuComponent } from './gioithieu/gioithieu.component';
 
 
 
@@ -24,7 +25,8 @@ import { IndexComponent } from './index/index.component';
     SanphamComponent,
     SanphamOfChungloaiComponent,
     BenhListComponent,
-    IndexComponent],
+    IndexComponent,
+    GioithieuComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -105,20 +105,7 @@ export class BenhDetailComponent implements OnInit {
       return this.ngOnInit();
     });
   }
-  // editLieuTrinh(data: any) {
-  //   const modalEdit = this.modalService.create({
-  //     nzTitle: 'Chỉnh sửa thông tin ',
-  //     nzContent: LieutrinhDialogComponent,
-  //     nzComponentParams: {
-  //       lieutrinhDto: JSON.parse(JSON.stringify(data))
-  //     },
-  //     nzWidth: '1000',
-  //   });
-  //   // Return a result when closed
-  //   modalEdit.afterClose.subscribe(() => {
-  //     return this.ngOnInit();
-  //   });
-  // }
+ 
 
 
 

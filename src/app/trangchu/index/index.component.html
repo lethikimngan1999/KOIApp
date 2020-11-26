@@ -22,13 +22,14 @@
                 <div class="about-us-content mb-100">
                     <!-- Section Heading -->
                     <div class="section-heading">
-                        <p>About us</p>
-                        <h2><span>Let Us</span> Tell You Our Story</h2>
+                        <p>Giới thiệu</p>
+                        <h2><span>Đôi nét về Cá Koi</span></h2>
                         <img src="../../../assets/img/core-img/decor2.png" alt="">
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetu adipiscing elit. Etiam nunc elit, pretium atlanta urna veloci, fermentum malesuda mina. Donec auctor nislec neque sagittis, sit amet dapibus pellentesque donal feugiat. Nulla mollis magna non
-                        sanaliquet, volutpat do zutum, ultrices consectetur, ultrices at purus.</p>
-                    <a href="#" class="btn famie-btn mt-30">Read More</a>
+                    <p>Cá Koi chính là loài Quốc Ngư của nước Nhật Bản, chúng bắt nguồn từ loài cá chép và đã được thuần hóa và lai tạo để được nuôi dưỡng làm cảnh. Hiện nay cá Koi Nhật được phổ biến ở nhiều quốc gia khác nhau và đã có mặt tại Việt Nam trong
+                        nhiều năm qua. Ban đầu cá Koi được nuôi để làm lương thực dự trữ của người Nhật mỗi khi đông về, tuy nhiên sau thời gian nuôi chung thì người dân đã phát hiện chúng tự lai tạo cùng nhau và cho ra loài cá nhiều màu sắc sặc sỡ rất
+                        đẹp mắt. Từ đó người Nhật đã bắt đầu thực hiện lai tạo ra nhiều giống cá Koi khác nhau và được cung ứng đến khắp nơi trên thế giới. </p>
+                    <a routerLink="/trangchu/gioi-thieu" class="btn famie-btn mt-30">Xem thêm</a>
                 </div>
             </div>
 
@@ -174,8 +175,8 @@
             <div class="col-12">
                 <!-- Section Heading -->
                 <div class="section-heading text-center">
-                    <p>Make the green world</p>
-                    <h2><span>Farming Practices</span> To Preserve Land & Water</h2>
+                    <p>Bệnh cá Koi</p>
+                    <h2><span>Một số bệnh thường gặp</span></h2>
                     <img src="../../../assets/img/core-img/decor2.png" alt="">
                 </div>
             </div>
@@ -184,36 +185,36 @@
         <div class="row">
 
             <!-- Single Farming Practice Area -->
-            <div class="col-12 col-sm-6 col-lg-4">
+            <div class="col-12 col-sm-6 col-lg-4" *ngFor="let data of dataSourceBenh">
                 <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="100ms">
                     <!-- Thumbnail -->
                     <div class="farming-practice-thumbnail">
-                        <img src="../../../assets/img/bg-img/1.jpg" alt="">
+                        <img [src]="data.HinhAnh" alt="">
                     </div>
                     <!-- Content -->
                     <div class="farming-practice-content text-center">
                         <!-- Icon -->
                         <div class="farming-icon">
-                            <img src="../../../assets/img/bg-img/1.jpg" alt="">
+                            <img src="../../../assets/img/core-img/decor2.png" alt="">
                         </div>
-                        <span>Farming practice for</span>
-                        <h4>Chicken Farmed For Meat</h4>
-                        <p>Donec nec justo eget felis facilisis ferme ntum. Aliquam portitor mauris sit amet orci. donec salim...</p>
+                        <span>Bệnh cá Koi</span>
+                        <h4>{{data.TenBenh}}</h4>
+                        <p>...</p>
                     </div>
                 </div>
             </div>
 
             <!-- Single Farming Practice Area -->
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="200ms">
-                    <!-- Thumbnail -->
-                    <div class="farming-practice-thumbnail">
+            <!-- <div class="col-12 col-sm-6 col-lg-4">
+                <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="200ms"> -->
+            <!-- Thumbnail -->
+            <!-- <div class="farming-practice-thumbnail">
                         <img src="../../../assets/img/bg-img/1.jpg" alt="">
-                    </div>
-                    <!-- Content -->
-                    <div class="farming-practice-content text-center">
-                        <!-- Icon -->
-                        <div class="farming-icon">
+                    </div> -->
+            <!-- Content -->
+            <!-- <div class="farming-practice-content text-center"> -->
+            <!-- Icon -->
+            <!-- <div class="farming-icon">
                             <img src="../../../assets/img/bg-img/1.jpg" alt="">
                         </div>
                         <span>Farming practice for</span>
@@ -221,19 +222,19 @@
                         <p>Donec nec justo eget felis facilisis ferme ntum. Aliquam portitor mauris sit amet orci. donec salim...</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Single Farming Practice Area -->
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="300ms">
-                    <!-- Thumbnail -->
-                    <div class="farming-practice-thumbnail">
+            <!-- <div class="col-12 col-sm-6 col-lg-4">
+                <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="300ms"> -->
+            <!-- Thumbnail -->
+            <!-- <div class="farming-practice-thumbnail">
                         <img src="../../../assets/img/bg-img/1.jpg" alt="">
-                    </div>
-                    <!-- Content -->
-                    <div class="farming-practice-content text-center">
-                        <!-- Icon -->
-                        <div class="farming-icon">
+                    </div> -->
+            <!-- Content -->
+            <!-- <div class="farming-practice-content text-center"> -->
+            <!-- Icon -->
+            <!-- <div class="farming-icon">
                             <img src="../../../assets/img/bg-img/1.jpg" alt="">
                         </div>
                         <span>Farming practice for</span>
@@ -241,19 +242,19 @@
                         <p>Donec nec justo eget felis facilisis ferme ntum. Aliquam portitor mauris sit amet orci. donec salim...</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Single Farming Practice Area -->
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="400ms">
-                    <!-- Thumbnail -->
-                    <div class="farming-practice-thumbnail">
+            <!-- <div class="col-12 col-sm-6 col-lg-4">
+                <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="400ms"> -->
+            <!-- Thumbnail -->
+            <!-- <div class="farming-practice-thumbnail">
                         <img src="../../../assets/img/bg-img/1.jpg" alt="">
-                    </div>
-                    <!-- Content -->
-                    <div class="farming-practice-content text-center">
-                        <!-- Icon -->
-                        <div class="farming-icon">
+                    </div> -->
+            <!-- Content -->
+            <!-- <div class="farming-practice-content text-center"> -->
+            <!-- Icon -->
+            <!-- <div class="farming-icon">
                             <img src="../../../assets/img/bg-img/1.jpg" alt="">
                         </div>
                         <span>Farming practice for</span>
@@ -261,19 +262,19 @@
                         <p>Donec nec justo eget felis facilisis ferme ntum. Aliquam portitor mauris sit amet orci. donec salim...</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Single Farming Practice Area -->
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="500ms">
-                    <!-- Thumbnail -->
-                    <div class="farming-practice-thumbnail">
+            <!-- <div class="col-12 col-sm-6 col-lg-4">
+                <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="500ms"> -->
+            <!-- Thumbnail -->
+            <!-- <div class="farming-practice-thumbnail">
                         <img src="../../../assets/img/bg-img/1.jpg" alt="">
-                    </div>
-                    <!-- Content -->
-                    <div class="farming-practice-content text-center">
-                        <!-- Icon -->
-                        <div class="farming-icon">
+                    </div> -->
+            <!-- Content -->
+            <!-- <div class="farming-practice-content text-center"> -->
+            <!-- Icon -->
+            <!-- <div class="farming-icon">
                             <img src="../../../assets/img/bg-img/1.jpg" alt="">
                         </div>
                         <span>Farming practice for</span>
@@ -281,19 +282,19 @@
                         <p>Donec nec justo eget felis facilisis ferme ntum. Aliquam portitor mauris sit amet orci. donec salim...</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Single Farming Practice Area -->
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="600ms">
-                    <!-- Thumbnail -->
-                    <div class="farming-practice-thumbnail">
+            <!-- <div class="col-12 col-sm-6 col-lg-4">
+                <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="600ms"> -->
+            <!-- Thumbnail -->
+            <!-- <div class="farming-practice-thumbnail">
                         <img src="../../../assets/img/bg-img/1.jpg" alt="">
-                    </div>
-                    <!-- Content -->
-                    <div class="farming-practice-content text-center">
-                        <!-- Icon -->
-                        <div class="farming-icon">
+                    </div> -->
+            <!-- Content -->
+            <!-- <div class="farming-practice-content text-center"> -->
+            <!-- Icon -->
+            <!-- <div class="farming-icon">
                             <img src="../../../assets/img/bg-img/1.jpg" alt="">
                         </div>
                         <span>Farming practice for</span>
@@ -301,8 +302,16 @@
                         <p>Donec nec justo eget felis facilisis ferme ntum. Aliquam portitor mauris sit amet orci. donec salim...</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="gotoshop-btn text-center wow fadeInUp" data-wow-delay="900ms">
+                    <a routerLink="/trangchu/cac-loai-benh" class="btn famie-btn">Tra cứu bệnh</a>
+                </div>
+            </div>
         </div>
     </div>
 </section>

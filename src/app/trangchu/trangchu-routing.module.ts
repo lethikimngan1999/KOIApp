@@ -10,6 +10,7 @@ import { SanphamComponent } from './sanpham/sanpham.component';
 import { SanphamOfChungloaiComponent } from './sanpham/sanpham-of-chungloai/sanpham-of-chungloai.component';
 import { BenhListComponent } from './benh/benh-list/benh-list.component';
 import { IndexComponent } from './index/index.component';
+import { GioithieuComponent } from './gioithieu/gioithieu.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'index',
         component: IndexComponent
+      },
+      {
+        path: 'gioi-thieu',
+        component: GioithieuComponent
       },
       {
         path: 'lienhe',
