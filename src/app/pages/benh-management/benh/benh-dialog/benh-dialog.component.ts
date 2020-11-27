@@ -60,6 +60,7 @@ export class BenhDialogComponent implements OnInit {
       _ipTextarea_NguyenNhan: ['', Validators.required],
       _ipTextarea_CachDieuTri:  ['', Validators.required],
       _ipTextarea_MoTa: ['', Validators.required],
+ 
       _selectBox_thuoc: [''],
       _selectBox_trieuchung: [''],
       _ipUpload_image: ['']

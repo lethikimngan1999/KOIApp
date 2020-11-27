@@ -37,14 +37,24 @@
                         <!-- <div class="posts-area"> -->
 
                         <!-- Single Blog Post Area -->
-                        <div class="single-blog-post-area d-flex align-items-center" data-wow-delay="300ms" *ngFor="let data of dataSource">
-
-                            <img [src]="data.HinhAnh" alt="" style="width: 180px; margin-right: 30px;" class="post-thumb">
-
-                            <div class="post-content">
-                                <a href="#" class="post-title">{{data.TenBenh}}</a>
-                                <!-- <div class="post-date">18 Aug 2018</div> -->
+                        <div style="margin-bottom: 15px;
+                        border-bottom: 1px solid #EBEBEB;
+                        padding-bottom: 15px;
+                        cursor: pointer;" class="single-blog-post-area d-flex align-items-center" data-wow-delay="300ms" *ngFor="let data of dataSource">
+                            <div class="col-xs-12 col-sm-4 col-md-3">
+                                <img [src]="data.HinhAnh" alt="" style="width: 180px; margin-right: 30px;" class="post-thumb">
                             </div>
+
+                            <div class="col-xs-12 col-sm-8 col-md-9">
+                                <!-- <div class="post-content"> -->
+                                <h3 class="head">{{data.TenBenh}}</h3>
+                                <p [innerHtml]='data.NguyenNhan.substr(3,data.NguyenNhan.indexOf("."))'></p>
+                            </div>
+                            <!-- <div class="post-date">18 Aug 2018</div> -->
+                            <!-- </div>
+                            <br>
+
+                            <hr> -->
                         </div>
                         <!-- </div> -->
                     </ng-template>
@@ -59,8 +69,8 @@
                             <!-- <img [src]="data.HinhAnh" alt="" style="width: 180px; margin-right: 30px;" class="post-thumb"> -->
 
                             <div class="post-content">
-                                <a href="#" class="post-title">{{data.Benh.TenBenh}}</a>
-                                <div class="post-date">18 Aug 2018</div>
+                                <a href="#" class="post-title">{{data.TenBenh}}</a>
+                                <!-- <div class="post-date">18 Aug 2018</div> -->
                             </div>
                         </div>
                         <!-- </div> -->

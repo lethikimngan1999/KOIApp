@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BenhService } from 'src/app/shared/services/benh.service';
 import { TrieuchungService } from 'src/app/shared/services/trieuchung.service';
@@ -17,10 +17,9 @@ export class BenhListComponent implements OnInit {
   dataSourceListTT: any = [];
   trieuchungbenh: any[] = [];
   expression = true;
-  // uncheck = false;
-  // uncheck1 = false;
+
   diableButton = true;
-  //@ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
+  
   constructor(private fb: FormBuilder,
               private trieuchungService: TrieuchungService,
               public benhService: BenhService,) { }

@@ -6,6 +6,7 @@ export class LieuTrinhDTO {
     MaLieuTrinh: string;
     MaThuoc: string;
     TenLieuTrinh: string;
-    MoTaLieuTrinh: boolean;
+    MoTaLieuTrinh: string;
+    STT: string;
     Thuoc: ThuocDTO;
 }

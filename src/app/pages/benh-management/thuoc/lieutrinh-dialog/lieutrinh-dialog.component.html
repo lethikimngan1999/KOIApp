@@ -9,6 +9,14 @@
                 </nz-form-control>
             </nz-form-item>
         </div>
+        <div nz-col [nzSpan]="8">
+            <nz-form-item>
+                <nz-form-label nzRequired>STT</nz-form-label>
+                <nz-form-control nzHasFeedback nzErrorTip="Vui lòng nhập stt!">
+                    <input nz-input placeholder="STT" [(ngModel)]="lieutrinhDto.STT" type="number" formControlName="_ipText_stt" />
+                </nz-form-control>
+            </nz-form-item>
+        </div>
     </div>
     <div nz-row [nzGutter]="24">
         <div nz-col [nzSpan]="24">

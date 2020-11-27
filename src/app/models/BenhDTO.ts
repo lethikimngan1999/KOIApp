@@ -9,6 +9,7 @@ export class  BenhDTO {
     CachDieuTri: string;
     MoTa: string;
     HinhAnh: string;
+
     ListThuocs: ThuocDTO[];
     MaThuocs: string[];
     ListTrieuChungs: TrieuChungDTO[];
