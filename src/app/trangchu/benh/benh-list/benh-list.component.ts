@@ -19,29 +19,29 @@ export class BenhListComponent implements OnInit {
   expression = true;
 
   diableButton = true;
-  
+
   constructor(private fb: FormBuilder,
               private trieuchungService: TrieuchungService,
-              public benhService: BenhService,) { }
+              public benhService: BenhService, ) { }
 
   ngOnInit(): void {
      // checkbox
      this.form = this.fb.group({
       trieuchungbenh: this.fb.array([])
     });
-    this.loadListTT();
-    this.loadList();
-   
+     this.loadListTT();
+     this.loadList();
+
   }
 
   onCheckboxChange(e) {
     if (e.target.checked) {
       this.trieuchungbenh.push({ search: e.target.value });
-     //this.uncheck = true;
+     // this.uncheck = true;
     } else {
       const index = this.trieuchungbenh.indexOf({ search: e.target.value });
       this.trieuchungbenh.splice(index, 1);
-      
+
     }
   }
 
@@ -49,7 +49,6 @@ export class BenhListComponent implements OnInit {
   public loadList(): any {
       this.benhService.getAll().subscribe(response => {
         if (response && response.Status) {
-          // this.expression = true;
           this.dataSource = response.Data;
           this.expression = true;
         }
@@ -81,7 +80,7 @@ export class BenhListComponent implements OnInit {
   // unCheckAll($event){
   //  if ($event.target.checked){
   //   this.uncheck1 = false;
-    
+
   //  }else
   //  {
   //    this.uncheck = true;

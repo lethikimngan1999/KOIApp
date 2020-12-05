@@ -53,6 +53,7 @@ export class ThuocDialogComponent implements OnInit {
       _ipText_TenThuoc: ['', Validators.required],
       _ipTextarea_CongDung: ['', Validators.required],
       _ipTextarea_CachDung:  ['', Validators.required],
+      _ipTextarea_LieuDung:  ['', Validators.required],
       _ipTextarea_LuuY: [''],
       _selectBox_benh: [''],
       _ipUpload_image: ['']

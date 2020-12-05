@@ -2,7 +2,7 @@
 // ********** Farmie Template Js ************* //
 // ******************************************* //
 
-jQuery(document).ready(function() {
+$(document).ready(function() {
 
     var browserWindow = $(window);
     var welcomeSlide = $('.welcome-slides');
@@ -123,4 +123,4 @@ jQuery(document).ready(function() {
     if (browserWindow.width() > 767) {
         new WOW().init();
     }
-})(jQuery);
+});

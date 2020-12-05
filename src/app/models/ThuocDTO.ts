@@ -5,6 +5,7 @@ export class ThuocDTO {
     TenThuoc: string;
     CongDung: string;
     CachDung: string;
+    LieuDung: string;
     LuuY: string;
     HinhAnh: string;
     ListBenhs: BenhDTO[];

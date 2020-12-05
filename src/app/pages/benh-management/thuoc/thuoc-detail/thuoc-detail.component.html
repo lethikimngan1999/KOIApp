@@ -27,9 +27,13 @@
                                 <h6>Cách dùng:
                                     <p [innerHtml]='selected.CachDung'></p>
                                 </h6>
+                                <h6>Liều dùng:
+                                    <p [innerHtml]='selected.LieuDung'></p>
+                                </h6>
                                 <h6>Lưu ý:
                                     <p [innerHtml]='selected.LuuY'></p>
                                 </h6>
+
                             </div>
                             <div nz-col [nzSpan]="6" [nzPull]="18">
                                 <img [src]="selected.HinhAnh" style="width: 200px" />
@@ -45,98 +49,9 @@
                 <div class="wrap">
                     <div class="content">
                         <div nz-row>
-
-                            <!-- <div class="container">
-                                <div class="main-timeline"> -->
-
-                            <!-- start experience section-->
-                            <!-- <div class="timeline">
-                                        <div class="icon"></div>
-                                        <div class="date-content">
-                                            <div class="date-outer">
-                                                <span class="date">
-                                                                            <span class="month">2 Years</span>
-                                                <span class="year">2013</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-content">
-                                            <h5 class="title">Visual Art &amp; Design</h5>
-                                            <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit molestie.
-                                            </p>
-                                        </div>
-                                    </div> -->
-                            <!-- end experience section-->
-
-                            <!-- start experience section-->
-                            <!-- <div class="timeline">
-                                        <div class="icon"></div>
-                                        <div class="date-content">
-                                            <div class="date-outer">
-                                                <span class="date">
-                                                                            <span class="month">1 Years</span>
-                                                <span class="year">2015</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-content">
-                                            <h5 class="title">Product Designer</h5>
-                                            <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit molestie.
-                                            </p>
-                                        </div>
-                                    </div> -->
-                            <!-- end experience section-->
-
-                            <!-- start experience section-->
-                            <!-- <div class="timeline">
-                                        <div class="icon"></div>
-                                        <div class="date-content">
-                                            <div class="date-outer">
-                                                <span class="date">
-                                                                            <span class="month">2 Years</span>
-                                                <span class="year">2016</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-content">
-                                            <h5 class="title">Web Designer</h5>
-                                            <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit molestie.
-                                            </p>
-                                        </div>
-                                    </div> -->
-                            <!-- end experience section-->
-
-                            <!-- start experience section-->
-                            <!-- <div class="timeline">
-                                        <div class="icon"></div>
-                                        <div class="date-content">
-                                            <div class="date-outer">
-                                                <span class="date">
-                                                                            <span class="month">2 Years</span>
-                                                <span class="year">2018</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-content">
-                                            <h5 class="title">Graphic Designer</h5>
-                                            <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit molestie.
-                                            </p>
-                                        </div>
-                                    </div> -->
-                            <!-- end experience section-->
-
-                            <!-- </div>
-                            </div> -->
-
                             <div class="timeline">
                                 <div class="row no-gutters justify-content-end justify-content-md-around align-items-start  timeline-nodes" *ngFor="let item of selected?.ListLieuTrinhs">
                                     <div class="col-10 col-md-5 order-3 order-md-1 timeline-content">
-
-
                                         <h3 class=" text-light">{{item.TenLieuTrinh}}</h3>
                                         <p [innerHtml]='item.MoTaLieuTrinh'></p>
                                         <!-- <ul>
@@ -152,9 +67,6 @@
                                                 </li>
             
                                             </ul> -->
-
-
-
                                         <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, eaque amet deleniti hic quas qui cumque delectus aliquid, eius quia quod, quae, aliquam aspernatur facilis. Minima quod corporis dignissimos porro.</p> -->
                                     </div>
                                     <div class="col-2 col-sm-1 px-md-3 order-2 timeline-image text-md-center">
@@ -164,48 +76,12 @@
                                         <time><a (click)="editLieuTrinh(item)">Chỉnh sửa </a></time>
                                     </div>
                                 </div>
-                                <!-- <div class="row no-gutters justify-content-end justify-content-md-around align-items-start  timeline-nodes">
-                                    <div class="col-10 col-md-5 order-3 order-md-1 timeline-content">
-                                        <h3 class=" text-light">Timeline Heading</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, eaque amet deleniti hic quas qui cumque delectus aliquid, eius quia quod, quae, aliquam aspernatur facilis. Minima quod corporis dignissimos porro.</p>
-                                    </div>
-                                    <div class="col-2 col-sm-1 px-md-3 order-2 timeline-image text-md-center">
-                                        <img src="img/img13.png" class="img-fluid" alt="img">
-                                    </div>
-                                    <div class="col-10 col-md-5 order-1 order-md-3 py-3 timeline-date">
-                                        <time>2018-02-23</time>
-                                    </div>
-                                </div>
-                                <div class="row no-gutters justify-content-end justify-content-md-around align-items-start  timeline-nodes">
-                                    <div class="col-10 col-md-5 order-3 order-md-1 timeline-content">
-                                        <h3 class=" text-light">Timeline Heading</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, eaque amet deleniti hic quas qui cumque delectus aliquid, eius quia quod, quae, aliquam aspernatur facilis. Minima quod corporis dignissimos porro.</p>
-                                    </div>
-                                    <div class="col-2 col-sm-1 px-md-3 order-2 timeline-image text-md-center">
-                                        <img src="img/img13.png" class="img-fluid" alt="img">
-                                    </div>
-                                    <div class="col-10 col-md-5 order-1 order-md-3 py-3 timeline-date">
-                                        <time>2018-02-23</time>
-                                    </div>
-                                </div>
-                                <div class="row no-gutters justify-content-end justify-content-md-around align-items-start  timeline-nodes">
-                                    <div class="col-10 col-md-5 order-3 order-md-1 timeline-content">
-                                        <h3 class=" text-light">Timeline Heading</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, eaque amet deleniti hic quas qui cumque delectus aliquid, eius quia quod, quae, aliquam aspernatur facilis. Minima quod corporis dignissimos porro.</p>
-                                    </div>
-                                    <div class="col-2 col-sm-1 px-md-3 order-2 timeline-image text-md-center">
-                                        <img src="img/img13.png" class="img-fluid" alt="img">
-                                    </div>
-                                    <div class="col-10 col-md-5 order-1 order-md-3 py-3 timeline-date">
-                                        <time>2018-02-23</time>
-                                    </div>
-                                </div> -->
+
                             </div>
 
                         </div>
                     </div>
                 </div>
-
             </nz-tab>
         </nz-tabset>
     </nz-page-header-content>

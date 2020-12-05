@@ -10,7 +10,7 @@
     <input type="submit" value="Submit">
 </form>
 
-<nz-table #Table nzBordered [nzData]="dataSourceTT">
+<nz-table #Table nzBordered [nzData]="dataSourceTT" [nzLoading]="isConfirmLoading">
     <thead>
         <tr>
             <th>STT</th>

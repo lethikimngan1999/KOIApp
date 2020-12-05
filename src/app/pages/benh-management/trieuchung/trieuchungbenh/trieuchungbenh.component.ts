@@ -15,11 +15,13 @@ export class TrieuchungbenhComponent implements OnInit {
   dataSource: any = [];
   public filterData: any = {};
   trieuchungbenh: any[] = [];
+  isConfirmLoading = false;
 
   constructor(private fb: FormBuilder,
               private trieuchungService: TrieuchungService, ) { }
 
   ngOnInit(): void {
+    this.isConfirmLoading = true;
     this.loadList();
    // checkbox
     this.form = this.fb.group({
@@ -92,7 +94,7 @@ export class TrieuchungbenhComponent implements OnInit {
     this.trieuchungService.getAll().subscribe(response => {
       if (response && response.Status) {
         this.dataSource = response.Data;
-        // this.isConfirmLoading = false;
+        this.isConfirmLoading = false;
         // console.log(this.dataSource);
       }
     });
