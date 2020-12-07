@@ -34,6 +34,7 @@ export class AuthenticationService {
     this.loginService.getToken(loginDto).subscribe(response => {
       if (response && response.Data && response.Data !== 'null') {
         this.setTokenFromLocalStorage(response.Data);
+        
         this.getUser();
       }
     });

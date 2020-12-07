@@ -31,6 +31,7 @@ export class UserResetPasswordComponent extends BaseComponent {
 
   ngOnInit(): void {
     this.initFormValidate();
+    console.log( this.userDto.Id);
   }
 
   private initFormValidate(): void {

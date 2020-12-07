@@ -16,14 +16,14 @@ export class IndexComponent implements OnInit {
   dataSource: any = [];
   dataSourceBenh: any = [];
   constructor(public benhService: BenhService,
-    public bientheService: BientheService,
-    private message: NzMessageService,
-    public router: Router,
-    private modalService: NzModalService) { }
+              public bientheService: BientheService,
+              private message: NzMessageService,
+              public router: Router,
+              private modalService: NzModalService) { }
 
   ngOnInit(): void {
     this.loadList();
-    this.loadListBenh();
+   // this.loadListBenh();
   }
 
    // get danh sach
@@ -45,7 +45,7 @@ export class IndexComponent implements OnInit {
       }
     });
 }
-    //  // xem chi tiết 
+    //  // xem chi tiết
     public view(mabienthe: any) {
       this.navigateDetail(mabienthe);
     }

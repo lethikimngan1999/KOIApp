@@ -11,6 +11,7 @@ import { SanphamOfChungloaiComponent } from './sanpham/sanpham-of-chungloai/sanp
 import { BenhListComponent } from './benh/benh-list/benh-list.component';
 import { IndexComponent } from './index/index.component';
 import { GioithieuComponent } from './gioithieu/gioithieu.component';
+import { TracuubenhComponent } from './benh/tracuubenh/tracuubenh.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,10 @@ const routes: Routes = [
       {
         path: 'cac-loai-benh',
         component: BenhListComponent
+      },
+      {
+        path: 'tra-cuu-benh',
+        component: TracuubenhComponent
       },
     ]
   }

@@ -50,4 +50,8 @@ export class TrieuchungService {
   public GetListBenhByListTrieuChung(data: any): Observable<BaseResponse<BenhDTO[]>> {
     return this.baseSevice.post<BaseResponse<BenhDTO[]>>('api/TrieuChungBenh/GetAllTrieuChung', data);
   }
+
+  public GetAllBenhLienQuan(data: any): Observable<BaseResponse<BenhDTO[]>> {
+    return this.baseSevice.post<BaseResponse<BenhDTO[]>>('api/TrieuChungBenh/GetAllBenhLienQuan', data);
+  }
 }

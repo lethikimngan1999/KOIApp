@@ -23,9 +23,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private loginService: LoginService,
     private router: Router,
-    private authService: AuthenticationService) {
-    document.body.className = "login-body";
-  }
+    private authService: AuthenticationService
+  ) {  document.body.className = 'login-body'; }
 
   ngOnInit(): void {
     this.initFormValidate();
@@ -36,7 +35,7 @@ export class LoginComponent implements OnInit {
 
   private initFormValidate(): void {
     this.validateForm = this.fb.group({
-      _ipText_userName: [null, [Validators.required]],
+      _ipText_username: [null, [Validators.required]],
       _ipText_password: [null, [Validators.required]]
     });
   }
@@ -57,12 +56,10 @@ export class LoginComponent implements OnInit {
     return false;
   }
 
-  
-
   private login() {
     const loginDto: LoginDTO = {
-      username: this.validateForm.controls._ipText_userName.value,
-      password: this.validateForm.controls._ipText_password.value,
+      username: this.validateForm.controls._ipText_username.value,
+      password: this.validateForm.controls._ipText_password.value
     };
 
     this.authService.login(loginDto)
@@ -75,24 +72,24 @@ export class LoginComponent implements OnInit {
         this.isShowMessage = true;
       });
     // this.loginService.getToken(loginDto).subscribe(response => {
-
     //   if (response.Status === true && response.Data == null) {
     //     this.isShowMessage = true;
     //   }
     //   if (response && response.Data && response.Data !== 'null') {
     //     this.setTokenFromLocalStorage(response.Data);
-    //     this.router.navigateByUrl('/admin');
+    //     this.router.navigateByUrl('/home');
     //   }
     // });
+
   }
 
   submitForm(): void {
     this.isShowMessage = false;
-    for (const i in this.validateForm.controls) {
+    // tslint:disable-next-line: forin
+    for (const i in this.validateForm.controls)  {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
-
     // check valid
     if (this.validateForm.status === 'INVALID') {
       return;

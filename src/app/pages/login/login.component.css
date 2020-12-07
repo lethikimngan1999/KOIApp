@@ -12,6 +12,10 @@
     margin-bottom: 30px;
 }
 
+.alert-login .ant-alert-error .ant-alert-message {
+    color: red!important;
+}
+
 .inner-content {
     padding: 90px 0 0;
     text-align: center;

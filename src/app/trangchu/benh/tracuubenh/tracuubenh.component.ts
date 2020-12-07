@@ -1,37 +1,30 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BenhService } from 'src/app/shared/services/benh.service';
 import { TrieuchungService } from 'src/app/shared/services/trieuchung.service';
 
 @Component({
-  selector: 'app-benh-list',
-  templateUrl: './benh-list.component.html',
-  styleUrls: ['./benh-list.component.css']
+  selector: 'app-tracuubenh',
+  templateUrl: './tracuubenh.component.html',
+  styleUrls: ['./tracuubenh.component.css']
 })
-
-export class BenhListComponent implements OnInit {
+export class TracuubenhComponent implements OnInit {
 
   form: FormGroup;
-  dataSource: any = [];
-  dataSourceTT: any = [];
-  dataSourceListTT: any = [];
   trieuchungbenh: any[] = [];
-  expression = true;
-
-  diableButton = true;
-
+  dataSourceTT: any = [];
+  dataSourceLQ: any = [];
+  dataSourceListTT: any = [];
   constructor(private fb: FormBuilder,
-              private trieuchungService: TrieuchungService,
-              public benhService: BenhService, ) { }
+    private trieuchungService: TrieuchungService,
+    public benhService: BenhService,) { }
 
   ngOnInit(): void {
-     // checkbox
-     this.form = this.fb.group({
+    // checkbox
+    this.form = this.fb.group({
       trieuchungbenh: this.fb.array([])
     });
-  //   this.loadListTT();
-     this.loadList();
-
+    this.loadListTT();
   }
 
   onCheckboxChange(e) {
@@ -45,26 +38,26 @@ export class BenhListComponent implements OnInit {
     }
   }
 
-  // get danh sach
-  public loadList(): any {
-      this.benhService.getAll().subscribe(response => {
-        if (response && response.Status) {
-          this.dataSource = response.Data;
-          this.expression = true;
-        }
-      });
-  }
-
   submitForm() {
     this.load(this.trieuchungbenh);
+    this.loadLQ(this.trieuchungbenh);
     // this.uncheck = false;
     // this.uncheck1 = false;
   }
   private load(searchDTO: any) {
     this.trieuchungService.GetListBenhByListTrieuChung(searchDTO).subscribe(response => {
       if (response && response.Status) {
-        this.expression = false;
+       // this.expression = false;
         this.dataSourceTT = response.Data;
+      }
+    });
+  }
+
+  private loadLQ(searchDTO: any) {
+    this.trieuchungService.GetAllBenhLienQuan(searchDTO).subscribe(response => {
+      if (response && response.Status) {
+       // this.expression = false;
+        this.dataSourceLQ = response.Data;
       }
     });
   }
@@ -76,21 +69,4 @@ export class BenhListComponent implements OnInit {
       }
     });
   }
-
-  // unCheckAll($event){
-  //  if ($event.target.checked){
-  //   this.uncheck1 = false;
-
-  //  }else
-  //  {
-  //    this.uncheck = true;
-  //  }
-  //     this.form.reset();
-  // }
-
-  // reset(): void {
-  //   this.form.reset((element) => {
-  //     element.nativeElement.checked = false;
-  //   });
-  // }
 }

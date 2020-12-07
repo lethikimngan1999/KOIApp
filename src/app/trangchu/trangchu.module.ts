@@ -12,6 +12,7 @@ import { SanphamOfChungloaiComponent } from './sanpham/sanpham-of-chungloai/sanp
 import { BenhListComponent } from './benh/benh-list/benh-list.component';
 import { IndexComponent } from './index/index.component';
 import { GioithieuComponent } from './gioithieu/gioithieu.component';
+import { TracuubenhComponent } from './benh/tracuubenh/tracuubenh.component';
 
 
 
@@ -26,7 +27,8 @@ import { GioithieuComponent } from './gioithieu/gioithieu.component';
     SanphamOfChungloaiComponent,
     BenhListComponent,
     IndexComponent,
-    GioithieuComponent],
+    GioithieuComponent,
+    TracuubenhComponent],
   imports: [
     CommonModule,
     FormsModule,

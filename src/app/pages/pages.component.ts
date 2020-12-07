@@ -35,6 +35,7 @@ export class PagesComponent extends BaseComponent implements OnInit {
     super(router, loginService);
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
    // console.log(' this.currentUser ' + this.currentUser.RoleIds);
+   //console.log(this.currentUser);
    }
 
   ngOnInit(): void {
