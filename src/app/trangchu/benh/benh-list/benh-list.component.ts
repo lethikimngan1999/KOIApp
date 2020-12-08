@@ -1,5 +1,8 @@
 import { Component, OnInit, } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd';
+import { TypeMessage } from 'src/app/app.constant';
 import { BenhService } from 'src/app/shared/services/benh.service';
 import { TrieuchungService } from 'src/app/shared/services/trieuchung.service';
 
@@ -22,7 +25,9 @@ export class BenhListComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private trieuchungService: TrieuchungService,
-              public benhService: BenhService, ) { }
+              public benhService: BenhService,
+              private message: NzMessageService,
+              private router: Router ) { }
 
   ngOnInit(): void {
      // checkbox
@@ -53,6 +58,21 @@ export class BenhListComponent implements OnInit {
           this.expression = true;
         }
       });
+  }
+
+ 
+  // xem chi tiết 
+  public view(mabenh: any) {
+    this.navigateDetail(mabenh);
+  }
+
+  private navigateDetail(mabenh: any) {
+    if (mabenh) {
+      // chuyen sang màn hình chi tiết 
+      this.router.navigate(['trangchu/cac-loai-benh/chitiet/'], { queryParams: { mabenh: mabenh } });
+    } else {
+      this.message.create(TypeMessage.Error, 'Có lỗi xảy ra!');
+    }
   }
 
   submitForm() {

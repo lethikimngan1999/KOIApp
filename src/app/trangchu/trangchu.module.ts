@@ -15,6 +15,7 @@ import { GioithieuComponent } from './gioithieu/gioithieu.component';
 import { TracuubenhComponent } from './benh/tracuubenh/tracuubenh.component';
 import { ThuocDetailComponent } from './thuoc/thuoc-detail/thuoc-detail.component';
 import { ThuocListKhComponent } from './thuoc/thuoc-list-kh/thuoc-list-kh.component';
+import { BenhDetailtKhComponent } from './benh/benh-detailt-kh/benh-detailt-kh.component';
 
 
 
@@ -32,7 +33,8 @@ import { ThuocListKhComponent } from './thuoc/thuoc-list-kh/thuoc-list-kh.compon
     GioithieuComponent,
     TracuubenhComponent,
     ThuocDetailComponent,
-    ThuocListKhComponent],
+    ThuocListKhComponent,
+    BenhDetailtKhComponent],
   imports: [
     CommonModule,
     FormsModule,

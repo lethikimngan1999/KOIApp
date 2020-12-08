@@ -14,6 +14,7 @@ import { GioithieuComponent } from './gioithieu/gioithieu.component';
 import { TracuubenhComponent } from './benh/tracuubenh/tracuubenh.component';
 import { ThuocDetailComponent } from './thuoc/thuoc-detail/thuoc-detail.component';
 import { ThuocListKhComponent } from './thuoc/thuoc-list-kh/thuoc-list-kh.component';
+import { BenhDetailtKhComponent } from './benh/benh-detailt-kh/benh-detailt-kh.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,10 @@ const routes: Routes = [
       {
         path: 'cac-loai-benh',
         component: BenhListComponent
+      },
+      {
+        path: 'cac-loai-benh/chitiet',
+        component: BenhDetailtKhComponent
       },
       {
         path: 'tra-cuu-benh',
