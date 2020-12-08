@@ -1,0 +1,362 @@
+<!-- ##### Breadcrumb Area Start ##### -->
+<div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url('../../../..//assets/img/bg-img/sidle3.jpg');">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="breadcrumb-text">
+                    <h2>Bệnh cá Koi và thuốc chữa
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="famie-breadcrumb">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i> Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Thuốc chữa bệnh cá koi
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- ##### Breadcrumb Area End ##### -->
+
+<!-- ##### Blog Area Start ##### -->
+<section class="famie-blog-area">
+    <div class="container">
+        <div class="row">
+            <!-- Posts Area -->
+            <div class="col-12 col-md-8">
+                <div class="posts-area">
+                    <nz-page-header>
+                        <nz-page-header-title>{{pageTitle}}</nz-page-header-title>
+                        <nz-page-header-extra>
+
+                            <button nz-button nzType="default" nzShape="round" [routerLink]="'/trangchu/cac-loai-thuoc'">
+                            <i nz-icon nzType="arrow-left"></i>Quay lại danh sách
+                          </button>
+
+                        </nz-page-header-extra>
+                        <!--content-->
+                        <nz-page-header-content *ngIf="hasThuoc">
+                            <nz-tabset>
+                                <nz-tab nzTitle="Chi tiết">
+                                    <div class="wrap">
+                                        <div class="content">
+                                            <div nz-row>
+                                                <div nz-col [nzSpan]="18" [nzPush]="6">
+                                                    <h5>{{selected.TenThuoc}}</h5>
+                                                    <h6>Công dụng:
+                                                        <p [innerHtml]='selected.CongDung'></p>
+                                                    </h6>
+
+                                                    <h6>Cách dùng:
+                                                        <p [innerHtml]='selected.CachDung'></p>
+                                                    </h6>
+                                                    <h6>Liều dùng:
+                                                        <p [innerHtml]='selected.LieuDung'></p>
+                                                    </h6>
+                                                    <h6>Lưu ý:
+                                                        <p [innerHtml]='selected.LuuY'></p>
+                                                    </h6>
+
+                                                </div>
+                                                <div nz-col [nzSpan]="6" [nzPull]="18">
+                                                    <img [src]="selected.HinhAnh" style="width: 200px" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </nz-tab>
+
+
+                                <nz-tab nzTitle="Liệu trình">
+                                    <div class="wrap">
+                                        <div class="content">
+                                            <div nz-row>
+                                                <div class="timeline">
+                                                    <div class="row no-gutters justify-content-end justify-content-md-around align-items-start  timeline-nodes" *ngFor="let item of selected?.ListLieuTrinhs">
+                                                        <div class="col-10 col-md-5 order-3 order-md-1 timeline-content">
+                                                            <h3 class=" text-light">{{item.TenLieuTrinh}}</h3>
+                                                            <p [innerHtml]='item.MoTaLieuTrinh'></p>
+                                                            <!-- <ul>
+                                                                    <li style="display: inline-block; width: 30px;">
+                                                                        <a (click)="editLieuTrinh(item)" style="color: #1890ff;">
+                                                                            <i nz-icon [nzType]="'edit'" [nzTheme]="'twotone'"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li style="display: inline-block; ">
+                                                                        <a (click)="confirmDeleteLieuTrinh(item)" style="color: red;">
+                                                                            <i nz-icon nzType="delete" nzTheme="outline"></i>
+                                                                        </a>
+                                                                    </li>
+                                
+                                                                </ul> -->
+                                                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, eaque amet deleniti hic quas qui cumque delectus aliquid, eius quia quod, quae, aliquam aspernatur facilis. Minima quod corporis dignissimos porro.</p> -->
+                                                        </div>
+                                                        <div class="col-2 col-sm-1 px-md-3 order-2 timeline-image text-md-center">
+                                                            <img src="../../../../../assets/img/bg-img/download.png" class="img-fluid" alt="img">
+                                                        </div>
+                                                        <div class="col-10 col-md-5 order-1 order-md-3 py-3 timeline-date">
+                                                            <time hidden><a >Chỉnh sửa </a></time>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </nz-tab>
+                            </nz-tabset>
+                        </nz-page-header-content>
+                        <!-- <div class="wrap">
+                                <div class="content">
+                                    <div class="content" style="margin-left: -680px;">
+                                        <nz-timeline nzMode="alternate">
+                                            <nz-timeline-item nzColor="red" nzPosition="right">{{selected.TenThuoc}}</nz-timeline-item>
+                                            <nz-timeline-item nzColor="red" nzPosition="right">Công dụng</nz-timeline-item>
+                                            <nz-timeline-item nzColor="red" nzPosition="left">
+                                                <div [innerHtml]='selected.CongDung'></div>
+                                            </nz-timeline-item>
+                    
+                    
+                                          
+                                            <nz-timeline-item nzColor="green" nzPosition="right">Cách dùng</nz-timeline-item>
+                                            <nz-timeline-item nzPosition="left" nzColor="green">
+                                                <div [innerHtml]='selected.CachDung'></div>
+                                            </nz-timeline-item>
+                    
+                                            <nz-timeline-item nzColor="green" nzPosition="right">Lưu ý</nz-timeline-item>
+                                            <nz-timeline-item nzPosition="left" nzColor="green">
+                                                <div [innerHtml]='selected.LuuY'></div>
+                                            </nz-timeline-item>
+                    
+                                            <nz-timeline-item nzColor="green" nzPosition="right">Thuốc điều trị bệnh</nz-timeline-item>
+                                            <nz-timeline-item nzPosition="left" nzColor="green">
+                                                <p *ngFor="let item of selected?.ListBenhs">{{item.TenBenh}}</p>
+                                            </nz-timeline-item>
+                    
+                                            <nz-timeline-item nzColor="green" nzPosition="right">Hình ảnh</nz-timeline-item>
+                                            <nz-timeline-item nzPosition="left" nzColor="green">
+                                                <img [src]="selected.HinhAnh" style="width: 200px" />-->
+                        <!-- <div [innerHtml]='selected.LuuY'></div> -->
+                        <!-- </nz-timeline-item>
+                    
+                                        </nz-timeline>
+                    
+                    
+                                        <ng-template #dotTemplate>
+                                            <i nz-icon nzType="clock-circle-o" style="font-size: 16px;"></i>
+                                        </ng-template>
+                                    </div>
+                                </div>
+                            </div>
+                        </nz-page-header-content> -->
+                    </nz-page-header>
+
+                </div>
+
+                <!-- pagination -->
+                <!-- <nav>
+                    <ul class="pagination wow fadeInUp" >
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+                    </ul>
+                </nav> -->
+
+            </div>
+            <!-- Sidebar Area -->
+            <div class="col-12 col-md-4">
+                <div class="sidebar-area">
+
+                    <!-- Single Widget Area -->
+                    <!-- <div class="single-widget-area" style="margin-bottom: 30px;">
+                        <form action="#" method="post" class="search-widget-form">
+                            <input type="search" class="form-control" placeholder="Search">
+                            <button type="submit"><i class="icon_search" aria-hidden="true"></i></button>
+                        </form>
+                    </div>
+                    <div class="single-widget-area">
+                        <h4>Tra cứu bệnh: </h4>
+                        <h6>Các triệu chứng thường gặp </h6> -->
+                    <!-- <div class="posts-area"> -->
+                    <!-- Checkbox -->
+                    <!-- <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate> -->
+                    <!-- Form elements goes here -->
+                    <!-- <div style="display: grid;">
+
+                                <label *ngFor="let data of dataSourceListTT; let i=index">
+                             <input type="checkbox"  [value]="data.MaTrieuChung" (change)="onCheckboxChange($event)" />
+                            {{data.TenTrieuChung}}
+                            </label>
+                            </div> -->
+                    <!-- <label>
+                                <input type="checkbox" [checked]="uncheck" (change)="unCheckAll($event)">
+                                None of Above
+                              </label> -->
+                    <!-- <input type="submit" value="Tìm" class="btn btn-primary">
+                        </form>
+
+                    </div> -->
+                    <!-- Single Widget Area -->
+                    <!-- <div class="single-widget-area"> -->
+                    <!-- Title -->
+                    <!-- <h5 class="widget-title">Danh mục</h5> -->
+                    <!-- Cata List -->
+                    <!-- <ul class="cata-list">
+                            <li><a href="#">Recipe Collections</a></li>
+                            <li><a href="#">The advantage of knowledge</a></li>
+                            <li><a href="#">Organic Farming</a></li>
+                            <li><a href="#">Farming &amp; Agricultural</a></li>
+                            <li><a href="#">Special Diet</a></li>
+                            <li><a href="#">How to Manage Soil Fertility</a></li>
+                        </ul>
+                    </div> -->
+
+                    <!-- Single Widget Area -->
+                    <div class="single-widget-area">
+                        <!-- Title -->
+                        <h5 class="widget-title">Tin tức </h5>
+
+                        <!-- Single Recent News Start -->
+                        <div class="single-recent-blog style-2 d-flex align-items-center">
+                            <div class="post-thumbnail">
+                                <!-- <img src="" alt=""> -->
+                            </div>
+                            <div class="post-content">
+                                <a href="#" class="post-title">US milk production continues its upward trajectory for 2018</a>
+                                <div class="post-date">18 Aug 2018</div>
+                            </div>
+                        </div>
+
+                        <!-- Single Recent News Start -->
+                        <div class="single-recent-blog style-2 d-flex align-items-center">
+                            <div class="post-thumbnail">
+                                <!-- <img src="" alt=""> -->
+                            </div>
+                            <div class="post-content">
+                                <a href="#" class="post-title">USDA'S crop ratings more ahead for corn, drop for soybeans</a>
+                                <div class="post-date">18 Aug 2018</div>
+                            </div>
+                        </div>
+
+                        <!-- Single Recent News Start -->
+                        <div class="single-recent-blog style-2 d-flex align-items-center">
+                            <div class="post-thumbnail">
+                                <!-- <img src="" alt=""> -->
+                            </div>
+                            <div class="post-content">
+                                <a href="#" class="post-title">Auction report: Bids aplenty for massive John Deere collection</a>
+                                <div class="post-date">18 Aug 2018</div>
+                            </div>
+                        </div>
+
+                        <!-- Single Recent News Start -->
+                        <div class="single-recent-blog style-2 d-flex align-items-center">
+                            <div class="post-thumbnail">
+                                <!-- <img src="" alt=""> -->
+                            </div>
+                            <div class="post-content">
+                                <a href="#" class="post-title">Wool prices expected to remain competitive as demand is grow</a>
+                                <div class="post-date">18 Aug 2018</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Widget Area -->
+                    <div class="single-widget-area">
+                        <!-- Title -->
+                        <h5 class="widget-title">Tags</h5>
+                        <!-- Tags -->
+                        <ul class="famie-tags">
+                            <li><a href="#">All product</a></li>
+                            <li><a href="#">Freshy Fruit</a></li>
+                            <li><a href="#">Sweet Corn</a></li>
+                            <li><a href="#">Chicken</a></li>
+                            <li><a href="#">Organic</a></li>
+                            <li><a href="#">Farm Practices</a></li>
+                            <li><a href="#">Meat</a></li>
+                            <li><a href="#">Special Recipe</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Single Widget Area -->
+                    <div class="single-widget-area">
+                        <!-- Title -->
+                        <h5 class="widget-title">Sản phẩm</h5>
+
+                        <!-- Single Best Products -->
+                        <div class="single-best-product d-flex align-items-center">
+                            <!-- Product Thumbnail -->
+                            <!-- <div class="product-thumbnail">
+                                <a href="#"><img src="" alt=""></a>
+                            </div> -->
+                            <!-- Product Info -->
+                            <!-- <div class="product-info">
+                                <a href="#" class="pro-name">Strawberry</a>
+                                <h6>$17.99</h6>
+                                <div class="product-rating">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <!-- Single Best Products -->
+                        <div class="single-best-product d-flex align-items-center">
+                            <!-- Product Thumbnail -->
+                            <!-- <div class="product-thumbnail">
+                                <a href="#"><img src="" alt=""></a>
+                            </div> -->
+                            <!-- Product Info -->
+                            <!-- <div class="product-info">
+                                <a href="#" class="pro-name">Pure Honey</a>
+                                <h6>$17.99</h6>
+                                <div class="product-rating">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <!-- Single Best Products -->
+                        <div class="single-best-product d-flex align-items-center">
+                            <!-- Product Thumbnail -->
+                            <!-- <div class="product-thumbnail">
+                                <a href="#"><img src="" alt=""></a>
+                            </div> -->
+                            <!-- Product Info -->
+                            <!-- <div class="product-info">
+                                <a href="#" class="pro-name">Green Apple</a>
+                                <h6>$17.99</h6>
+                                <div class="product-rating">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                            </div> -->
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- ##### Blog Area End ##### -->

@@ -13,6 +13,8 @@ import { BenhListComponent } from './benh/benh-list/benh-list.component';
 import { IndexComponent } from './index/index.component';
 import { GioithieuComponent } from './gioithieu/gioithieu.component';
 import { TracuubenhComponent } from './benh/tracuubenh/tracuubenh.component';
+import { ThuocDetailComponent } from './thuoc/thuoc-detail/thuoc-detail.component';
+import { ThuocListKhComponent } from './thuoc/thuoc-list-kh/thuoc-list-kh.component';
 
 
 
@@ -28,7 +30,9 @@ import { TracuubenhComponent } from './benh/tracuubenh/tracuubenh.component';
     BenhListComponent,
     IndexComponent,
     GioithieuComponent,
-    TracuubenhComponent],
+    TracuubenhComponent,
+    ThuocDetailComponent,
+    ThuocListKhComponent],
   imports: [
     CommonModule,
     FormsModule,

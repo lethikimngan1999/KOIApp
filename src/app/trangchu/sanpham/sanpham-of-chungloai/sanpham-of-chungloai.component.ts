@@ -72,7 +72,7 @@ export class SanphamOfChungloaiComponent implements OnInit {
 
   private navigateChungLoai(machungloai: any) {
     if (machungloai) {
-      // chuyen sang màn hình chi tiết nhan vien
+      // chuyen sang màn hình chi tiết 
       this.router.navigate(['trangchu/san-pham/bienthe/'], { queryParams: { machungloai: machungloai } });
     } else {
       this.message.create(TypeMessage.Error, 'Có lỗi xảy ra!');
