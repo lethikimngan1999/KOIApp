@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BaseService } from 'src/app/common_base/base.service';
 import { BaseResponse } from 'src/app/models';
+import { TaiKhoanKhachHangDTO } from 'src/app/models/TaiKhoanKhachHangDTO';
 import { UserDTO } from 'src/app/models/UserDTO';
 
 @Injectable({
@@ -18,6 +19,10 @@ export class UsersService {
 
     public createEmployeeAccount(data: UserDTO): Observable<BaseResponse<string>> {
         return this.baseSevice.post<BaseResponse<string>>('api/User/CreateEmployeeAccount', data);
+    }
+
+    public CreateKhachHangAccount(data: TaiKhoanKhachHangDTO): Observable<BaseResponse<string>> {
+        return this.baseSevice.post<BaseResponse<string>>('api/User/CreateKhachHangAccount', data);
     }
 
     public updateEmployeeAccount(data: UserDTO): Observable<BaseResponse<string>> {

@@ -16,6 +16,7 @@ import { TracuubenhComponent } from './benh/tracuubenh/tracuubenh.component';
 import { ThuocDetailComponent } from './thuoc/thuoc-detail/thuoc-detail.component';
 import { ThuocListKhComponent } from './thuoc/thuoc-list-kh/thuoc-list-kh.component';
 import { BenhDetailtKhComponent } from './benh/benh-detailt-kh/benh-detailt-kh.component';
+import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 
 
 
@@ -34,7 +35,8 @@ import { BenhDetailtKhComponent } from './benh/benh-detailt-kh/benh-detailt-kh.c
     TracuubenhComponent,
     ThuocDetailComponent,
     ThuocListKhComponent,
-    BenhDetailtKhComponent],
+    BenhDetailtKhComponent,
+    RegisterDialogComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -43,7 +45,8 @@ import { BenhDetailtKhComponent } from './benh/benh-detailt-kh/benh-detailt-kh.c
     NgZorroAntdModule
   ],
   entryComponents: [
-    ProductDetailComponent
+    ProductDetailComponent,
+    RegisterDialogComponent
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

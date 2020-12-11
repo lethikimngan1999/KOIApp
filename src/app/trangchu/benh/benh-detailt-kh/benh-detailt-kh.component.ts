@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NzMessageService, NzModalService } from 'ng-zorro-antd';
+import { NzMessageService, NzModalService, NzTabPosition } from 'ng-zorro-antd';
 import { BenhService } from 'src/app/shared/services/benh.service';
 import { LieutrinhService } from 'src/app/shared/services/lieutrinh.service';
 import { ThuocService } from 'src/app/shared/services/thuoc.service';
@@ -17,7 +17,9 @@ export class BenhDetailtKhComponent implements OnInit {
   selected: any = [];
   selectedThuoc: any = [];
   hasBenh: any = false;
-
+  tabs: Array<{ name: string; content: string; disabled: boolean }> = [];
+  nzTabPosition: NzTabPosition = 'left';
+  selectedIndex = 0;
   constructor(
     public benhService: BenhService,
     public lieutrinhService: LieutrinhService,
@@ -30,6 +32,7 @@ export class BenhDetailtKhComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.getDetail(params.mabenh);
     });
+    //console.log("Test");
   }
   public getDetail(mabenh: string) {
     this.benhService.getDetail(mabenh).subscribe(response => {
@@ -37,8 +40,11 @@ export class BenhDetailtKhComponent implements OnInit {
         this.selected = response.Data;
         this.hasBenh = true;
       }
-      console.log(this.selected);
+      console.log(this.selected.ListThuocs);
+     // this.viewLT(this.selected.ListThuocs.shift().MaThuoc);
+      console.log("selected.ListThuocs");
     });
+   
   }
 
     // xem chi tiết
@@ -49,7 +55,7 @@ export class BenhDetailtKhComponent implements OnInit {
            this.selectedThuoc = response.Data;
          //  this.hasThuoc = true;
          }
-         console.log(this.selectedThuoc);
+         
        });
      }
 }

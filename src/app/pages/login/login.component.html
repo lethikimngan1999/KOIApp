@@ -1,6 +1,48 @@
-<nz-layout class="login-page">
+<nz-layout class="login-page" style="background: #f8f8f8;
+padding: 150px 0; ">
     <nz-content>
-        <div class="inner-content">
+        <!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content" style="display:flex">
+                    <div class="signin-image">
+                        <figure><img src="../../../assets/img/core-img/signup-image.jpg" alt="sing up image"></figure>
+
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Đăng nhập</h2>
+                        <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+                            <nz-alert class="alert-login" *ngIf="isShowMessage" nzType="error" nzMessage="Tên đăng nhập hoặc mật khẩu không đúng"></nz-alert>
+                            <nz-form-item>
+                                <nz-form-control nzHasFeedback nzErrorTip="Vui lòng nhập tên đăng nhập!">
+                                    <nz-input-group [nzPrefix]="prefixUser">
+                                        <input type="text" nz-input formControlName="_ipText_username" placeholder="Tên đăng nhập" />
+                                    </nz-input-group>
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-control nzHasFeedback nzErrorTip="Vui lòng nhập mật khẩu!">
+                                    <nz-input-group [nzPrefix]="prefixLock">
+                                        <input type="password" nz-input formControlName="_ipText_password" placeholder="Mật khẩu" />
+                                    </nz-input-group>
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-control>
+                                    <button nz-button class="login-form-button" [nzType]="'primary'">Đăng nhập</button>
+
+                                </nz-form-control>
+                            </nz-form-item>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- <div class="inner-content">
             <i class="lock-icon" nz-icon nzType="unlock" nzTheme="outline"></i>
             <h1 class="page-header">{{pageTitle | uppercase}}</h1>
             <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
@@ -28,7 +70,7 @@
             </form>
             <ng-template #prefixUser><i nz-icon nzType="user"></i></ng-template>
             <ng-template #prefixLock><i nz-icon nzType="lock"></i></ng-template>
-        </div>
+        </div> -->
     </nz-content>
-    <nz-footer style="text-align: center;">{{pageFooter | uppercase}}</nz-footer>
+    <!-- <nz-footer style="text-align: center;">{{pageFooter | uppercase}}</nz-footer> -->
 </nz-layout>
