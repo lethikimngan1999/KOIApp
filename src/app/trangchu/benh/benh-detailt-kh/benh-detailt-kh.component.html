@@ -101,6 +101,11 @@
                                                             <div class="wrap">
                                                                 <div class="content">
                                                                     <div nz-row>
+                                                                        <a (click)="viewThuoc(item.MaThuoc)">
+                                                                            <li> <i nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"></i> Xem chi tiết {{item.TenThuoc}} tại đây.</li>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div nz-row>
                                                                         <div class="timeline">
                                                                             <div class="row no-gutters justify-content-end justify-content-md-around align-items-start  timeline-nodes" *ngFor="let lieutrinh of item.ListLieuTrinhs">
                                                                                 <div class="col-10 col-md-5 order-3 order-md-1 timeline-content">

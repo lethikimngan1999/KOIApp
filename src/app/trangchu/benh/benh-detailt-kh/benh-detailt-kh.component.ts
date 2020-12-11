@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NzMessageService, NzModalService, NzTabPosition } from 'ng-zorro-antd';
+import { TypeMessage } from 'src/app/app.constant';
 import { BenhService } from 'src/app/shared/services/benh.service';
 import { LieutrinhService } from 'src/app/shared/services/lieutrinh.service';
 import { ThuocService } from 'src/app/shared/services/thuoc.service';
@@ -26,6 +27,8 @@ export class BenhDetailtKhComponent implements OnInit {
     public trieuchungService: TrieuchungService,
     public activatedRoute: ActivatedRoute,
     public thuocService: ThuocService,
+    private router: Router,
+    private message: NzMessageService,
   ) { }
 
   ngOnInit() {
@@ -58,4 +61,19 @@ export class BenhDetailtKhComponent implements OnInit {
          
        });
      }
+
+     
+  // xem chi tiết 
+  public viewThuoc(mathuoc: any) {
+    this.navigateDetailThuoc(mathuoc);
+  }
+
+  private navigateDetailThuoc(mathuoc: any) {
+    if (mathuoc) {
+      // chuyen sang màn hình chi tiết 
+      this.router.navigate(['trangchu/cac-loai-thuoc/chi-tiet-thuoc/'], { queryParams: { mathuoc: mathuoc } });
+    } else {
+      this.message.create(TypeMessage.Error, 'Có lỗi xảy ra!');
+    }
+  }
 }

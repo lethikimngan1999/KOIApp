@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { NzMessageService, NzModalService } from 'ng-zorro-antd';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NzMessageService, NzModalService, NzTabPosition } from 'ng-zorro-antd';
 import { TypeMessage } from 'src/app/app.constant';
 import { LieuTrinhDTO } from 'src/app/models/LieuTrinhDTO';
 import { TrieuChungDTO } from 'src/app/models/TrieuChungDTO';
@@ -23,7 +23,7 @@ import { TrieuchungOfBenhComponent } from '../trieuchung-of-benh/trieuchung-of-b
 export class BenhDetailComponent implements OnInit {
 
 
-
+  nzTabPosition: NzTabPosition = 'left';
   pageTitle = 'Thông tin chi tiết ';
   selected: any = [];
   selectedThuoc: any = [];
@@ -38,6 +38,7 @@ export class BenhDetailComponent implements OnInit {
     private modalService: NzModalService,
     private message: NzMessageService,
     public thuocService: ThuocService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -107,7 +108,19 @@ export class BenhDetailComponent implements OnInit {
   }
  
 
+ // xem chi tiết 
+ public viewThuoc(mathuoc: any) {
+  this.navigateDetailThuoc(mathuoc);
+}
 
+private navigateDetailThuoc(mathuoc: any) {
+  if (mathuoc) {
+    // chuyen sang màn hình chi tiết 
+    this.router.navigate(['admin/cac-loai-thuoc/chitiet/'], { queryParams: { mathuoc: mathuoc } });
+  } else {
+    this.message.create(TypeMessage.Error, 'Có lỗi xảy ra!');
+  }
+}
 
   // public confirmDeleteLieuTrinh(data: any) {
   //   const modalDelete = this.modalService.confirm({
