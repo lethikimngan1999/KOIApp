@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd';
+import { TypeMessage } from 'src/app/app.constant';
 import { BenhService } from 'src/app/shared/services/benh.service';
 import { TrieuchungService } from 'src/app/shared/services/trieuchung.service';
 
@@ -15,9 +18,12 @@ export class TracuubenhComponent implements OnInit {
   dataSourceTT: any = [];
   dataSourceLQ: any = [];
   dataSourceListTT: any = [];
+  expression = false;
   constructor(private fb: FormBuilder,
     private trieuchungService: TrieuchungService,
-    public benhService: BenhService,) { }
+    public benhService: BenhService,
+    private message: NzMessageService,
+    private router: Router) { }
 
   ngOnInit(): void {
     // checkbox
@@ -40,7 +46,7 @@ export class TracuubenhComponent implements OnInit {
 
   submitForm() {
     this.load(this.trieuchungbenh);
-    this.loadLQ(this.trieuchungbenh);
+  //  this.loadLQ(this.trieuchungbenh);
     // this.uncheck = false;
     // this.uncheck1 = false;
   }
@@ -49,6 +55,10 @@ export class TracuubenhComponent implements OnInit {
       if (response && response.Status) {
        // this.expression = false;
         this.dataSourceTT = response.Data;
+        if(this.dataSourceTT.length === 0){
+          this.expression = false;
+        }
+        else this.expression = true;
       }
     });
   }
@@ -68,5 +78,20 @@ export class TracuubenhComponent implements OnInit {
         this.dataSourceListTT = response.Data;
       }
     });
+  }
+
+   // xem chi tiết 
+   public view(mabenh: any) {
+    this.navigateDetail(mabenh);
+    console.log(mabenh);
+  }
+
+  private navigateDetail(mabenh: any) {
+    if (mabenh) {
+      // chuyen sang màn hình chi tiết 
+      this.router.navigate(['trangchu/cac-loai-benh/chitiet/'], { queryParams: { mabenh: mabenh } });
+    } else {
+      this.message.create(TypeMessage.Error, 'Có lỗi xảy ra!');
+    }
   }
 }

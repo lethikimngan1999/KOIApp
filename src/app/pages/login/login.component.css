@@ -130,7 +130,7 @@ h2 {
 
 .main {
     background: #f8f8f8;
-    padding: 150px 0;
+    padding: 50px 0;
 }
 
 .clear {
@@ -228,7 +228,7 @@ body {
 }
 
 figure {
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
     text-align: center;
 }
 
@@ -456,7 +456,7 @@ label.valid:after {
 
 .signin-content {
     padding-top: 67px;
-    padding-bottom: 87px;
+    padding-bottom: 67px;
 }
 
 .social-login {
