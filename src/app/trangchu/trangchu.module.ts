@@ -17,6 +17,8 @@ import { ThuocDetailComponent } from './thuoc/thuoc-detail/thuoc-detail.componen
 import { ThuocListKhComponent } from './thuoc/thuoc-list-kh/thuoc-list-kh.component';
 import { BenhDetailtKhComponent } from './benh/benh-detailt-kh/benh-detailt-kh.component';
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
+import { ThongtinListComponent } from './thongtin/thongtin-list/thongtin-list.component';
+import { CKEditorModule } from 'ckeditor4-angular';
 
 
 
@@ -36,13 +38,15 @@ import { RegisterDialogComponent } from './register-dialog/register-dialog.compo
     ThuocDetailComponent,
     ThuocListKhComponent,
     BenhDetailtKhComponent,
-    RegisterDialogComponent],
+    RegisterDialogComponent,
+    ThongtinListComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     TrangchuRoutingModule,
-    NgZorroAntdModule
+    NgZorroAntdModule,
+    CKEditorModule
   ],
   entryComponents: [
     ProductDetailComponent,

@@ -277,7 +277,7 @@ body {
 
 .timeline h3 {
     font-weight: lighter;
-    background: var(--blue);
+    background: #5db2ff;
 }
 
 .timeline p,
