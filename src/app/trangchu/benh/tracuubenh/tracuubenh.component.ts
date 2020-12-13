@@ -45,8 +45,8 @@ export class TracuubenhComponent implements OnInit {
   }
 
   submitForm() {
-    this.load(this.trieuchungbenh);
-  //  this.loadLQ(this.trieuchungbenh);
+  //  this.load(this.trieuchungbenh);
+   this.loadLQ(this.trieuchungbenh);
     // this.uncheck = false;
     // this.uncheck1 = false;
   }
@@ -68,7 +68,13 @@ export class TracuubenhComponent implements OnInit {
       if (response && response.Status) {
        // this.expression = false;
         this.dataSourceLQ = response.Data;
+
+        if(this.dataSourceLQ.length === 0){
+          this.expression = false;
+        }
+        else this.expression = true;
       }
+      
     });
   }
 
