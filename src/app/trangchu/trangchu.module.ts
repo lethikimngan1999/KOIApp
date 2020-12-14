@@ -19,6 +19,7 @@ import { BenhDetailtKhComponent } from './benh/benh-detailt-kh/benh-detailt-kh.c
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 import { ThongtinListComponent } from './thongtin/thongtin-list/thongtin-list.component';
 import { CKEditorModule } from 'ckeditor4-angular';
+import { ThongtinDialogComponent } from './thongtin/thongtin-dialog/thongtin-dialog.component';
 
 
 
@@ -39,7 +40,8 @@ import { CKEditorModule } from 'ckeditor4-angular';
     ThuocListKhComponent,
     BenhDetailtKhComponent,
     RegisterDialogComponent,
-    ThongtinListComponent],
+    ThongtinListComponent,
+    ThongtinDialogComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -50,7 +52,8 @@ import { CKEditorModule } from 'ckeditor4-angular';
   ],
   entryComponents: [
     ProductDetailComponent,
-    RegisterDialogComponent
+    RegisterDialogComponent,
+    ThongtinDialogComponent
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

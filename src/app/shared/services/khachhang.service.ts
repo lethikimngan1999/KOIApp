@@ -22,4 +22,12 @@ export class KhachhangService {
   public create(data: TheoDoiThongTinDTO): Observable<BaseResponse<string>> {
     return this.baseService.post<BaseResponse<string>>('api/TheoDoiThongTin', data);
   }
+
+  public update(data: TheoDoiThongTinDTO): Observable<BaseResponse<string>> {
+    return this.baseService.put<BaseResponse<string>>('api/TheoDoiThongTin', data);
+  }
+
+  public delete(data: any): Observable<BaseResponse<any>> {
+    return this.baseService.delete<BaseResponse<any>>('api/TheoDoiThongTin', data);
+  }
 }
