@@ -1,3 +1,11 @@
+a {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+h4:first-letter {
+    text-transform: capitalize !important;
+}
+
 .head {
     font-size: 18px;
     padding: 0;

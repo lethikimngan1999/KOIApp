@@ -2,10 +2,10 @@
  * classyNav.js 1.0.0
  * Responsive Megamenu plugins
  * Copyright (c) 2018 Designing World - https://themeforest.net/user/designing-world
-****************************** */
+ ****************************** */
 
-(function ($) {
-    $.fn.classyNav = function (options) {
+(function($) {
+    $.fn.classyNav = function(options) {
 
         // Variables
         var navContainer = $('.classy-nav-container');
@@ -30,7 +30,7 @@
             stickyFooterNav: false
         }, options);
 
-        return this.each(function () {
+        return this.each(function() {
 
             // light or dark theme
             if (defaultOpt.theme === 'light' || defaultOpt.theme === 'dark') {
@@ -48,13 +48,13 @@
             }
 
             // navbar toggler
-            navbarToggler.on('click', function () {
+            navbarToggler.on('click', function() {
                 navToggler.toggleClass('active');
                 classyMenu.toggleClass('menu-on');
             });
 
             // close icon
-            closeIcon.on('click', function () {
+            closeIcon.on('click', function() {
                 classyMenu.removeClass('menu-on');
                 navToggler.removeClass('active');
             });
@@ -64,14 +64,14 @@
             classy_navli.has('.megamenu').addClass('megamenu-item');
 
             // adds toggle button to li items that have children
-            classy_nav.find('li a').each(function () {
+            classy_nav.find('li a').each(function() {
                 if ($(this).next().length > 0) {
                     $(this).parent('li').addClass('has-down').append('<span class="dd-trigger"></span>');
                 }
             });
 
             // expands the dropdown menu on each click
-            classy_nav.find('li .dd-trigger').on('click', function (e) {
+            classy_nav.find('li .dd-trigger').on('click', function(e) {
                 e.preventDefault();
                 $(this).parent('li').children('ul').stop(true, true).slideToggle(defaultOpt.openCloseSpeed);
                 $(this).parent('li').toggleClass('active');
@@ -81,7 +81,7 @@
             $('.megamenu-item').removeClass('has-down');
 
             // expands the megamenu on each click
-            classy_nav.find('li .dd-trigger').on('click', function (e) {
+            classy_nav.find('li .dd-trigger').on('click', function(e) {
                 e.preventDefault();
                 $(this).parent('li').children('.megamenu').slideToggle(defaultOpt.megaopenCloseSpeed);
             });
@@ -98,7 +98,7 @@
 
             breakpointCheck();
 
-            var_window.on('resize', function () {
+            var_window.on('resize', function() {
                 breakpointCheck();
             });
 
@@ -109,7 +109,7 @@
 
             // sticky
             if (defaultOpt.stickyNav === true) {
-                var_window.on('scroll', function () {
+                var_window.on('scroll', function() {
                     if (var_window.scrollTop() > 0) {
                         navContainer.addClass('classy-sticky');
                     } else {
@@ -122,6 +122,12 @@
             if (defaultOpt.stickyFooterNav === true) {
                 navContainer.addClass('classy-sticky-footer');
             }
+
+            //add
+            classy_navli.on('click', function() {
+                $(this).parent().find('li').removeClass('active');
+                $(this).addClass('active');
+            });
         });
     };
 }(jQuery));

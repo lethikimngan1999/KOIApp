@@ -11,6 +11,7 @@ import { ThuocService } from 'src/app/shared/services/thuoc.service';
 })
 export class ThuocListKhComponent implements OnInit {
 
+  
   dataSource: any = [];
   constructor(private thuocService: ThuocService,
               private modalService: NzModalService,
@@ -20,6 +21,12 @@ export class ThuocListKhComponent implements OnInit {
   ngOnInit(): void {
     this.loadList();
   }
+
+  capitalize(s)
+{
+    return s[0].toUpperCase() + s.slice(1);
+}
+
  // get danh sach
  public loadList(): any {
   this.thuocService.getAll().subscribe(response => {
