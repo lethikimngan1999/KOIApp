@@ -57,9 +57,8 @@
         <div hidden *ngIf="expression; then hello; else employeeEdit"></div>
         <ng-template #hello>
             <div class="row mb-5">
-
-                <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let data of dataSourceLQ">
-                    <ng-container *ngIf="data.NguyenNhan == 'Active'">
+                <ng-container *ngFor="let data of dataSourceLQ">
+                    <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngIf="data.NguyenNhan == 'Active'">
                         <div class="card card-inverse card-info">
                             <img class="card-img-top" [src]="data.HinhAnh">
                             <div class="card-block">
@@ -79,9 +78,8 @@
                                 <button class="btn btn-info float-right btn-sm" (click)="view(data.MaBenh)">Chi tiết</button>
                             </div>
                         </div>
-                    </ng-container>
-                </div>
-
+                    </div>
+                </ng-container>
             </div>
         </ng-template>
         <ng-template #employeeEdit>

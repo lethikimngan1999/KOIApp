@@ -74,7 +74,7 @@ export class TracuubenhComponent implements OnInit {
         }
         else this.expression = true;
       }
-      
+      console.log(this.dataSourceLQ);
     });
   }
 
