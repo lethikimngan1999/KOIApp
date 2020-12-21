@@ -4,6 +4,10 @@
     display: flex;
 }
 
+h5:first-letter {
+    text-transform: capitalize !important;
+}
+
 .extra-content {
     max-width: 240px;
     text-align: left;

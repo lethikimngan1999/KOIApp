@@ -3,6 +3,10 @@ body {
     margin-top: 20px;
 }
 
+h5:first-letter {
+    text-transform: capitalize !important;
+}
+
 .main-timeline {
     position: relative
 }
