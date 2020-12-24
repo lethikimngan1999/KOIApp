@@ -88,9 +88,12 @@
                                     <span class="cart-quantity">2</span>
                                 </a>
                             </div> -->
-
-                            <button class="btn btn-primary" style="background-color: #77b122; margin-right: 5px; margin-left: 70px;"> Đăng nhập </button>
-                            <button class="btn btn-primary" style="background-color: #77b122" (click)="create()"> Đăng ký </button>
+                            <h6 class="displayname" style="padding-right: 15px; padding-left: 50px;"><span>Nguyễn Văn A </span></h6>
+                            <button nz-button nz-dropdown nzShape="circle" [nzDropdownMenu]="userMenu" nzPlacement="bottomRight">
+                                <i nz-icon nzType="user"></i>
+                              </button>
+                            <!-- <button class="btn btn-primary" style="background-color: #77b122; margin-right: 5px; margin-left: 70px;"> Đăng nhập </button>
+                            <button class="btn btn-primary" style="background-color: #77b122" (click)="create()"> Đăng ký </button> -->
                         </div>
                         <!-- Navbar End -->
                     </div>
