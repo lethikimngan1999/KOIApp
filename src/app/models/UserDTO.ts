@@ -1,3 +1,4 @@
+import { KhachHangDTO } from './KhachHangDTO';
 import { NhanVienDTO } from './NhanVienDTO';
 import { RoleDTO } from './RoleDTO';
 export class  UserDTO {
@@ -10,6 +11,8 @@ export class  UserDTO {
     Status: string;
     UpdatedBy: string;
     UpdatedDate ?: Date;
+    MaKhachHang: string;
+    KhachHang: KhachHangDTO;
     MaNhanVien: string;
     NhanVien: NhanVienDTO;
     ListRoles: RoleDTO[];
