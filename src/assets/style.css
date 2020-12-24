@@ -186,7 +186,7 @@ input:focus {
 }
 
 .mb-80 {
-    margin-bottom: 80px !important;
+    margin-bottom: 35px !important;
 }
 
 .mb-100 {
@@ -263,7 +263,7 @@ input:focus {
 }
 
 .section-padding-80-0 {
-    padding-top: 80px;
+    padding-top: 35px;
     padding-bottom: 0;
 }
 
@@ -892,8 +892,8 @@ input:focus {
 .famie-breadcrumb {
     position: relative;
     z-index: 1;
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 35px;
+    padding-bottom: 9px;
 }
 
 .famie-breadcrumb .breadcrumb {
