@@ -62,24 +62,24 @@ export class LoginComponent implements OnInit {
       password: this.validateForm.controls._ipText_password.value
     };
 
-    this.authService.login(loginDto)
-    .pipe()
-    .subscribe(
-      data => {
-        this.router.navigateByUrl('admin');
-      },
-      error => {
-        this.isShowMessage = true;
-      });
-    // this.loginService.getToken(loginDto).subscribe(response => {
-    //   if (response.Status === true && response.Data == null) {
+    // this.authService.login(loginDto)
+    // .pipe()
+    // .subscribe(
+    //   data => {
+    //     this.router.navigateByUrl('admin');
+    //   },
+    //   error => {
     //     this.isShowMessage = true;
-    //   }
-    //   if (response && response.Data && response.Data !== 'null') {
-    //     this.setTokenFromLocalStorage(response.Data);
-    //     this.router.navigateByUrl('/home');
-    //   }
-    // });
+    //   });
+    this.loginService.getToken(loginDto).subscribe(response => {
+      if (response.Status === true && response.Data == null) {
+        this.isShowMessage = true;
+      }
+      if (response && response.Data && response.Data !== 'null') {
+        this.setTokenFromLocalStorage(response.Data);
+        this.router.navigateByUrl('/admin');
+      }
+    });
 
   }
 

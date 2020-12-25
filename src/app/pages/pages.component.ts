@@ -33,22 +33,23 @@ export class PagesComponent extends BaseComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {
     super(router, loginService);
-    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-    // console.log(' this.currentUser ' + this.currentUser.RoleIds);
-    //console.log(this.currentUser);
+    // this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+  //  console.log(' this.currentUser ' + this.currentUser.RoleIds);
+    console.log(this.currentUser);
   }
 
   ngOnInit(): void {
-    if (this.currentUser.ListRoles[0].Name === CONSTANT.Role.Admin)
-    {
-      this.menus = CONFIG.MENUS_SIDEBAR;
-      console.log("isAdmin" + this.authenticationService.isAdmin);
-    } else
-    if (this.currentUser.ListRoles[0].Name === CONSTANT.Role.NhanVien) {
-      this.menus = CONFIG.MENUS_EMPLOYEE_SIDEBAR;
-      console.log("isNhanVien");
-    }
-  //  this.getUser();
+    // if (this.currentUser.ListRoles[0].Name === CONSTANT.Role.Admin)
+    // {
+    //   this.menus = CONFIG.MENUS_SIDEBAR;
+    //   console.log("isAdmin" + this.authenticationService.isAdmin);
+    // } 
+    //else
+    // if (this.currentUser.ListRoles[0].Name === CONSTANT.Role.NhanVien) {
+    //   this.menus = CONFIG.MENUS_EMPLOYEE_SIDEBAR;
+    //   console.log("isNhanVien");
+    // }
+    this.getUser();
   }
 
 

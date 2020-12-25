@@ -130,7 +130,7 @@ export const MENUS_SIDEBAR: MenuSideBar[] = [
                 id: '11111',
                 level: 2,
                 title: 'Danh sách nhân viên',
-                path: 'employee-management',
+                path: '',
                 icon: 'user',
                 selected: false,
                 disabled: false,
