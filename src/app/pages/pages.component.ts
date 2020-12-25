@@ -21,7 +21,7 @@ export class PagesComponent extends BaseComponent implements OnInit {
   isCollapsed = false;
   mode = false;
   dark = false;
- 
+
   menus = [];
   // tslint:disable-next-line: new-parens
   public user: UserDTO = new UserDTO;
@@ -31,37 +31,37 @@ export class PagesComponent extends BaseComponent implements OnInit {
     public loginService: LoginService,
     public modalService: NzModalService,
     private authenticationService: AuthenticationService
-   ) {
+  ) {
     super(router, loginService);
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-   // console.log(' this.currentUser ' + this.currentUser.RoleIds);
-   //console.log(this.currentUser);
-   }
+    // console.log(' this.currentUser ' + this.currentUser.RoleIds);
+    //console.log(this.currentUser);
+  }
 
   ngOnInit(): void {
-    // if (this.currentUser.ListRoles[0].Name === CONSTANT.Role.Admin)
-    // {
-    //   this.menus = CONFIG.MENUS_SIDEBAR;
-    //   console.log("isAdmin" + this.authenticationService.isAdmin);
-    // } else
-    // if (this.currentUser.ListRoles[0].Name === CONSTANT.Role.NhanVien) {
-    //   this.menus = CONFIG.MENUS_EMPLOYEE_SIDEBAR;
-    //   console.log("isNhanVien");
-    // }
-  // this.getUser();
+    if (this.currentUser.ListRoles[0].Name === CONSTANT.Role.Admin)
+    {
+      this.menus = CONFIG.MENUS_SIDEBAR;
+      console.log("isAdmin" + this.authenticationService.isAdmin);
+    } else
+    if (this.currentUser.ListRoles[0].Name === CONSTANT.Role.NhanVien) {
+      this.menus = CONFIG.MENUS_EMPLOYEE_SIDEBAR;
+      console.log("isNhanVien");
+    }
+  //  this.getUser();
   }
 
 
-  // private getUser() {
-  //   this.loginService.getUser().subscribe(response => {
-  //     if (response.Status === false) {
-  //       return;
-  //     }
-  //     if (response && response.Data) {
-  //       this.currentUser = response.Data;
-  //     }
-  //   });
-  // }
+  private getUser() {
+    this.loginService.getUser().subscribe(response => {
+      if (response.Status === false) {
+        return;
+      }
+      if (response && response.Data) {
+        this.currentUser = response.Data;
+      }
+    });
+  }
 
   toggleCollapsed(): void {
     this.isCollapsed = !this.isCollapsed;
