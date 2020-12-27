@@ -36,66 +36,94 @@
                         <span class="navbarToggler"><span></span><span></span><span></span></span>
                     </div>
                     <!-- Menu -->
-                    <!-- <div class="classy-menu" style="margin-right: 30%;"> -->
+
                     <div class="classy-menu">
                         <!-- Close Button -->
                         <div class="classycloseIcon">
                             <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                         </div>
-                        <!-- Navbar Start -->
-                        <div class="classynav">
-                            <ul>
-                                <li class="active"><a routerLink="/trangchu/index">Trang chủ</a></li>
-                                <!-- <li><a href="about.html">About</a></li> -->
-                                <!-- <li><a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="index.html">TRANG CHỦ</a></li>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="farming-practice.html">Farming Practice</a></li>
-                                        <li><a href="shop.html">Shop</a>
-                                            <ul class="dropdown">
-                                                <li><a href="our-product.html">Our Products</a></li>
-                                                <li><a href="shop.html">Shop</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="news.html">News</a>
-                                            <ul class="dropdown">
-                                                <li><a href="news.html">News</a></li>
-                                                <li><a href="news-details.html">News Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </li> -->
-                                <li><a routerLink="/trangchu/gioi-thieu">Giới thiệu</a></li>
-                                <li><a routerLink="/trangchu/san-pham">Cá koi</a></li>
 
-                                <li><a routerLink="/trangchu/cac-loai-benh">Bệnh</a></li>
-                                <li><a routerLink="/trangchu/cac-loai-thuoc">Thuốc</a></li>
-                                <!-- <li><a href="farming-practice.html">Farming Practice</a></li> -->
-                                <!-- <li><a href="news.html">News</a></li> -->
-                                <li><a routerLink="/trangchu/lienhe">LIÊN HỆ</a></li>
-                                <li><a routerLink="/trangchu/thongtin">Thông tin</a></li>
-                            </ul>
-                            <!-- Search Icon -->
-                            <!-- <div id="searchIcon">
+                        <div hidden *ngIf="expression; then hello; else islogin"> </div>
+                        <ng-template #hello>
+                            <!-- Navbar Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li class="active"><a routerLink="/trangchu/index">Trang chủ</a></li>
+
+                                    <li><a routerLink="/trangchu/gioi-thieu">Giới thiệu</a></li>
+                                    <li><a routerLink="/trangchu/san-pham">Cá koi</a></li>
+
+                                    <li><a routerLink="/trangchu/cac-loai-benh">Bệnh</a></li>
+                                    <li><a routerLink="/trangchu/cac-loai-thuoc">Thuốc</a></li>
+
+                                    <li><a routerLink="/trangchu/lienhe">LIÊN HỆ</a></li>
+                                    <!-- <li><a routerLink="/trangchu/thongtin">Thông tin</a></li> -->
+                                </ul>
+                                <!-- Search Icon -->
+                                <!-- <div id="searchIcon">
                                 <i class="icon_search" aria-hidden="true"></i>
                             </div> -->
-                            <!-- Cart Icon -->
-                            <!-- <div id="cartIcon">
+                                <!-- Cart Icon -->
+                                <!-- <div id="cartIcon">
                                 <a href="#">
                                     <i class="icon_cart_alt" aria-hidden="true"></i>
                                     <span class="cart-quantity">2</span>
                                 </a>
                             </div> -->
-                            <h6 class="displayname" style="padding-right: 15px; padding-left: 50px;"><span>Nguyễn Văn A </span></h6>
+
+                                <!-- <h6 class="displayname" style="padding-right: 15px; padding-left: 50px;"><span>Nguyễn Văn A </span></h6>
                             <button nz-button nz-dropdown nzShape="circle" [nzDropdownMenu]="userMenu" nzPlacement="bottomRight">
                                 <i nz-icon nzType="user"></i>
-                              </button>
-                            <!-- <button class="btn btn-primary" style="background-color: #77b122; margin-right: 5px; margin-left: 70px;"> Đăng nhập </button>
-                            <button class="btn btn-primary" style="background-color: #77b122" (click)="create()"> Đăng ký </button> -->
-                        </div>
+                              </button> -->
+                                <button class="btn btn-primary" style="background-color: #77b122; margin-right: 5px; margin-left: 70px;" (click)="login()">  Đăng nhập </button>
+                                <button class="btn btn-primary" style="background-color: #77b122" (click)="create()"> Đăng ký </button>
+                            </div>
+                        </ng-template>
+
                         <!-- Navbar End -->
+
+                        <!-- Navbar1 Start -->
+                        <ng-template #islogin>
+                            <div class="classynav">
+                                <ul>
+                                    <li class="active"><a routerLink="/trangchu/index">Trang chủ</a></li>
+
+                                    <li><a routerLink="/trangchu/gioi-thieu">Giới thiệu</a></li>
+                                    <li><a routerLink="/trangchu/san-pham">Cá koi</a></li>
+
+                                    <li><a routerLink="/trangchu/cac-loai-benh">Bệnh</a></li>
+                                    <li><a routerLink="/trangchu/cac-loai-thuoc">Thuốc</a></li>
+
+                                    <li><a routerLink="/trangchu/lienhe">LIÊN HỆ</a></li>
+                                    <li><a routerLink="/trangchu/thongtin">Thông tin</a></li>
+                                </ul>
+
+
+                                <!-- <h6 class="displayname" style="padding-right: 15px; padding-left: 50px;"><span>Nguyễn Văn A </span></h6>
+                                <button nz-button nz-dropdown nzShape="circle" [nzDropdownMenu]="userMenu" nzPlacement="bottomRight">
+                                <i nz-icon nzType="user"></i>
+                              </button> -->
+                                <div class="profile">
+                                    <h6 class="displayname"><span>{{currentUser.Khachhang.HoLot}} {{currentUser.Khachhang.TenKhachhang}} </span></h6>
+                                    <nz-button-group>
+                                        <button nz-button nz-dropdown nzShape="circle" [nzDropdownMenu]="userMenu" nzPlacement="bottomRight">
+                                    <i nz-icon nzType="user"></i>
+                                  </button>
+                                    </nz-button-group>
+                                    <nz-dropdown-menu #userMenu="nzDropdownMenu">
+                                        <ul nz-menu>
+                                            <!-- <li nz-menu-item>Cập nhật tài khoản</li> -->
+                                            <!-- <li nz-menu-item><a (click)="showModalChangePassword(currentUser)">Đổi mật khẩu</a>
+                                            </li> -->
+                                            <li nz-menu-divider></li>
+                                            <li nz-menu-item><a (click)="logout()" style="font-family: Arial, Helvetica, sans-serif;">Đăng xuất</a></li>
+                                        </ul>
+                                    </nz-dropdown-menu>
+                                </div>
+                            </div>
+                        </ng-template>
+
+                        <!-- Navbar1 End -->
                     </div>
                 </nav>
 

@@ -54,7 +54,7 @@
                         <button nz-button nzType="primary" nzShape="round" (click)="showModalRole(data)">
               <i nz-icon nzType="setting" ></i>Vai trò
             </button>
-                        <button nz-button nzType="warning" nzShape="round" (click)="resetPassword(data)">
+                        <button *ngIf="currentUser.Id != data.Id" nz-button nzType="warning" nzShape="round" (click)="resetPassword(data)">
                 <i nz-icon nzType="key"></i>Đặt lại mật khẩu
               </button>
                         <button nz-button nzType="danger" nzShape="round" (click)=" lockAccount(data)">

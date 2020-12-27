@@ -58,8 +58,11 @@ export class PagesComponent extends BaseComponent implements OnInit {
       if (response.Status === false) {
         return;
       }
+      // console.log(response.Data.MaNhanVien);
+       if(response.Data.MaNhanVien === "00000000-0000-0000-0000-000000000000") {  return     this.router.navigateByUrl('/trangchu/index');}
       if (response && response.Data) {
         this.currentUser = response.Data;
+        console.log(this.currentUser);
       }
     });
   }

@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { PagesComponent } from './pages/pages.component';
 import { PagesModule } from './pages/pages.module';
 import { LienheComponent } from './trangchu/lienhe/lienhe.component';
+import { LoginkhComponent } from './trangchu/loginkh/loginkh.component';
 import { TrangchuComponent } from './trangchu/trangchu.component';
 import { TrangchuModule } from './trangchu/trangchu.module';
 
@@ -52,6 +53,7 @@ const appRoutes: Routes = [
     ]
   },
   { path: 'login', component: LoginComponent },
+
  ];
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules })],

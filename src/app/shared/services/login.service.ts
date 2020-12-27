@@ -22,5 +22,6 @@ export class LoginService {
   public validateToken(): Observable<BaseResponse<boolean>> {
     return this.baseSevice.get<BaseResponse<boolean>>('api/Account/ValidateToken');
   }
+
 }
 

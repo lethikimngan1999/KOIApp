@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzMessageService, NzModalService } from 'ng-zorro-antd';
 import { TypeMessage } from 'src/app/app.constant';
+import { UserDTO } from 'src/app/models';
 import { TheoDoiThongTinDTO } from 'src/app/models/TheoDoiThongTinDTO';
 import { KhachhangService } from 'src/app/shared/services/khachhang.service';
+import { LoginService } from 'src/app/shared/services/login.service';
 import { ThongtinDialogComponent } from '../thongtin-dialog/thongtin-dialog.component';
 
 @Component({
@@ -23,18 +25,35 @@ export class ThongtinListComponent implements OnInit {
   avatarUrl: string;
   dataSource: any = [];
 
+  currentUser: UserDTO;
+
   constructor(
     private khachhangService: KhachhangService,
     private fb: FormBuilder,
     private message: NzMessageService,
-    private modalService: NzModalService
+    private modalService: NzModalService,
+    public loginService: LoginService,
   ) { }
 
   ngOnInit(): void {
     //this.isAdd = true;
     this.initFormValidate();
-    this.getDetail('81501d69-9c42-4944-9ea8-177518aba70c');
+    //this.getDetail('81501d69-9c42-4944-9ea8-177518aba70c');
+    this.getUser();
+    this.getDetail(this.currentUser.MaKhachHang);
   }
+
+  private getUser() {
+    this.loginService.getUser().subscribe(response => {
+      if (response.Status === false) {
+        return;
+      }
+      if (response && response.Data) {
+        this.currentUser = response.Data;
+      }
+    });
+  }
+
 
   public getDetail(mabenh: string) {
     this.khachhangService.getThongTin(mabenh).subscribe(response => {
@@ -91,14 +110,15 @@ export class ThongtinListComponent implements OnInit {
   // tao  moi
   private insert(): void {
     if (this.thongtinDto) {
-      this.thongtinDto.MaKhachHang =
-        '81501d69-9c42-4944-9ea8-177518aba70c'; // id khachhang
+      //this.thongtinDto.MaKhachHang = '81501d69-9c42-4944-9ea8-177518aba70c'; // id khachhang
+      this.thongtinDto.MaKhachHang = this.currentUser.MaKhachHang; // id khachhang
       this.khachhangService.create(this.thongtinDto).subscribe(response => {
 
         if (response && response.Status) {
           this.message.create(TypeMessage.Success, 'Lưu dữ liệu thành công!'
           );
-          //  this.loadList();
+         // this.getDetail('81501d69-9c42-4944-9ea8-177518aba70c');
+         this.getDetail(this.currentUser.MaKhachHang);
         } else {
           this.message.create(TypeMessage.Error, 'Lưu dữ liệu không thành công!'
           );
@@ -135,7 +155,8 @@ export class ThongtinListComponent implements OnInit {
       if (response.Status === true) {
         this.message.create(TypeMessage.Success, 'Xóa thông tin thành công!');
         // get lai danh sach nhan vien
-        this.getDetail('81501d69-9c42-4944-9ea8-177518aba70c');
+       // this.getDetail('81501d69-9c42-4944-9ea8-177518aba70c');
+       this.getDetail(this.currentUser.MaKhachHang);
       } else {
         this.message.create(TypeMessage.Error, 'Xóa thông tin không thành công!');
       }
@@ -153,7 +174,9 @@ export class ThongtinListComponent implements OnInit {
     });
     // Return a result when closed
     modalEdit.afterClose.subscribe(() => {
-      return this.getDetail('81501d69-9c42-4944-9ea8-177518aba70c');;
+      return    this.getDetail(this.currentUser.MaKhachHang);
+      // this.getDetail('81501d69-9c42-4944-9ea8-177518aba70c');
+   
     });
   }
 }

@@ -77,7 +77,7 @@
         <nz-header style="background: #fff; padding:0;">
             <i class="trigger" nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>
             <div class="profile">
-                <h6 class="displayname"><span>Xin chào, {{currentUser.UserName}} </span></h6>
+                <h6 class="displayname"><span>{{currentUser.Nhanvien.HoLot}} {{currentUser.Nhanvien.TenNhanVien}}</span></h6>
                 <nz-button-group>
                     <button nz-button nz-dropdown nzShape="circle" [nzDropdownMenu]="userMenu" nzPlacement="bottomRight">
                     <i nz-icon nzType="user"></i>
@@ -85,7 +85,7 @@
                 </nz-button-group>
                 <nz-dropdown-menu #userMenu="nzDropdownMenu">
                     <ul nz-menu>
-                        <li nz-menu-item>Cập nhật tài khoản</li>
+                        <!-- <li nz-menu-item>Cập nhật tài khoản</li> -->
                         <li nz-menu-item><a (click)="showModalChangePassword(currentUser)">Đổi mật khẩu</a>
                         </li>
                         <li nz-menu-divider></li>

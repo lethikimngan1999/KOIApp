@@ -20,6 +20,8 @@ import { RegisterDialogComponent } from './register-dialog/register-dialog.compo
 import { ThongtinListComponent } from './thongtin/thongtin-list/thongtin-list.component';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { ThongtinDialogComponent } from './thongtin/thongtin-dialog/thongtin-dialog.component';
+import { LoginkhComponent } from './loginkh/loginkh.component';
+import { CustomerChangepassComponent } from './customer-changepass/customer-changepass.component';
 
 
 
@@ -41,7 +43,9 @@ import { ThongtinDialogComponent } from './thongtin/thongtin-dialog/thongtin-dia
     BenhDetailtKhComponent,
     RegisterDialogComponent,
     ThongtinListComponent,
-    ThongtinDialogComponent],
+    ThongtinDialogComponent,
+    LoginkhComponent,
+    CustomerChangepassComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -53,7 +57,8 @@ import { ThongtinDialogComponent } from './thongtin/thongtin-dialog/thongtin-dia
   entryComponents: [
     ProductDetailComponent,
     RegisterDialogComponent,
-    ThongtinDialogComponent
+    ThongtinDialogComponent,
+    CustomerChangepassComponent
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

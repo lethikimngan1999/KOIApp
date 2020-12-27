@@ -3524,3 +3524,13 @@ ol {
         font-size: 24px;
     }
 }
+
+.profile {
+    padding-right: 50px;
+    float: right;
+}
+
+.displayname {
+    display: inline;
+    padding-right: 10px;
+}

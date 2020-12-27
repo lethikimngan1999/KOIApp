@@ -16,6 +16,7 @@ import { ThuocDetailComponent } from './thuoc/thuoc-detail/thuoc-detail.componen
 import { ThuocListKhComponent } from './thuoc/thuoc-list-kh/thuoc-list-kh.component';
 import { BenhDetailtKhComponent } from './benh/benh-detailt-kh/benh-detailt-kh.component';
 import { ThongtinListComponent } from './thongtin/thongtin-list/thongtin-list.component';
+import { LoginkhComponent } from './loginkh/loginkh.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'index',
         component: IndexComponent
+      },
+      {
+        path: 'dang-nhap',
+        component: LoginkhComponent
       },
       {
         path: 'gioi-thieu',

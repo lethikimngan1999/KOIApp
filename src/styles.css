@@ -28,8 +28,8 @@
 .login-page,
 .login-page .ant-layout,
 .login-page .ant-layout-footer {
-    background-color: #f8f8f8;
-    color: #fff;
+    /* background-color: #f8f8f8;
+    color: #fff; */
 }
 
 .alert-login .ant-alert-error .ant-alert-message {
