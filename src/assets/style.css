@@ -606,6 +606,7 @@ input:focus {
 .header-area .famie-main-menu .classy-navbar .classynav ul li a:focus,
 .header-area .famie-main-menu .classy-navbar .classynav ul li a:hover {
     color: #77b122;
+    border-bottom: 3px solid #77b122;
 }
 
 .header-area .famie-main-menu .classy-navbar .classynav ul li ul li a {
@@ -636,10 +637,12 @@ input:focus {
 .header-area .famie-main-menu .classy-navbar .classynav ul li ul li a:focus,
 .header-area .famie-main-menu .classy-navbar .classynav ul li ul li a:hover {
     color: #77b122;
+    border-bottom: 3px solid #77b122;
 }
 
 .header-area .famie-main-menu .classy-navbar .classynav ul li.active a {
     color: #77b122;
+    border-bottom: 3px solid #77b122;
 }
 
 .header-area .is-sticky .famie-main-menu {

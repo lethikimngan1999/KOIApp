@@ -22,6 +22,7 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { ThongtinDialogComponent } from './thongtin/thongtin-dialog/thongtin-dialog.component';
 import { LoginkhComponent } from './loginkh/loginkh.component';
 import { CustomerChangepassComponent } from './customer-changepass/customer-changepass.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -52,7 +53,8 @@ import { CustomerChangepassComponent } from './customer-changepass/customer-chan
     ReactiveFormsModule,
     TrangchuRoutingModule,
     NgZorroAntdModule,
-    CKEditorModule
+    CKEditorModule,
+    RouterModule
   ],
   entryComponents: [
     ProductDetailComponent,
