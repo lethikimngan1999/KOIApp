@@ -16,7 +16,6 @@ export class ChungloaiService {
     return this.baseService.get<BaseResponse<ChungLoaiDTO[]>>('api/ChungLoai/GetAll');
   }
 
-
   public create(data: ChungLoaiDTO): Observable<BaseResponse<string>> {
     return this.baseService.post<BaseResponse<string>>('api/ChungLoai', data);
   }
@@ -29,5 +28,9 @@ export class ChungloaiService {
 
     const httpParams = new HttpParams().set('machungloai', machungloai);
     return this.baseService.get<BaseResponse<string>>('api/ChungLoai/GetById', httpParams);
+  }
+
+  public delete(data: any): Observable<BaseResponse<any>> {
+    return this.baseService.delete<BaseResponse<any>>('api/ChungLoai', data);
   }
 }

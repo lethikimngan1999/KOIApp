@@ -26,7 +26,7 @@
             <tbody>
                 <tr *ngFor="let data of Table.data | filterThuoc: sName ; index as i; ">
                     <td>{{i+1}}</td>
-                    <td>{{data.TenThuoc}}</td>
+                    <td>{{data.TenThuoc | titlecase}}</td>
                     <td>
 
                         <img [src]="data.HinhAnh" style="width: 100px" />
@@ -35,7 +35,7 @@
                         <ul>
                             <ng-container *ngFor="let item of data.ListBenhs">
                                 <a (click)="viewBenh(item.MaBenh)">
-                                    <li> {{item.TenBenh}}</li>
+                                    <li> {{item.TenBenh | titlecase}}</li>
                                 </a>
 
 
