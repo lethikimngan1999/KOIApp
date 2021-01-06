@@ -38,4 +38,8 @@ public GetListOfChungLoai(machungloai: string): Observable<BaseResponse<BienTheD
   public update(data: BienTheDTO): Observable<BaseResponse<string>> {
     return this.baseSevice.put<BaseResponse<string>>('api/BienThe', data);
   }
+
+  public delete(data: any): Observable<BaseResponse<any>> {
+    return this.baseSevice.delete<BaseResponse<any>>('api/BienThe', data);
+  }
 }

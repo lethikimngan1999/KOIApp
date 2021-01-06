@@ -1,7 +1,8 @@
 import { MenuSideBar } from './models/MenuDTO';
 
 // tslint:disable-next-line: eofline
-export const API_ENDPOINT = 'http://localhost:51954/';
+ export const API_ENDPOINT = 'http://localhost:51954/';
+// export const API_ENDPOINT = 'http://localhost:8081/';
 export const localStorageKey = 'access_token';
 export const SITENAME = 'KOIAPP';
 

@@ -122,4 +122,37 @@ export class BientheListComponent implements OnInit {
       return this.ngOnInit();
     });
 }
+
+public confirmDelete(data: any) {
+  const modalDelete = this.modalService.confirm({
+    nzTitle: 'Bạn có chắc chắn xóa biến thể này?',
+    nzContent: `<b style='color: red;'> Bệnh: ${data.TenBienThe}</b>`,
+    nzOkText: 'Xóa',
+    nzOkType: 'danger',
+    nzOnOk: () => this.delete(data.MaBienThe),
+    nzCancelText: 'Hủy',
+  });
+  // Return a result when closed
+  modalDelete.afterClose.subscribe(() => {
+    return this.ngOnInit();
+  });
+}
+
+
+ /**
+* delete data
+*/
+private delete(mabienthe: any) {
+const param: any = { mabienthe: mabienthe };
+this.bienTheService.delete(param).subscribe(response => {
+  if (response.Status === true) {
+    this.message.create(TypeMessage.Success, 'Xóa thành công!');
+  
+    this.loadList();
+  } else {
+    this.message.create(TypeMessage.Error, 'Xóa không thành công!');
+  }
+});
+}
+
 }
