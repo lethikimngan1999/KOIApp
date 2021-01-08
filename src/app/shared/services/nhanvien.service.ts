@@ -36,4 +36,9 @@ export class NhanvienService {
   public delete(data: any): Observable<BaseResponse<any>> {
     return this.baseService.delete<BaseResponse<any>>('api/NhanVien', data);
   }
+
+  public getByCMND(cmnd: string): Observable<BaseResponse<string>> {
+    const httpParams = new HttpParams().set('cmnd', cmnd);
+    return this.baseService.get<BaseResponse<string>>('api/NhanVien/GetByCMND', httpParams);
+}
 }

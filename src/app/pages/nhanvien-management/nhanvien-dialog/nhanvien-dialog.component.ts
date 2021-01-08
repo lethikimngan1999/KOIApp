@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { NzMessageService, NzModalRef } from 'ng-zorro-antd';
+import { Observable, Observer } from 'rxjs';
 import { TypeMessage } from 'src/app/app.constant';
 import { NhanVienDTO } from 'src/app/models';
 import { NhanvienService } from 'src/app/shared/services/nhanvien.service';
@@ -16,6 +17,7 @@ export class NhanvienDialogComponent implements OnInit {
   isShowAddNhanVien = false;
   isSaveLoading = false;
   dataSource: any = [];
+  selectedEmployee: any = [];
   @Input() isAdd: boolean;
   @Input() nhanvienDto: NhanVienDTO;
 
@@ -40,7 +42,7 @@ export class NhanvienDialogComponent implements OnInit {
 
   private initFormValidate(): void {
     this.validateForm = this.fb.group({
-      _ipText_CMND: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
+      _ipText_CMND: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)], [this.userNameAsyncValidator]],
       _ipText_HoLot: ['', Validators.required],
       _ipText_TenNhanVien: ['', Validators.required],
       _ipDate_NgaySinh: [null, Validators.required],
@@ -50,6 +52,27 @@ export class NhanvienDialogComponent implements OnInit {
       _ipTextarea_DiaChi: ['', '']
     });
   }
+
+  userNameAsyncValidator = (control: FormControl) =>
+    new Observable((observer: Observer<ValidationErrors | null>) => {
+      setTimeout(() => {
+        this.nhanvienService.getByCMND(control.value).subscribe(response => {
+          if (response.Status && response.Data) {
+            this.selectedEmployee = response.Data;
+            // tslint:disable-next-line: triple-equals
+            if (this.selectedEmployee.MaNhanVien != this.nhanvienDto.MaNhanVien) {
+              observer.next({ error: true, duplicated: true });
+            } else {
+              observer.next(null);
+            }
+          } else {
+            observer.next(null);
+          }
+          observer.complete();
+        });
+      }, 1000);
+    })
+
 
   resetForm(): void {
     this.validateForm.reset();
