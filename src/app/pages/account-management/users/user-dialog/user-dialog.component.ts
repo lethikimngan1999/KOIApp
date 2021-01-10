@@ -62,14 +62,14 @@ export class UserDialogComponent implements OnInit {
 
   private initFormValidate(): void {
     this.validateForm = this.fb.group({
-      _ipText_userName: ['', [Validators.required], [this.userNameAsyncValidator]],
+      _ipText_userName: ['',[Validators.email, Validators.required], [this.userNameAsyncValidator]],
       _selectBox_Employee: ['', Validators.required],
       _selectBox_role: ['', [Validators.required]],
     });
   }
   private initFormValidateEdit(): void {
     this.validateForm = this.fb.group({
-      _ipText_userName: ['', [Validators.required], [this.userNameAsyncValidator]],
+      _ipText_userName: ['',[Validators.email, Validators.required], [this.userNameAsyncValidator]],
       _selectBox_Employee: [''],
       _selectBox_role: [''],
     });

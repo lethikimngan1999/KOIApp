@@ -33,11 +33,11 @@ export class RegisterDialogComponent implements OnInit {
 
   private initFormValidate(): void {
     this.validateForm = this.fb.group({
-      _ipText_userName: ['', [Validators.required], [this.userNameAsyncValidator]],
+      _ipText_userName: ['', [Validators.email, Validators.required], [this.userNameAsyncValidator]],
      
       _ipText_HoLot: ['', Validators.required],
       _ipText_Ten: ['', Validators.required],
-      _ipText_email: [null, [Validators.email, Validators.required]],
+   //   _ipText_email: [null, [Validators.email, Validators.required]],
      _ipText_Pass: ['', [Validators.required, Validators.minLength(6)]],
      // _selectBox_role: ['', [Validators.required]],
     });
@@ -103,6 +103,7 @@ export class RegisterDialogComponent implements OnInit {
       this.userDto.Sdt = 'Not updated';
       this.userDto.GhiChu = 'Not updated';
       this.userDto.UpdatedBy = 'Not updated';
+      this.userDto.Email = this.userDto.UserName;
       this.userDto.MaNhanVien = '00000000-0000-0000-0000-000000000000';
       this.userDto.RoleIds = [
         '1a6416fd-0723-4e24-8fc8-e11d4d7bfe0e'

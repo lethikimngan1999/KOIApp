@@ -19,8 +19,8 @@
                     <th>Tên đăng nhập</th>
                     <th nzWidth="180px">Họ và tên</th>
 
-                    <th>Email</th>
-                    <th nzWidth="100px">Vai trò</th>
+                    <!-- <th>Email</th> -->
+                    <!-- <th nzWidth="100px">Vai trò</th> -->
                     <th nzWidth="180px">Status</th>
                     <th> </th>
                 </tr>
@@ -31,14 +31,14 @@
                     <td>{{data.UserName}}</td>
                     <td>{{data.Nhanvien.HoLot}} {{data.Nhanvien.TenNhanVien}}</td>
 
-                    <td>{{data.Nhanvien.Email}}</td>
-                    <td>
+                    <!-- <td>{{data.Nhanvien.Email}}</td> -->
+                    <!-- <td>
                         <ul>
                             <ng-container *ngFor="let item of data.ListRoles">
                                 <li>{{item.Name}} </li>
                             </ng-container>
                         </ul>
-                    </td>
+                    </td> -->
                     <td>
                         <ng-container *ngIf="data.Status == 'Active'">
                             <span class="active"><i nz-icon nzType="check-circle" nzTheme="outline"></i>Đang hoạt động</span>
@@ -51,13 +51,13 @@
                         <button nz-button nzType="primary" nzShape="round" (click)="editUser(data)">
               <i nz-icon nzType="edit" ></i>Sửa
             </button>
-                        <button nz-button nzType="primary" nzShape="round" (click)="showModalRole(data)">
+                        <!-- <button nz-button nzType="primary" nzShape="round" (click)="showModalRole(data)">
               <i nz-icon nzType="setting" ></i>Vai trò
-            </button>
+            </button> -->
                         <button *ngIf="currentUser.Id != data.Id" nz-button nzType="warning" nzShape="round" (click)="resetPassword(data)">
                 <i nz-icon nzType="key"></i>Đặt lại mật khẩu
               </button>
-                        <button nz-button nzType="danger" nzShape="round" (click)=" lockAccount(data)">
+                        <button *ngIf="currentUser.Id != data.Id" nz-button nzType="danger" nzShape="round" (click)=" lockAccount(data)">
                 <i nz-icon nzType="lock"></i>Khóa
               </button>
                     </td>
@@ -78,8 +78,8 @@
                     <th>STT</th>
                     <th>Tên đăng nhập</th>
                     <th>Họ và tên</th>
-                    <th>Email</th>
-                    <th>Vai trò</th>
+                    <!-- <th>Email</th> -->
+                    <!-- <th>Vai trò</th> -->
                     <th>Status</th>
                     <th> </th>
                 </tr>
@@ -90,14 +90,14 @@
                     <td>{{data.UserName}}</td>
                     <td>{{data.Nhanvien.HoLot}} {{data.Nhanvien.TenNhanVien}}</td>
 
-                    <td>{{data.Nhanvien.Email}}</td>
-                    <td>
+                    <!-- <td>{{data.Nhanvien.Email}}</td> -->
+                    <!-- <td>
                         <ul>
                             <ng-container *ngFor="let item of data.ListRoles">
                                 <li>{{item.Name}} </li>
                             </ng-container>
                         </ul>
-                    </td>
+                    </td> -->
                     <td>
                         <ng-container *ngIf="data.Status == 'Active'">
                             <span class="active"><i nz-icon nzType="check-circle" nzTheme="outline"></i>Đang hoạt động</span>

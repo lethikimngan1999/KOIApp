@@ -24,6 +24,7 @@ import { NhanvienListComponent } from './nhanvien-management/nhanvien-list/nhanv
 
 import { PagesComponent } from './pages.component';
 import { PagesModule } from './pages.module';
+import { ThongkeComponent } from './thongke/thongke.component';
 
 
 const routes: Routes = [
@@ -86,6 +87,10 @@ const routes: Routes = [
       {
         path: 'bien-the/chitiet',
         component: BientheDetailComponent
+      },
+      {
+        path: 'thong-ke',
+        component: ThongkeComponent
       },
     ]
   }

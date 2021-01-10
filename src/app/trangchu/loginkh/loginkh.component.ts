@@ -49,7 +49,7 @@ export class LoginkhComponent implements OnInit {
 
   private initFormValidate(): void {
     this.validateForm = this.fb.group({
-      _ipText_username: [null, [Validators.required]],
+      _ipText_username: [null, [Validators.email, Validators.required]],
       _ipText_password: [null, [Validators.required]]
     });
   }

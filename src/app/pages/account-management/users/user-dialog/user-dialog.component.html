@@ -35,6 +35,9 @@
                         <ng-container *ngIf="control.hasError('duplicated')">
                             Tên đăng nhập đã tồn tại!
                         </ng-container>
+                        <ng-container *ngIf="control.hasError('email')">
+                            Vui lòng nhập email hợp lệ!
+                        </ng-container>
                     </ng-template>
                 </nz-form-control>
 

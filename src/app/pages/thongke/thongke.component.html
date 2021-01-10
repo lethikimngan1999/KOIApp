@@ -1,0 +1,52 @@
+<!-- Checkbox -->
+<form [formGroup]="form" style="display: inline-flex; padding-bottom: 30px;">
+    <!-- Form elements goes here -->
+    <div class="select-style">
+        <select (change)="onCheckboxChange($event)" formControlName="month">
+        <option value=''>--Chọn tháng--</option>
+        <option selected value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+        <option value='6'>6</option>
+        <option value='7'>7</option>
+        <option value='8'>8</option>
+        <option value='9'>9</option>
+        <option value='10'>10</option>
+        <option value='11'>11</option>
+        <option value='12'>12</option>
+        </select>
+    </div>
+    <div class="select-style">
+        <select (change)="onCheckboxChange1($event)" formControlName="year">
+            <option value=''>--Chọn năm--</option>
+            <option value='2020'>2020</option>
+            <option selected value='2021'>2021</option>
+          
+            </select>
+    </div>
+    <button nz-button nzType="primary" (click)="submitForm()">Thống kê</button>
+
+</form>
+<div id="chartContainer" style="width: 100%; height: 400px;"></div>
+<!-- data table -->
+<nz-table #Table nzBordered [nzData]="dataPoints1" style="padding-top: 30px;">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Các bệnh phổ biến</th>
+            <th>Số lượt chữa trị</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of Table.data ; index as i; ">
+            <td>{{i+1}}</td>
+            <td> {{data.label}}</td>
+            <td>{{data.y}}</td>
+            <!-- <td> {{data.NgaySinh | date :'dd/MM/yyyy'}}</td> -->
+
+
+        </tr>
+    </tbody>
+</nz-table>

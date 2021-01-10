@@ -52,6 +52,8 @@ import { LieutrinhDialogComponent } from './benh-management/thuoc/lieutrinh-dial
 import { TrieuchungbenhComponent } from './benh-management/trieuchung/trieuchungbenh/trieuchungbenh.component';
 import { FilterTrieuchungbenhPipe } from '../pipes/filter-trieuchungbenh.pipe';
 import { NewTrieuChungComponent } from './benh-management/benh/new-trieu-chung/new-trieu-chung.component';
+import { ThongkeComponent } from './thongke/thongke.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -94,7 +96,8 @@ import { NewTrieuChungComponent } from './benh-management/benh/new-trieu-chung/n
     TrieuchungbenhDialogComponent,
     TrieuchungOfBenhComponent,
     TrieuchungbenhComponent,
-    NewTrieuChungComponent],
+    NewTrieuChungComponent,
+    ThongkeComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -104,7 +107,8 @@ import { NewTrieuChungComponent } from './benh-management/benh/new-trieu-chung/n
     HttpClientModule,
     NgbModule,
     NzButtonModule,
-    CKEditorModule
+    CKEditorModule,
+    ChartsModule
   ],
   providers: [],
   entryComponents: [

@@ -48,7 +48,7 @@ registerLocaleData(en);
     PagesModule,
     TrangchuModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US },
   NhanvienService],

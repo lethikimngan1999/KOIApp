@@ -31,13 +31,13 @@
             <tbody>
                 <tr *ngFor="let data of Table.data ; index as i; ">
                     <td>{{i+1}}</td>
-                    <td>{{data.TenTrieuChung}}</td>
+                    <td>{{data.TenTrieuChung | titlecase}}</td>
 
                     <td>
                         <ul>
                             <ng-container *ngFor="let item of data.ListBenhs">
                                 <a (click)="viewBenh(item.MaBenh)">
-                                    <li> {{item.TenBenh}}</li>
+                                    <li> {{item.TenBenh | titlecase}}</li>
                                 </a>
 
 
