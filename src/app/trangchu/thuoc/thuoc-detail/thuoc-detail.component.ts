@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { KhachhangService } from 'src/app/shared/services/khachhang.service';
 import { ThuocService } from 'src/app/shared/services/thuoc.service';
 
 @Component({
@@ -12,10 +13,15 @@ export class ThuocDetailComponent implements OnInit {
   pageTitle = 'Thông tin chi tiết';
   selected: any = [];
   hasThuoc: any = false;
+  dataPoints1: any = [];
+  
+  month: string;
+  year: string;
 
   constructor(
     public thuocService: ThuocService,
     public activatedRoute: ActivatedRoute,
+    public khachhangService: KhachhangService,
     ) { }
 
   ngOnInit(): void {
@@ -33,4 +39,20 @@ export class ThuocDetailComponent implements OnInit {
     });
   }
 
+  submitForm() {
+    const now = new Date();
+
+    this.update(now.getMonth() + 1, now.getFullYear());
+  }
+
+  public update(month: any, year: any) {
+   
+    const data1 = { month, year };
+    this.khachhangService.thongke(data1).subscribe(response => {
+      if (response && response.Status) {
+        this.dataPoints1 = response.Data;
+
+      }
+    });
+  }
 }

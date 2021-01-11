@@ -70,7 +70,7 @@ export class ThongkeComponent implements OnInit {
   submitForm() {
     this.seasondata.length = 0;
     this.update(this.month, this.year);
-
+this.ngOnInit();
     
   }
 

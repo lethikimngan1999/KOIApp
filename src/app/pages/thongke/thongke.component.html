@@ -42,7 +42,7 @@
     <tbody>
         <tr *ngFor="let data of Table.data ; index as i; ">
             <td>{{i+1}}</td>
-            <td> {{data.label}}</td>
+            <td> {{data.label | titlecase}}</td>
             <td>{{data.y}}</td>
             <!-- <td> {{data.NgaySinh | date :'dd/MM/yyyy'}}</td> -->
 

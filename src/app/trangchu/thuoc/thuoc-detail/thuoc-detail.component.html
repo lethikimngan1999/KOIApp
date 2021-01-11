@@ -174,7 +174,31 @@
             <!-- Sidebar Area -->
             <div class="col-12 col-md-4">
                 <div class="sidebar-area">
-
+                    <!-- Single Widget Area -->
+                    <div class="single-widget-area">
+                        <!-- Title -->
+                        <h5 class="widget-title">Bệnh phổ biến trong tháng </h5>
+                        <button nz-button nzType="primary" (click)="submitForm()">Cập nhật</button>
+                        <!-- Single Recent News Start -->
+                        <div class="single-recent-blog style-2 d-flex align-items-center" style="margin-bottom:unset" *ngFor="let data of dataPoints1 ; index as i; ">
+                            <div class="col-8">
+                                <p>Tên bệnh </p>
+                            </div>
+                            <div class="post-content">
+                                <p>Số lượt chữa trị </p>
+                            </div>
+                        </div>
+                        <!-- Single Recent News Start -->
+                        <div class="single-recent-blog style-2 d-flex align-items-center " *ngFor="let data of dataPoints1 ; index as i; ">
+                            <div class="col-8">
+                                <a href="#" class="post-title">{{i+1}}. {{data.label}}</a>
+                            </div>
+                            <div class="post-content">
+                                <a href="#" class="post-title"> {{data.y}}</a>
+                                <div class="post-date" hidden>18/12/2020</div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Single Widget Area -->
                     <!-- <div class="single-widget-area" style="margin-bottom: 30px;">
                         <form action="#" method="post" class="search-widget-form">

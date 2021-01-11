@@ -40,7 +40,7 @@
 
                     <label class="col-3" *ngFor="let data of dataSourceListTT; let i=index">
                              <input type="checkbox"  [value]="data.MaTrieuChung" (change)="onCheckboxChange($event)" />
-                            {{data.TenTrieuChung}}
+                            {{data.TenTrieuChung | titlecase}}
                             </label>
                 </div>
                 <!-- <label>
@@ -51,7 +51,7 @@
             </form>
 
         </div>
-        <div class="row">
+        <div class="row" style="padding-top: 20px;">
             <h4>Kết quả tìm kiếm: </h4>
         </div>
         <div hidden *ngIf="expression; then hello; else employeeEdit"></div>
@@ -65,7 +65,7 @@
                                 <figure class="profile">
                                     <img [src]="data.HinhAnh" class="profile-avatar" alt="">
                                 </figure>
-                                <h4 class="card-title mt-3">{{data.TenBenh}}</h4>
+                                <h4 class="card-title mt-3">{{data.TenBenh | titlecase}}</h4>
                                 <div class="meta card-text">
                                     <a>Bệnh cá koi</a>
                                 </div>
