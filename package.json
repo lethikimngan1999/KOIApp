@@ -12,6 +12,7 @@
     "private": true,
     "dependencies": {
         "@angular/animations": "^10.2.0",
+        "@angular/cdk": "^11.0.3",
         "@angular/common": "~9.1.12",
         "@angular/compiler": "~9.1.12",
         "@angular/core": "~9.1.12",
@@ -22,6 +23,7 @@
         "@angular/router": "~9.1.12",
         "@ionic-native/core": "^5.29.0",
         "@ng-bootstrap/ng-bootstrap": "^6.2.0",
+        "@swimlane/ngx-charts": "^16.0.0",
         "bootstrap": "^4.5.3",
         "chart.js": "^2.9.4",
         "ckeditor4-angular": "^2.0.0",

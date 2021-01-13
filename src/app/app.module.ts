@@ -24,6 +24,7 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { FilterTrieuchungbenhPipe } from './pipes/filter-trieuchungbenh.pipe';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 registerLocaleData(en);
 
@@ -49,6 +50,7 @@ registerLocaleData(en);
     TrangchuModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgxChartsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US },
   NhanvienService],

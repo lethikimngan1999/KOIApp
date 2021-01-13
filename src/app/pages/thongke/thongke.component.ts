@@ -12,7 +12,7 @@ var CanvasJS = require('./../../../assets/js/canvasjs.min.js');
 export class ThongkeComponent implements OnInit {
 
   dataPoints1: any = [];
-  seasondata = []; // your other array...
+  seasondata: any = []; // your other array...
   form: FormGroup;
 
   constructor(private fb: FormBuilder,
@@ -24,31 +24,6 @@ export class ThongkeComponent implements OnInit {
   ngOnInit() {
 
     this.initFormValidate();
-    let chart = new CanvasJS.Chart("chartContainer", {
-      animationEnabled: true,
-      exportEnabled: true,
-      title: {
-      //  text: "Bệnh phổ biến trong tháng"
-      },
-      data: [{
-        type: "column",
-        dataPoints: this.seasondata
-        //	dataPoints: [
-        // { y: 71, label: "Trùng mỏ neo", x:0 },
-        // { y: 55, label: "Mango", x:1 },
-        // { y: 50, label: "Orange" , x:2},
-        // { y: 65, label: "Banana" },
-        // { y: 95, label: "Pineapple" },
-        // { y: 68, label: "Pears" },
-        // { y: 28, label: "Grapes" },
-        // { y: 34, label: "Lychee" },
-        // { y: 14, label: "Jackfruit" }
-        //	]
-      }]
-    });
-
-    chart.render();
-  
   }
 
   private initFormValidate(): void {
@@ -68,10 +43,10 @@ export class ThongkeComponent implements OnInit {
   }
 
   submitForm() {
-    this.seasondata.length = 0;
+    this.dataPoints1.length = 0;
     this.update(this.month, this.year);
-this.ngOnInit();
-    
+    console.log(this.seasondata);
+
   }
 
   public update(month: any, year: any) {
@@ -81,18 +56,15 @@ this.ngOnInit();
       if (response && response.Status) {
         this.dataPoints1 = response.Data;
 
-        // for (let index = 0; index < this.dataPoints.length; index++) {
-        //     const element = this.dataPoints[index];
-        //     this.seasondata.push({label: this.dataPoints[index]["label"], y:Number(this.dataPoints[index]["y"])});
-
-        // }
         this.dataPoints1.map(item => {
           return {
-            y: item.y,
-            label: item.label
+            name: item.label,
+            value: item.y
           }
         }).forEach(item => this.seasondata.push(item));
-        console.log(this.seasondata);
+     
+        var json = JSON.stringify(this.seasondata);  
+        console.log(json);
       }
     });
   }
