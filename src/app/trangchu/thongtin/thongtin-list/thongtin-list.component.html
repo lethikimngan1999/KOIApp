@@ -5,7 +5,7 @@
             <div class="col-12">
                 <!-- Section Heading -->
                 <div class="section-heading text-center">
-                    <p>Cung cấp thông tin</p>
+                    <!-- <p>Cung cấp thông tin</p> -->
                     <h2><span>Thông tin về quá trình điều trị</span> </h2>
                     <img src="../../../assets/img/core-img/decor2.png" alt="">
                 </div>
@@ -16,7 +16,7 @@
             <!-- <div class="row"> -->
             <div class="col-12">
                 <nz-tabset>
-                    <nz-tab nzTitle="Cung cấp thông tin">
+                    <nz-tab nzTitle="Nhập thông tin">
                         <div class="wrap">
                             <div class="content">
                                 <div nz-row>
@@ -26,9 +26,9 @@
 
                                             <div nz-col [nzSpan]="12">
                                                 <nz-form-item>
-                                                    <nz-form-label nzRequired>Số thứ tự ngày:</nz-form-label>
-                                                    <nz-form-control nzHasFeedback nzErrorTip="Vui lòng nhập số thứ tự ngày!">
-                                                        <input nz-input placeholder="Số thứ tự ngày" [(ngModel)]="thongtinDto.TenThongTin" type="text" formControlName="_ipText_TenThongTin" />
+                                                    <nz-form-label nzRequired>Tên thông tin:</nz-form-label>
+                                                    <nz-form-control nzHasFeedback nzErrorTip="Vui lòng nhập!">
+                                                        <input nz-input placeholder="Tên thông tin" [(ngModel)]="thongtinDto.TenThongTin" type="text" formControlName="_ipText_TenThongTin" />
                                                     </nz-form-control>
                                                 </nz-form-item>
                                             </div>
